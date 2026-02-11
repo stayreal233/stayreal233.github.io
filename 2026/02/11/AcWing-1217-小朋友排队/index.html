@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>AcWing 1217 小朋友排队 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一道逆序对题目。 Solution P8613Idea逆序对模板：P1908。 这道题不难想到的就是冒泡排序。 只要两个数不符合要求，就交换，这样一定可以做到以最少的次数完成。 但是冒泡排序的时间复杂度是 O(n2) 的，在 n≤105 的数据范围下不可能通过。 我们来考虑这个冒泡排序的本质过程。 假如有 H&#x3D;{1,5,4,7,2,6,3}，G**i 为 H1,H2,⋯,H**i 的有序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AcWing 1217 小朋友排队">
+<meta property="og:url" content="http://example.com/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一道逆序对题目。 Solution P8613Idea逆序对模板：P1908。 这道题不难想到的就是冒泡排序。 只要两个数不符合要求，就交换，这样一定可以做到以最少的次数完成。 但是冒泡排序的时间复杂度是 O(n2) 的，在 n≤105 的数据范围下不可能通过。 我们来考虑这个冒泡排序的本质过程。 假如有 H&#x3D;{1,5,4,7,2,6,3}，G**i 为 H1,H2,⋯,H**i 的有序">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-10T16:33:54.000Z">
+<meta property="article:modified_time" content="2026-02-11T11:23:04.500Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="树状数组，逆序对">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-AcWing-1217-小朋友排队" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/" class="article-date">
+  <time class="dt-published" datetime="2026-02-10T16:33:54.000Z" itemprop="datePublished">2026-02-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      AcWing 1217 小朋友排队
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一道逆序对题目。</p>
+<h2 id="Solution-P8613"><a href="#Solution-P8613" class="headerlink" title="Solution P8613"></a>Solution P8613</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>逆序对模板：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">P1908</a>。</p>
+<p>这道题不难想到的就是冒泡排序。</p>
+<p>只要两个数不符合要求，就交换，这样一定可以做到以最少的次数完成。</p>
+<p>但是冒泡排序的时间复杂度是 O(<em>n</em>2) 的，在 <em>n</em>≤105 的数据范围下不可能通过。</p>
+<p>我们来考虑这个冒泡排序的本质过程。</p>
+<p>假如有 <em>H</em>&#x3D;{1,5,4,7,2,6,3}，<em>G**i</em> 为 <em>H</em>1,<em>H</em>2,⋯,<em>H**i</em> 的有序序列，<em>t**i</em> 为第 <em>i</em> 个小朋友的不满意次数，那么在冒泡排序中会发生什么？</p>
+<p>首先对于第一个小朋友，直接进来，不受阻碍。<em>G</em>1&#x3D;{1}，<em>G</em>2&#x3D;{1,5}。</p>
+<p>第二个小朋友也不受阻碍。</p>
+<p>第三个开始受阻碍了。他需要跨越 5，此时 <em>t</em>2&#x3D;<em>t</em>3&#x3D;1，<em>G</em>3&#x3D;{1,4,5}。</p>
+<p>第四个不受阻碍，<em>G</em>4&#x3D;{1,4,5,7}。</p>
+<p>第五个受阻碍，需要跨越 4、5 和 7 三个元素，所以 <em>t</em>2&#x3D;<em>t</em>3&#x3D;2，<em>t</em>4&#x3D;1，<em>t</em>5&#x3D;3。<em>G</em>5&#x3D;{1,2,4,5,7}。</p>
+<p>第六个受阻碍，不难发现 <em>t</em>6&#x3D;1，<em>t</em>4 更新为 2。<em>G</em>6&#x3D;{1,2,4,5,6,7}。</p>
+<p>第七个直接模拟。留给读者自己手搓。</p>
+<p>最后结束发现规律：<em>t**i</em>&#x3D;<em>l<strong>e</strong>s**i</em>+<em>m<strong>o</strong>r**i</em>，其中 <em>l<strong>e</strong>s**i</em> 指 <em>a</em> 序列中 <em>i</em> 之前的大于 <em>i</em> 的数，<em>m<strong>o</strong>r**i</em> 指 <em>a</em> 序列中 <em>i</em> 之后的小于 <em>i</em> 的数。</p>
+<p>证明一下：因为把这个数加入序列的就要跨越所有在它之前比它大的元素，而在它加入序列之后就要被所有在它之后又比它小的元素超过。</p>
+<p>再剖析一下就是求与 <em>i</em> 相关的逆序对数。</p>
+<p>分成两部分：第一部分求 <em>a**j</em>&gt;<em>a**i</em>，其中 <em>j</em>&lt;*i*，这一部分比较朴素。第二部分求 *a<em><em>i</em>&gt;*a**k</em>，其中 <em>i</em>&lt;<em>k</em>，这一部分倒着求。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100005</span>,MAX=<span class="number">1000005</span>;</span><br><span class="line"><span class="type">int</span> n,a[N],tr[MAX];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(x&lt;MAX)&#123;</span><br><span class="line">		tr[x]++;</span><br><span class="line">		x=x+<span class="built_in">lowbit</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(x)&#123;</span><br><span class="line">		res+=tr[x];</span><br><span class="line">		x-=<span class="built_in">lowbit</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> ans[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">		a[i]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">add</span>(a[i]);</span><br><span class="line">		ans[i]=i-<span class="built_in">query</span>(a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">memset</span>(tr,<span class="number">0</span>,<span class="built_in">sizeof</span>(tr));</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">		<span class="built_in">add</span>(a[i]);</span><br><span class="line">		ans[i]+=<span class="built_in">query</span>(a[i]<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> anss=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line"><span class="comment">//		printf(&quot;%lld &quot;,ans[i]);</span></span><br><span class="line">		anss+=<span class="number">1ll</span>*ans[i]*(ans[i]<span class="number">+1</span>)/<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,anss);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这是一道经典的算法题，结合了**逆序对（Inversion Pair）<strong>的思想和</strong>树状数组（Binary Indexed Tree）**的数据结构。</p>
+<p>为了让新手也能理解，我们分步骤来拆解这道题。</p>
+<hr>
+<h3 id="1-核心思路：为什么要找“逆序对”？"><a href="#1-核心思路：为什么要找“逆序对”？" class="headerlink" title="1. 核心思路：为什么要找“逆序对”？"></a>1. 核心思路：为什么要找“逆序对”？</h3><p><strong>题目要求：</strong> 只能交换相邻的小朋友，最终让队伍有序，并计算总不高兴度。</p>
+<p><strong>结论一：</strong> 在只允许交换相邻元素的情况下，要使序列有序，<strong>每个小朋友需要交换的次数 &#x3D; 他左边比他高的人数 + 他右边比他矮的人数</strong>。</p>
+<ul>
+<li>比如身高序列 <code>3 2 1</code>：<ul>
+<li>对于 <code>3</code>：左边比他高的有 0 个，右边比他矮的有 2 个（2和1），总次数 &#x3D; 2。</li>
+<li>对于 <code>2</code>：左边比他高的有 1 个（3），右边比他矮的有 1 个（1），总次数 &#x3D; 2。</li>
+<li>对于 <code>1</code>：左边比他高的有 2 个（3和2），右边比他矮的有 0 个，总次数 &#x3D; 2。</li>
+</ul>
+</li>
+</ul>
+<p><strong>结论二：</strong> 不高兴度的计算。<br>如果一个小朋友要交换 $k$ 次，他的不高兴度是 $1+2+3+…+k &#x3D; \frac{k(k+1)}{2}$。</p>
+<p><strong>任务转化：</strong> 我们的目标变成了——对于每一个位置 $i$ 的小朋友，统计他左边有多少个比他大的数，以及右边有多少个比他小的数。</p>
+<hr>
+<h3 id="2-为什么要用“树状数组”？"><a href="#2-为什么要用“树状数组”？" class="headerlink" title="2. 为什么要用“树状数组”？"></a>2. 为什么要用“树状数组”？</h3><p>如果我们用暴力法，对每个小朋友都扫描一遍左右两边，复杂度是 $O(n^2)$。题目中 $n&#x3D;100,000$，暴力会超时。</p>
+<p>我们需要一种数据结构，能快速完成两件事：</p>
+<ol>
+<li><strong>修改</strong>：记录某个身高出现了一次。</li>
+<li><strong>查询</strong>：统计某个身高范围内的总人数。</li>
+</ol>
+<p><strong>树状数组（BIT）</strong> 可以在 $O(\log N)$ 的时间内完成这些操作。</p>
+<hr>
+<h3 id="3-代码逐段解析"><a href="#3-代码逐段解析" class="headerlink" title="3. 代码逐段解析"></a>3. 代码逐段解析</h3><h4 id="1-树状数组的标准模板"><a href="#1-树状数组的标准模板" class="headerlink" title="(1) 树状数组的标准模板"></a>(1) 树状数组的标准模板</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x); <span class="comment">// 树状数组的核心：找到二进制最后一位1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> x)</span></span>&#123; <span class="comment">// 在身高为x的位置，“人数”加1</span></span><br><span class="line">    <span class="keyword">while</span>(x &lt; MAX)&#123;</span><br><span class="line">        tr[x]++;</span><br><span class="line">        x = x + <span class="built_in">lowbit</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span>&#123; <span class="comment">// 查询身高从 1 到 x 的总人数</span></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x)&#123;</span><br><span class="line">        res += tr[x];</span><br><span class="line">        x -= <span class="built_in">lowbit</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-数据的预处理"><a href="#2-数据的预处理" class="headerlink" title="(2) 数据的预处理"></a>(2) 数据的预处理</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cin &gt;&gt; n;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">    cin &gt;&gt; a[i];</span><br><span class="line">    a[i]++; <span class="comment">// 重要！</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>为什么要 <code>a[i]++</code>？</strong> 因为题目给的身高可能为 0，而树状数组下标必须从 1 开始。统一加 1 不影响相对大小。</li>
+</ul>
+<h4 id="3-第一次扫描：统计左边比自己高的"><a href="#3-第一次扫描：统计左边比自己高的" class="headerlink" title="(3) 第一次扫描：统计左边比自己高的"></a>(3) 第一次扫描：统计左边比自己高的</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">    <span class="built_in">add</span>(a[i]); <span class="comment">// 把当前身高放入桶里</span></span><br><span class="line">    ans[i] = i - <span class="built_in">query</span>(a[i]); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>i</code> 是当前已经扫描过的小朋友总数。</li>
+<li><code>query(a[i])</code> 是左边（包括自己）身高小于等于 <code>a[i]</code> 的人数。</li>
+<li><code>i - query(a[i])</code> 自然就是<strong>左边比自己高</strong>的人数。</li>
+</ul>
+<h4 id="4-第二次扫描：统计右边比自己矮的"><a href="#4-第二次扫描：统计右边比自己矮的" class="headerlink" title="(4) 第二次扫描：统计右边比自己矮的"></a>(4) 第二次扫描：统计右边比自己矮的</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>(tr, <span class="number">0</span>, <span class="built_in">sizeof</span>(tr)); <span class="comment">// 清空桶，重新开始</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--)&#123;</span><br><span class="line">    <span class="built_in">add</span>(a[i]); <span class="comment">// 从右往左放</span></span><br><span class="line">    ans[i] += <span class="built_in">query</span>(a[i] - <span class="number">1</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>query(a[i] - 1)</code> 查询的是右边已经扫描过的、身高<strong>严格小于</strong> <code>a[i]</code> 的人数。</li>
+<li>累加到 <code>ans[i]</code> 中。此时 <code>ans[i]</code> 存储的就是该小朋友总的交换次数。</li>
+</ul>
+<h4 id="5-计算最终结果"><a href="#5-计算最终结果" class="headerlink" title="(5) 计算最终结果"></a>(5) 计算最终结果</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="type">long</span> anss = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">    <span class="comment">// 使用等差数列求和公式：k*(k+1)/2</span></span><br><span class="line">    <span class="comment">// 注意强转 1ll 以防止计算过程中 int 溢出</span></span><br><span class="line">    anss += <span class="number">1ll</span> * ans[i] * (ans[i] + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>, anss);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-举例模拟"><a href="#4-举例模拟" class="headerlink" title="4. 举例模拟"></a>4. 举例模拟</h3><p>输入：<code>3 2 1</code></p>
+<ol>
+<li><p><strong>正向扫描：</strong></p>
+<ul>
+<li>$i&#x3D;1, a[1]&#x3D;3$：放入3，<code>query(3)=1</code>，<code>ans[1] = 1-1 = 0</code>。</li>
+<li>$i&#x3D;2, a[2]&#x3D;2$：放入2，<code>query(2)=1</code>，<code>ans[2] = 2-1 = 1</code>。</li>
+<li>$i&#x3D;3, a[3]&#x3D;1$：放入1，<code>query(1)=1</code>，<code>ans[3] = 3-1 = 2</code>。</li>
+<li>此时 <code>ans = {0, 1, 2}</code>。</li>
+</ul>
+</li>
+<li><p><strong>反向扫描：</strong></p>
+<ul>
+<li>$i&#x3D;3, a[3]&#x3D;1$：放入1，<code>query(0)=0</code>，<code>ans[3] = 2+0 = 2</code>。</li>
+<li>$i&#x3D;2, a[2]&#x3D;2$：放入2，<code>query(1)=1</code>，<code>ans[2] = 1+1 = 2</code>。</li>
+<li>$i&#x3D;1, a[1]&#x3D;3$：放入3，<code>query(2)=2</code>，<code>ans[1] = 0+2 = 2</code>。</li>
+<li>此时 <code>ans = {2, 2, 2}</code>。</li>
+</ul>
+</li>
+<li><p><strong>计算总和：</strong></p>
+<ul>
+<li>$k&#x3D;2$ 时，不高兴度为 $2(3)&#x2F;2 &#x3D; 3$。</li>
+<li>三个小朋友总和 $3 + 3 + 3 &#x3D; 9$。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这段代码的精妙之处在于将<strong>排序问题</strong>转化为了<strong>位置偏移统计问题</strong>，并利用<strong>树状数组</strong>将复杂度从 $O(n^2)$ 降低到了 $O(n \log H)$，从而完美解决了大规模数据的计算。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/" data-id="cuidLXhhtqCaJqWV2NMuIP_eX" data-title="AcWing 1217 小朋友排队" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/02/10/%E6%89%AB%E6%8F%8F%E7%BA%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">扫描线</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/">AcWing 1217 小朋友排队</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/10/%E6%89%AB%E6%8F%8F%E7%BA%BF/">扫描线</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/">AcWing1237.螺旋折线</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/">AcWing1270.数列区间最大值</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
