@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>BFS 模板题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ACWing 844 走迷宫12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;const int N &#x3D; 110;int a[N][N],">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BFS 模板题">
+<meta property="og:url" content="http://example.com/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ACWing 844 走迷宫12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;const int N &#x3D; 110;int a[N][N],">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-12T17:19:13.000Z">
+<meta property="article:modified_time" content="2026-02-12T17:24:15.538Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="BFS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-BFS-模板题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2026-02-12T17:19:13.000Z" itemprop="datePublished">2026-02-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      BFS 模板题
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ACWing-844-走迷宫"><a href="#ACWing-844-走迷宫" class="headerlink" title="ACWing 844 走迷宫"></a>ACWing 844 走迷宫</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> a[N][N],v[N][N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">point</span>&#123;</span><br><span class="line">	<span class="type">int</span> x;</span><br><span class="line">	<span class="type">int</span> y;</span><br><span class="line">	<span class="type">int</span> step;</span><br><span class="line">&#125;;</span><br><span class="line">queue&lt;point&gt; r;</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j &lt;= m;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin&gt;&gt;a[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	point start;</span><br><span class="line">	start.x = start.y = <span class="number">1</span>;</span><br><span class="line">	start.step = <span class="number">0</span>;</span><br><span class="line">	r.<span class="built_in">push</span>(start);</span><br><span class="line">	v[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(r.<span class="built_in">size</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> x = r.<span class="built_in">front</span>().x,y = r.<span class="built_in">front</span>().y;</span><br><span class="line">		<span class="keyword">if</span>(x == n&amp;&amp; y == m)</span><br><span class="line">		&#123;</span><br><span class="line">			cout&lt;&lt;r.<span class="built_in">front</span>().step;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>;k &lt;= <span class="number">3</span>;k++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> tx,ty;</span><br><span class="line">			tx = x+dx[k];</span><br><span class="line">			ty = y+dy[k];</span><br><span class="line">			<span class="keyword">if</span>(tx &gt;= <span class="number">1</span>&amp;&amp;tx &lt;= n&amp;&amp;ty &gt;= <span class="number">1</span>&amp;&amp;ty &lt;= m&amp;&amp;a[tx][ty]==<span class="number">0</span>&amp;&amp;v[tx][ty]==<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				point temp;</span><br><span class="line">				temp.x = tx;</span><br><span class="line">				temp.y = ty;</span><br><span class="line">				temp.step = r.<span class="built_in">front</span>().step<span class="number">+1</span>;</span><br><span class="line">				r.<span class="built_in">push</span>(temp);</span><br><span class="line">				v[tx][ty]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		r.<span class="built_in">pop</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个非常经典的问题。你的代码使用的是 <strong>广度优先搜索 (Breadth-First Search, 简称 BFS)</strong> 算法。</p>
+<p>之所以这段代码能保证得出 <strong>最少步数（最短路径）</strong>，核心原因在于 BFS 的 <strong>“逐层向外扩张”</strong> 的特性和 <strong>队列 (Queue)</strong> 的 <strong>先进先出 (FIFO)</strong> 机制。</p>
+<p>以下是详细的逻辑证明和解释：</p>
+<h3 id="1-核心原理：像水波纹一样扩散"><a href="#1-核心原理：像水波纹一样扩散" class="headerlink" title="1. 核心原理：像水波纹一样扩散"></a>1. 核心原理：像水波纹一样扩散</h3><p>想象你在平静的湖面中心扔了一颗石子，水波会形成同心圆一圈一圈向外扩散。</p>
+<ul>
+<li>第 0 秒，水波在中心（起点）。</li>
+<li>第 1 秒，水波到达所有离中心距离为 1 的点。</li>
+<li>第 2 秒，水波到达所有离中心距离为 2 的点。</li>
+<li>…以此类推。</li>
+</ul>
+<p>BFS 的工作方式完全相同：</p>
+<ul>
+<li><strong>第一层</strong>：它首先处理所有步数为 0 的点（起点）。</li>
+<li><strong>第二层</strong>：接着，它把所有从起点 <strong>1步</strong> 能到达的、且未走过的点加入队列。</li>
+<li><strong>第三层</strong>：处理完所有“1步”的点后，它才会去处理从这些点出发再走一步（即 <strong>2步</strong>）能到达的点。</li>
+</ul>
+<p>因为你是按 <strong>步数递增</strong> 的顺序（0步 -&gt; 1步 -&gt; 2步…）来遍历格子的，所以<strong>只要你第一次遇到了终点 <code>(n, m)</code>，那么当前的 <code>step</code> 一定是能够到达该点的最小数值。</strong> 如果有更短的路径（比如 step-1），你早在上一轮循环中就已经发现并结束程序了。</p>
+<h3 id="2-队列-Queue-的保证机制"><a href="#2-队列-Queue-的保证机制" class="headerlink" title="2. 队列 (Queue) 的保证机制"></a>2. 队列 (Queue) 的保证机制</h3><p>你的代码中使用了 <code>queue&lt;point&gt; r</code>。队列的特性是 <strong>先进先出</strong>。</p>
+<ol>
+<li><strong>入队顺序有序</strong>：<ul>
+<li>一开始队列里只有步数为 <code>0</code> 的起点。</li>
+<li>当你从步数为 <code>k</code> 的点扩展时，你新加入队列的点，步数都是 <code>k+1</code>。</li>
+<li>这保证了队列里的元素始终保持着步数 <strong>非递减</strong> 的顺序（例如：<code>1, 1, 1, 2, 2, 3, 3...</code>）。</li>
+</ul>
+</li>
+<li><strong>绝对不会“插队”</strong>：<ul>
+<li>你绝不可能在处理步数为 <code>k</code> 的节点之前，先去处理步数为 <code>k+1</code> 的节点。</li>
+<li>因此，程序绝对不会先找到一条长路径（例如 10 步），然后后来才发现一条短路径（例如 5 步）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-标记数组-v-visited-的作用"><a href="#3-标记数组-v-visited-的作用" class="headerlink" title="3. 标记数组 v (visited) 的作用"></a>3. 标记数组 <code>v</code> (visited) 的作用</h3><p>代码中 <code>if(... &amp;&amp; v[tx][ty] == 0)</code> 这一句至关重要。</p>
+<ul>
+<li>它的作用是：<strong>一旦一个点被访问过，就再也不会被访问。</strong></li>
+<li>结合 BFS 的特性，<strong>一个点第一次被访问时，一定是通过最短路径到达的</strong>。</li>
+<li>如果在之后的搜索中，你又从另一条路绕到了这个点，那么这条新路一定 <strong>大于等于</strong> 之前的步数。既然我们找的是最短路，更长的路直接忽略即可。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这段代码能保证最短路径的逻辑链条是：</p>
+<ol>
+<li>这是<strong>无权图</strong>（每走一步代价都是 1）。</li>
+<li><strong>BFS</strong> 按照距离起点的“层数”由近及远进行搜索。</li>
+<li><strong>队列</strong> 保证了我们处理完所有“距离为 k”的点之后，才会处理“距离为 k+1”的点。</li>
+<li>因此，<strong>第一次</strong> 摸到终点时，当前的 <code>step</code> 就是理论上的最小值。</li>
+</ol>
+<h1 id="ACWing-845-八数码"><a href="#ACWing-845-八数码" class="headerlink" title="ACWing 845 八数码"></a>ACWing 845 八数码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">unordered_map&lt;string,<span class="type">int</span>&gt; d;</span><br><span class="line">queue&lt;string&gt; q;</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bfs</span><span class="params">(string str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    q.<span class="built_in">push</span>(str);</span><br><span class="line">    string end = <span class="string">&quot;12345678x&quot;</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> s = q.<span class="built_in">front</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(s == end)<span class="keyword">return</span> d[s];</span><br><span class="line">        <span class="type">int</span> k = s.<span class="built_in">find</span>(<span class="string">&#x27;x&#x27;</span>);</span><br><span class="line">        <span class="type">int</span> x = k/<span class="number">3</span>,y = k%<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> a = x+dx[i],b = y+dy[i];</span><br><span class="line">            <span class="keyword">if</span>(a &lt; <span class="number">0</span>||a &gt;= <span class="number">3</span>||b &lt; <span class="number">0</span>||b &gt;= <span class="number">3</span>)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> dis = d[s];</span><br><span class="line">            <span class="built_in">swap</span>(s[k],s[a*<span class="number">3</span>+b]);</span><br><span class="line">            <span class="keyword">if</span>(!d.<span class="built_in">count</span>(s))</span><br><span class="line">            &#123;</span><br><span class="line">                d[s] = dis<span class="number">+1</span>;</span><br><span class="line">                q.<span class="built_in">push</span>(s);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">swap</span>(s[k],s[a*<span class="number">3</span>+b]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span>(cin&gt;&gt;c)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(c != <span class="string">&#x27; &#x27;</span>)s+=c;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">bfs</span>(s)&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="一、代码整体功能"><a href="#一、代码整体功能" class="headerlink" title="一、代码整体功能"></a>一、代码整体功能</h3><p>这段代码是经典的<strong>八数码问题求解器</strong>：</p>
+<ul>
+<li>八数码问题：给定一个 3×3 的棋盘，其中 8 个位置是数字 1-8，1 个位置是 <code>x</code>（代表空格）；通过交换空格与上下左右的数字，求最少需要多少步能将棋盘还原为目标状态 <code>12345678x</code>。</li>
+<li>核心算法：广度优先搜索（BFS）—— 因为 BFS 是 “按层遍历”，能保证第一次到达目标状态时的步数就是<strong>最小步数</strong>（最短路径），这是解决这类 “最少步数” 问题的最优选择。</li>
+<li>输出：若能还原，返回最少步数；若无法还原（八数码存在无解情况），返回 -1。</li>
+</ul>
+<h3 id="二、核心模块与重点解析"><a href="#二、核心模块与重点解析" class="headerlink" title="二、核心模块与重点解析"></a>二、核心模块与重点解析</h3><h4 id="1-全局变量（BFS-核心依赖）"><a href="#1-全局变量（BFS-核心依赖）" class="headerlink" title="1. 全局变量（BFS 核心依赖）"></a>1. 全局变量（BFS 核心依赖）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;string,int&gt; d;  // 核心：状态→步数（同时判重）</span><br><span class="line">queue&lt;string&gt; q;              // BFS队列：存储待处理的棋盘状态</span><br><span class="line">int dx[4] = &#123;-1,1,0,0&#125;;       // 上下左右四个方向的行偏移（上-1，下+1）</span><br><span class="line">int dy[4] = &#123;0,0,-1,1&#125;;       // 上下左右四个方向的列偏移（左-1，右+1）</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;string,int&gt; d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>key</strong>：棋盘状态的字符串（比如 <code>12x456783</code>），用字符串表示 3×3 棋盘是最简洁的方式；</li>
+<li><strong>value</strong>：到达该状态的最少步数；</li>
+<li><strong>额外作用</strong>：判重（<code>d.count(s)</code> 可判断该状态是否已访问过），避免重复处理同一状态导致队列无限增长</li>
+</ul>
+</li>
+<li><p><code>queue&lt;string&gt; q</code>：BFS 的 “待处理队列”，保证按 “步数递增” 的顺序处理状态（层序遍历），这是 BFS 能求最短路径的核心。</p>
+</li>
+<li><p>方向数组 <code>dx/dy</code>：把 “上下左右” 四个方向抽象为偏移量，避免写重复的 if-else 逻辑，是处理网格类问题的经典写法。</p>
+</li>
+</ul>
+<h4 id="2-输入处理（main-函数）"><a href="#2-输入处理（main-函数）" class="headerlink" title="2. 输入处理（main 函数）"></a>2. 输入处理（main 函数）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">char c;</span><br><span class="line">while(cin&gt;&gt;c) &#123;</span><br><span class="line">    if(c != &#x27; &#x27;)s+=c;  // 拼接输入为无空格的字符串（比如输入&quot;1 2 3 x 4&quot;→&quot;123x4&quot;）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输入逻辑：输入格式是 “每个字符用空格分隔”（比如 <code>1 2 3 x 4 5 6 7 8</code>），<code>cin&gt;&gt;c</code> 会<strong>自动跳过空格 &#x2F; 换行</strong>，所以代码里的 <code>if(c != &#39; &#39;)</code> 其实可以省略（不影响功能），但保留也能正确拼接出长度为 9 的棋盘字符串。</li>
+<li>最终效果：将分散的输入字符拼接为一个长度为 9 的字符串，代表整个 3×3 棋盘（比如 <code>123x45678</code> 对应棋盘：第一行 1 2 3，第二行 x 4 5，第三行 6 7 8）。</li>
+</ul>
+<h4 id="3-BFS-核心函数（重点中的重点）"><a href="#3-BFS-核心函数（重点中的重点）" class="headerlink" title="3. BFS 核心函数（重点中的重点）"></a>3. BFS 核心函数（重点中的重点）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">int bfs(string str) &#123;</span><br><span class="line">    q.push(str);  // 初始状态入队</span><br><span class="line">    string end = &quot;12345678x&quot;;  // 目标状态</span><br><span class="line">    while(q.size()) &#123;  // 队列非空则继续遍历</span><br><span class="line">        auto s = q.front(); q.pop();  // 取出队首状态（当前处理的状态）</span><br><span class="line">        </span><br><span class="line">        // 终止条件：找到目标状态，返回步数</span><br><span class="line">        if(s == end) return d[s];</span><br><span class="line">        </span><br><span class="line">        // 步骤1：找到空格&#x27;x&#x27;的位置（字符串索引→二维坐标）</span><br><span class="line">        int k = s.find(&#x27;x&#x27;);  // 找到&#x27;x&#x27;在字符串中的索引（0-8）</span><br><span class="line">        int x = k/3, y = k%3; // 转换为3×3棋盘的二维坐标：x=行，y=列</span><br><span class="line">        // 例：k=3 → x=1（第2行，0开始），y=0（第1列）</span><br><span class="line">        </span><br><span class="line">        // 步骤2：遍历四个方向（上下左右）</span><br><span class="line">        for(int i = 0;i &lt; 4;i++) &#123;</span><br><span class="line">            int a = x + dx[i], b = y + dy[i];  // 新坐标（空格交换后的位置）</span><br><span class="line">            if(a &lt; 0||a &gt;= 3||b &lt; 0||b &gt;= 3) continue;  // 越界则跳过（棋盘只有3行3列）</span><br><span class="line">            </span><br><span class="line">            // 步骤3：交换空格与相邻位置，生成新状态</span><br><span class="line">            int dis = d[s];  // 当前状态的步数（初始状态d[str]默认0）</span><br><span class="line">            swap(s[k], s[a*3+b]);  // 交换：字符串中k位置（x）和a*3+b位置（新坐标）</span><br><span class="line">            // 注：a*3+b 是二维坐标→字符串索引的逆运算（行×3+列）</span><br><span class="line">            </span><br><span class="line">            // 步骤4：判重+记录步数+入队</span><br><span class="line">            if(!d.count(s)) &#123;  // 该状态未访问过</span><br><span class="line">                d[s] = dis + 1;  // 步数=当前步数+1</span><br><span class="line">                q.push(s);       // 新状态入队，等待处理</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            // 步骤5：回溯交换（关键！）</span><br><span class="line">            swap(s[k], s[a*3+b]);  // 恢复原状态，处理下一个方向</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;  // 遍历完所有状态仍未找到目标→无解</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这部分是代码的核心，我拆解几个<strong>关键知识点</strong>：</p>
+<h5 id="（1）棋盘状态的-“字符串↔二维坐标”-映射"><a href="#（1）棋盘状态的-“字符串↔二维坐标”-映射" class="headerlink" title="（1）棋盘状态的 “字符串↔二维坐标” 映射"></a>（1）棋盘状态的 “字符串↔二维坐标” 映射</h5><p>这是八数码问题的核心技巧，必须理解：</p>
+<ul>
+<li><p>字符串长度为 9，索引 0-8 对应 3×3 棋盘的位置：</p>
+<table>
+<thead>
+<tr>
+<th align="center">索引</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">坐标</td>
+<td align="center">(0,0)</td>
+<td align="center">(0,1)</td>
+<td align="center">(0,2)</td>
+<td align="center">(1,0)</td>
+<td align="center">(1,1)</td>
+<td align="center">(1,2)</td>
+<td align="center">(2,0)</td>
+<td align="center">(2,1)</td>
+<td align="center">(2,2)</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>转换公式：</p>
+<ul>
+<li>字符串索引 <code>k</code> → 二维坐标：<code>x = k/3</code>（行），<code>y = k%3</code>（列）；</li>
+<li>二维坐标 <code>(a,b)</code> → 字符串索引：<code>a*3 + b</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="（2）BFS-求最短路径的原理"><a href="#（2）BFS-求最短路径的原理" class="headerlink" title="（2）BFS 求最短路径的原理"></a>（2）BFS 求最短路径的原理</h5><p>BFS 是 “按层遍历”：</p>
+<ul>
+<li>初始状态是第 0 层（步数 0）；</li>
+<li>初始状态交换一次得到的所有状态是第 1 层（步数 1）；</li>
+<li>第 1 层状态交换一次得到的所有新状态是第 2 层（步数 2）；</li>
+<li>以此类推，<strong>第一次到达目标状态的层数就是最少步数</strong>（因为 BFS 不会跳过更短的路径）。</li>
+</ul>
+<h5 id="（3）回溯交换的必要性"><a href="#（3）回溯交换的必要性" class="headerlink" title="（3）回溯交换的必要性"></a>（3）回溯交换的必要性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">swap(s[k], s[a*3+b]);  // 生成新状态</span><br><span class="line">// ... 处理新状态 ...</span><br><span class="line">swap(s[k], s[a*3+b]);  // 回溯</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>s</code> 是当前循环的临时变量，代表 “当前处理的棋盘状态”；</li>
+<li>如果不回溯，处理完第一个方向后，<code>s</code> 已经被修改，后续方向的交换会基于错误的状态，导致所有新状态都出错；</li>
+<li>回溯的本质：保证每个方向的交换都是基于 “原始的当前状态”，互不干扰。</li>
+</ul>
+<h5 id="（4）判重的关键作用"><a href="#（4）判重的关键作用" class="headerlink" title="（4）判重的关键作用"></a>（4）判重的关键作用</h5><p>八数码的总状态数是 <code>9! = 362880</code> 种（有限），但如果不判重：</p>
+<ul>
+<li>同一个状态会被多次入队，队列无限增长，内存溢出；</li>
+<li>重复处理同一状态，时间复杂度爆炸；</li>
+<li><code>unordered_map d</code> 既记录步数，又通过 <code>d.count(s)</code> 判重，一举两得。</li>
+</ul>
+<h3 id="三、代码的小瑕疵（新手易踩坑）"><a href="#三、代码的小瑕疵（新手易踩坑）" class="headerlink" title="三、代码的小瑕疵（新手易踩坑）"></a>三、代码的小瑕疵（新手易踩坑）</h3><p>原代码有一个 “隐式逻辑”，新手可能疑惑：</p>
+<ul>
+<li><p>初始状态 <code>str</code> 入队时，<code>d[str]</code> 没有显式赋值为 0，但 <code>unordered_map</code> 的默认值是 0，所以第一次取 <code>d[s]</code> 时是 0，不影响结果；</p>
+</li>
+<li><p>建议显式添加 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d[str] = 0;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.push(str);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">q.push(str);</span><br><span class="line">d[str] = 0;  // 显式初始化初始状态的步数为0</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="四、总结（核心关键点）"><a href="#四、总结（核心关键点）" class="headerlink" title="四、总结（核心关键点）"></a>四、总结（核心关键点）</h3><ol>
+<li><strong>状态表示</strong>：用长度为 9 的字符串表示 3×3 棋盘，是八数码问题的简洁高效写法，核心是 “字符串索引↔二维坐标” 的转换（<code>k/3</code>&#x2F;<code>k%3</code>&#x2F;<code>a*3+b</code>）；</li>
+<li><strong>BFS 核心</strong>：队列保证层序遍历（最短步数），<code>unordered_map</code> 同时记录步数和判重，是 BFS 解决最短路径问题的经典组合；</li>
+<li><strong>方向处理</strong>：方向数组 <code>dx/dy</code> 简化四个方向的遍历，越界判断避免非法操作；</li>
+<li><strong>回溯交换</strong>：交换生成新状态后必须回溯，保证每个方向的处理基于原始状态；</li>
+<li><strong>无解处理</strong>：BFS 遍历完所有状态仍未找到目标，返回 -1（八数码无解的本质是 “逆序数为奇数”）。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/" data-id="cuid63DEX4TVtc7XzZFpGhDfC" data-title="BFS 模板题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/02/13/AcWing-1101-%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AcWing 1101 献给阿尔吉侬的花束</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/">BFS 模板题</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/13/AcWing-1101-%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F/">AcWing 1101 献给阿尔吉侬的花束</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/12/AcWing-1238-%E6%97%A5%E5%BF%97%E7%BB%9F%E8%AE%A1/">AcWing 1238 日志统计</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/11/Luogu-P1908-%E9%80%86%E5%BA%8F%E5%AF%B9/">Luogu P1908 逆序对</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/">AcWing 1217 小朋友排队</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
