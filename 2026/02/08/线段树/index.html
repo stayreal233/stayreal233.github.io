@@ -13,15 +13,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.点修改123456789101112void update(int p,int x,int k)&#123;    if(tr[p].l &#x3D;&#x3D; x&amp;&amp;tr[p].r &#x3D;&#x3D; x)    &#123;        tr[p].sum+&#x3D;k;        return;    &#125;&#x2F;&#x2F;叶子则修改    int m &#x3D; tr[p].l+tr[p].r&gt;&gt;1;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/diguijianshu.png">
-<meta property="og:image" content="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/qujianchaxun.png">
-<meta property="og:image" content="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/qujianxiugai.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/2251.png">
 <meta property="article:published_time" content="2026-02-08T14:36:14.000Z">
 <meta property="article:modified_time" content="2026-02-09T10:25:18.333Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/diguijianshu.png">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/pic/2251.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -100,20 +97,20 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <img src="/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/diguijianshu.png" class="" title="这是一个图片说明">
+        
 
 <h2 id="1-点修改"><a href="#1-点修改" class="headerlink" title="1.点修改"></a>1.点修改</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> x,<span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tr[p].l == x&amp;&amp;tr[p].r == x)</span><br><span class="line">    &#123;</span><br><span class="line">        tr[p].sum+=k;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="comment">//叶子则修改</span></span><br><span class="line">    <span class="type">int</span> m = tr[p].l+tr[p].r&gt;&gt;<span class="number">1</span>;<span class="comment">//非叶子则裂开</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt;= m)<span class="built_in">update</span>(lc,x,k);</span><br><span class="line">    <span class="keyword">if</span>(x &gt; m)<span class="built_in">update</span>(rc,x,k);</span><br><span class="line">    tr[p].sum = tr[lc].sum+tr[rc].sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-区间查询"><a href="#2-区间查询" class="headerlink" title="2.区间查询"></a>2.区间查询</h2><p>拆分与拼凑的思想。例如，查询区间[4,9]可以拆分成[4,5],[6,8]和[8,9]，通过合并这三个区间的答案求得查询答案。从根节点进入，递归执行一下过程：①若查询区间[x,y]完全覆盖当前节点区间，则立即回溯，并返回该节点的sum值。②若做子节点与[x,y]有重叠，则递归访问左子树。③若右子节点与[x,y]有重叠，则递归访问右子树。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=tr[p].l&amp;&amp;y&gt;=tr[p].r)</span><br><span class="line">        <span class="keyword">return</span> tr[p].sum;</span><br><span class="line">    <span class="type">int</span> m = tr[p].l+tr[p].r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(x &lt;= m)sum+=<span class="built_in">query</span>(lc,x,y);</span><br><span class="line">    <span class="keyword">if</span>(y &gt; m)sum++<span class="built_in">query</span>(rc,x,y);</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/qujianchaxun.png" class="" title="这是一个图片说明">
+
 
 <h2 id="3-区间修改"><a href="#3-区间修改" class="headerlink" title="3.区间修改"></a>3.区间修改</h2><p>例如，对区间[4,9]内的每个数都加上5，如果修改区间[x,y]所覆盖的每个叶子节点，时间将是O(n)的</p>
 <p>懒惰修改，当[x,y]<em>完全覆盖</em>节点区间[a,b]时，先修改该区间的sum值，再打上一个“懒标记”，然后立即返回，等下次需要时，再下传“懒标记”，这样，可以把每次修改和查询的时间都控制到O(logn)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushup</span><span class="params">(<span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tr[p].sum = tr[lc].sum+tr[rc].sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushdown</span><span class="params">(<span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tr[r].add)&#123;</span><br><span class="line">        tr[lc].sum+=tr[p].add*(tr[lc].r-tr[lc].l<span class="number">+1</span>),</span><br><span class="line">        tr[rc].sum+=tr[p].add*(tr[rc].r-tr[rc].l<span class="number">+1</span>),</span><br><span class="line">        tr[lc].add+=tr[p].add,</span><br><span class="line">        tr[rc].add+=tr[p].add,</span><br><span class="line">        tr[p].add = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    <span class="type">int</span> l,r,sum,add;</span><br><span class="line">&#125;tr[N*<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=tr[p].l&amp;&amp;tr[p].r&lt;=y)&#123;</span><br><span class="line">        tr[p].sum+=(tr[p].r-tr[p].l<span class="number">+1</span>)*k;</span><br><span class="line">        tr[p].add+=k;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> m = tr[p].l+tr[p].r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">pushdown</span>(p);</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=m)<span class="built_in">update</span>(lc,x,y,k);</span><br><span class="line">    <span class="keyword">if</span>(y&gt;m)<span class="built_in">update</span>(rc,x,y,k);</span><br><span class="line">    <span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/qujianxiugai.png" class="" title="这是一个图片说明">
+
 
 <h1 id="P3372-【模板】线段树-1"><a href="#P3372-【模板】线段树-1" class="headerlink" title="P3372 【模板】线段树 1"></a>P3372 【模板】线段树 1</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>如题，已知一个数列 ${a_i}$，你需要进行下面两种操作：</p>
 <ol>
@@ -141,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuidRmSjorTK--ytKgn4cbZ3k" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuidRLKLjg4G0-P9ACpWO8OcV" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -190,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li></ul>
     </div>
   </div>
 
@@ -200,7 +197,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a>
+      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a>
     </div>
   </div>
 
@@ -222,6 +219,10 @@
       <ul>
         
           <li>
+            <a href="/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/">AcWing 1113. 红与黑</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/">BFS 模板题</a>
           </li>
         
@@ -235,10 +236,6 @@
         
           <li>
             <a href="/2026/02/11/Luogu-P1908-%E9%80%86%E5%BA%8F%E5%AF%B9/">Luogu P1908 逆序对</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/">AcWing 1217 小朋友排队</a>
           </li>
         
       </ul>
