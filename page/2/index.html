@@ -71,6 +71,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AcWing1237-螺旋折线" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/" class="article-date">
+  <time class="dt-published" datetime="2026-02-09T16:52:38.000Z" itemprop="datePublished">2026-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/">AcWing1237.螺旋折线</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P8668-蓝桥杯-2018-省-B-螺旋折线"><a href="#P8668-蓝桥杯-2018-省-B-螺旋折线" class="headerlink" title="P8668 [蓝桥杯 2018 省 B] 螺旋折线"></a>P8668 [蓝桥杯 2018 省 B] 螺旋折线</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>如图所示的螺旋折线经过平面上所有整点恰好一次。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/yis43t6j.png"></p>
+<p>对于整点 $(X, Y)$，我们定义它到原点的距离 $\text{dis}(X, Y)$ 是从原点到 $(X, Y)$ 的螺旋折线段的长度。  </p>
+<p>例如 $\text{dis}(0, 1)&#x3D;3$，$\text{dis}(-2, -1)&#x3D;9$。 </p>
+<p>给出整点坐标 $(X, Y)$，你能计算出 $\text{dis}(X, Y)$ 吗？</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>$X$ 和 $Y$。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出 $\text{dis}(X, Y)$</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>对于 $40%$的数据，$-1000\le X,Y\le 1000$。</p>
+<p>对于 $70%$ 的数据，$-10^5\le X,Y \le 10^5$。</p>
+<p>对于 $100%$ 的数据，$-10^9\le X,Y \le 10^9$。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll x,y;</span><br><span class="line">    cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">    ll k = <span class="built_in">max</span>(<span class="built_in">abs</span>(x),<span class="built_in">abs</span>(y));<span class="comment">//找到当前点在第几层</span></span><br><span class="line">    <span class="keyword">if</span>(x &gt;= y)<span class="comment">//y=x的函数的下方，其实就相当于在每一层的右上方的端点往下多走了（曼哈顿距离）</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="number">4</span>*k*k+<span class="built_in">abs</span>(k-x)+<span class="built_in">abs</span>(k-y);        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="number">4</span>*k*k-<span class="built_in">abs</span>(k-x)-<span class="built_in">abs</span>(k-y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/" data-id="cuid0RCj7sP4Do1UyyFw40uTQ" data-title="AcWing1237.螺旋折线" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AcWing1270-数列区间最大值" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/" class="article-date">
@@ -113,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/" data-id="cuid5S1gfQlGPlzoDz2kf3oML" data-title="AcWing1270.数列区间最大值" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/" data-id="cuidrfI8PbtCwd6Bdrv8cJKcd" data-title="AcWing1270.数列区间最大值" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -190,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuidWBk00hGpzG8Ypvwah4Lmt" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuid4txnjJI8ps5OZqvYpCTZt" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -241,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/hello-world/" data-id="cuid37U32v-YEkqHy4C-Rxqf7" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/hello-world/" data-id="cuidOvJSsJHBjhoesSkpGXISS" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -288,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/10/27/LeetCode-123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="cuidNyzsEIULejt8akX2G2WyK" data-title="LeetCode 123. 买卖股票的最佳时机 III" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/10/27/LeetCode-123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="cuidOFF4K5ykDlVUjfFlcjVsv" data-title="LeetCode 123. 买卖股票的最佳时机 III" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -337,7 +397,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 10px;">贪心</a>
+      <a href="/tags/BFS/" style="font-size: 20px;">BFS</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DFS/" style="font-size: 15px;">DFS</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 10px;">贪心</a>
     </div>
   </div>
 
@@ -359,6 +419,10 @@
       <ul>
         
           <li>
+            <a href="/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">AcWing 1233. 全球变暖</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/">AcWing 1240. 完全二叉树的权值</a>
           </li>
         
@@ -372,10 +436,6 @@
         
           <li>
             <a href="/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/">BFS 模板题</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/13/AcWing-1101-%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F/">AcWing 1101 献给阿尔吉侬的花束</a>
           </li>
         
       </ul>
