@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Tag: 中位数 | Hexo</title>
+  <title>AcWing 1239 乘积最大 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/index.html">
+  <meta name="description" content="题目描述给定 N 个整数 A1,A2,…AN。 请你从中选出 K 个数，使其乘积最大。 请你求出最大的乘积，由于乘积可能超出整型范围，你只需输出乘积除以 1000000009 的余数。 注意，如果 X&lt;0， 我们定义 X 除以 1000000009 的余数是负(−X)除以 1000000009 的余数，即：0−((0−x)%1000000009) 样例输入样例1：5 3-100000-100">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AcWing 1239 乘积最大">
+<meta property="og:url" content="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题目描述给定 N 个整数 A1,A2,…AN。 请你从中选出 K 个数，使其乘积最大。 请你求出最大的乘积，由于乘积可能超出整型范围，你只需输出乘积除以 1000000009 的余数。 注意，如果 X&lt;0， 我们定义 X 除以 1000000009 的余数是负(−X)除以 1000000009 的余数，即：0−((0−x)%1000000009) 样例输入样例1：5 3-100000-100">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-18T09:23:41.000Z">
+<meta property="article:modified_time" content="2026-02-18T12:44:35.005Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -69,39 +74,104 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2026" class="archive-year">2026</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" class="archive-article-date">
-  <time class="dt-published" datetime="2026-02-18T07:14:11.000Z" itemprop="datePublished">Feb 18</time>
+        <section id="main"><article id="post-AcWing-1239-乘积最大" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" class="article-date">
+  <time class="dt-published" datetime="2026-02-18T09:23:41.000Z" itemprop="datePublished">2026-02-18</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/">糖果传递</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      AcWing 1239 乘积最大
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>题目描述<br>给定 N 个整数 A1,A2,…AN。</p>
+<p>请你从中选出 K 个数，使其乘积最大。</p>
+<p>请你求出最大的乘积，由于乘积可能超出整型范围，你只需输出乘积除以 1000000009 的余数。</p>
+<p>注意，如果 X&lt;0， 我们定义 X 除以 1000000009 的余数是负(−X)除以 1000000009 的余数，即：0−((0−x)%1000000009)</p>
+<p>样例<br>输入样例1：<br>5 3<br>-100000<br>-10000<br>2<br>100000<br>10000<br>输出样例1：<br>999100009<br>输入样例2：<br>5 3<br>-100000<br>-100000<br>-2<br>-100000<br>-100000<br>输出样例2：<br>-999999829</p>
+<h1 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h1><p>该题的题解是整理了一下 y总视频里面讲解思路,希望对看完视频还不大理解的同学有点帮助<br>首先我们知道 如果 k &#x3D;&#x3D; n ,那么就证明所有的数字是全部都选,<br>             如果 k &lt; n , 那么就要思考怎样去选择了:<br>1.k 如果是偶数的话,选出来的结果一定是非负数 , 原因如下:<br>             (1) # 负数的个数是偶数个的话,负负得正,那么一定是非负数<br>             (2) # 负数的个数如果是奇数个的话,那么我们就只选偶数个绝对值最大的负数<br>2.k 如果是奇数个的话,<br>             (1)# 所有的数字如果都是负数,那么选出来的结果也一定都是负数<br>             (2)# 否则的话,则一定至少有 1个非负数, 那么我们将最大的数取出来, 此时要选的个数就是 k–,<br>                # k– 是偶数,那么就又转化为 k– 是偶数的情况思考<br>参考文献: y总视频<br>C++ 代码<br>#include<iostream><br>#include<cstdio><br>#include<algorithm><br>using namespace std;</p>
+<p>typedef long long LL ;<br>const int N &#x3D; 100010 , mod &#x3D; 1000000009 ;<br>int a[N];</p>
+<p>int main()<br>{<br>    int n , k ;<br>    scanf(“%d%d”,&amp;n,&amp;k);<br>    for(int i &#x3D; 0 ; i &lt; n ; i ++) scanf(“%d”,&amp;a[i]);</p>
+<pre><code>sort(a,a + n);
+
+LL res = 1 ; //乘积初始化
+int l = 0 , r = n - 1 ;//双指针初始化
+int sign = 1 ; // 符号初始化
+
+//由于4种情况除了 k 是奇数且 k &lt; n 的时候需要特判一下处理一下符号 ,其他的时候都可以转化为双指针做法
+//k 是奇数是先选出最大的数, k-- 就是偶数,两边再同时取对,转化成相同的双指针做法
+if(k % 2 )
+{
+    res =  a[r]; // 取出最大的一个数
+    r -- ; //右指针移动
+    k -- ; //个数减1
+
+    if(res &lt; 0) sign = -1;  // 如果最大值都是负数,就证明全是负数,那么符号要发生改变
+}
+while(k) // 双指针做法
+{
+    LL x = (LL)a[l] * a[l + 1] , y = (LL)a[r] * a[r - 1];//两边同时取对
+    //选择更大的一对,和归并排序思路相近
+    if(x * sign &gt; y * sign)
+    {
+        res = x % mod * res % mod; // 需要注意的是 :不可以写成(x * res) % mod ,也不可以写成是 res % mod * x % mod
+                                   // 因为x最大是 10^10，如果不先取模的话，和res相乘的结果最大是 10^19,会暴long long。            
+        l += 2; // 指针移动                                 
+    }
+    else 
+    {
+        res = y % mod * res % mod; 
+        r -= 2; 
+    }
+    k -= 2; 
+}
+printf(&quot;%lld&quot;,res);
+return 0;
+</code></pre>
+<p>}</p>
+<h2 id="需要注意的点"><a href="#需要注意的点" class="headerlink" title="需要注意的点"></a>需要注意的点</h2><p>需要注意的是 :不可以写成(x * res) % mod ,也不可以写成是 res % mod * x % mod，因为x最大是 10^10，如果不先取模的话，和res相乘的结果最大是 10^19,会暴long long。（%和*是相同优先级，按左右顺序执行）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidvTFMN1y3IkQ0P2t5V07aA" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">糖果传递</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>

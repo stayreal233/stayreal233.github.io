@@ -71,6 +71,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AcWing-1239-乘积最大" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" class="article-date">
+  <time class="dt-published" datetime="2026-02-18T09:23:41.000Z" itemprop="datePublished">2026-02-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/">AcWing 1239 乘积最大</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>题目描述<br>给定 N 个整数 A1,A2,…AN。</p>
+<p>请你从中选出 K 个数，使其乘积最大。</p>
+<p>请你求出最大的乘积，由于乘积可能超出整型范围，你只需输出乘积除以 1000000009 的余数。</p>
+<p>注意，如果 X&lt;0， 我们定义 X 除以 1000000009 的余数是负(−X)除以 1000000009 的余数，即：0−((0−x)%1000000009)</p>
+<p>样例<br>输入样例1：<br>5 3<br>-100000<br>-10000<br>2<br>100000<br>10000<br>输出样例1：<br>999100009<br>输入样例2：<br>5 3<br>-100000<br>-100000<br>-2<br>-100000<br>-100000<br>输出样例2：<br>-999999829</p>
+<h1 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h1><p>该题的题解是整理了一下 y总视频里面讲解思路,希望对看完视频还不大理解的同学有点帮助<br>首先我们知道 如果 k &#x3D;&#x3D; n ,那么就证明所有的数字是全部都选,<br>             如果 k &lt; n , 那么就要思考怎样去选择了:<br>1.k 如果是偶数的话,选出来的结果一定是非负数 , 原因如下:<br>             (1) # 负数的个数是偶数个的话,负负得正,那么一定是非负数<br>             (2) # 负数的个数如果是奇数个的话,那么我们就只选偶数个绝对值最大的负数<br>2.k 如果是奇数个的话,<br>             (1)# 所有的数字如果都是负数,那么选出来的结果也一定都是负数<br>             (2)# 否则的话,则一定至少有 1个非负数, 那么我们将最大的数取出来, 此时要选的个数就是 k–,<br>                # k– 是偶数,那么就又转化为 k– 是偶数的情况思考<br>参考文献: y总视频<br>C++ 代码<br>#include<iostream><br>#include<cstdio><br>#include<algorithm><br>using namespace std;</p>
+<p>typedef long long LL ;<br>const int N &#x3D; 100010 , mod &#x3D; 1000000009 ;<br>int a[N];</p>
+<p>int main()<br>{<br>    int n , k ;<br>    scanf(“%d%d”,&amp;n,&amp;k);<br>    for(int i &#x3D; 0 ; i &lt; n ; i ++) scanf(“%d”,&amp;a[i]);</p>
+<pre><code>sort(a,a + n);
+
+LL res = 1 ; //乘积初始化
+int l = 0 , r = n - 1 ;//双指针初始化
+int sign = 1 ; // 符号初始化
+
+//由于4种情况除了 k 是奇数且 k &lt; n 的时候需要特判一下处理一下符号 ,其他的时候都可以转化为双指针做法
+//k 是奇数是先选出最大的数, k-- 就是偶数,两边再同时取对,转化成相同的双指针做法
+if(k % 2 )
+{
+    res =  a[r]; // 取出最大的一个数
+    r -- ; //右指针移动
+    k -- ; //个数减1
+
+    if(res &lt; 0) sign = -1;  // 如果最大值都是负数,就证明全是负数,那么符号要发生改变
+}
+while(k) // 双指针做法
+{
+    LL x = (LL)a[l] * a[l + 1] , y = (LL)a[r] * a[r - 1];//两边同时取对
+    //选择更大的一对,和归并排序思路相近
+    if(x * sign &gt; y * sign)
+    {
+        res = x % mod * res % mod; // 需要注意的是 :不可以写成(x * res) % mod ,也不可以写成是 res % mod * x % mod
+                                   // 因为x最大是 10^10，如果不先取模的话，和res相乘的结果最大是 10^19,会暴long long。            
+        l += 2; // 指针移动                                 
+    }
+    else 
+    {
+        res = y % mod * res % mod; 
+        r -= 2; 
+    }
+    k -= 2; 
+}
+printf(&quot;%lld&quot;,res);
+return 0;
+</code></pre>
+<p>}</p>
+<h2 id="需要注意的点"><a href="#需要注意的点" class="headerlink" title="需要注意的点"></a>需要注意的点</h2><p>需要注意的是 :不可以写成(x * res) % mod ,也不可以写成是 res % mod * x % mod，因为x最大是 10^10，如果不先取模的话，和res相乘的结果最大是 10^19,会暴long long。（%和*是相同优先级，按左右顺序执行）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidvTFMN1y3IkQ0P2t5V07aA" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-糖果传递" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" class="article-date">
@@ -104,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuidKHzx2BZexZ3VbBcEW66iw" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuidKrmtyuS1iM2ZdE83Q8_EP" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -185,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidEejbRerhj_6AdxAj0_bN5" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidIwoJIQ8Q7pyIUQtiPCyX5" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -245,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidDBwKMiKJmnpDIAdJmoKgh" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidcSUpOoIeq_ivjfMrPsNnW" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -317,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" data-id="cuidxqRVQVY2fRl3-L7_aC309" data-title="大臣的旅费" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" data-id="cuid7zdNZmVdTSIRuf6RpTSwj" data-title="大臣的旅费" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -388,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/" data-id="cuidP2BMpyxy7ofgP1sYiJN1O" data-title="AcWing 1233. 全球变暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/" data-id="cuidRcCT2Y946slUE35H41Gb5" data-title="AcWing 1233. 全球变暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -451,7 +541,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/" data-id="cuid7Vjt9stKYFO3dutSGAGBm" data-title="AcWing 1240. 完全二叉树的权值" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/" data-id="cuidrhU2xGdmFccy8ddo-ppK4" data-title="AcWing 1240. 完全二叉树的权值" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -518,7 +608,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1224-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90/" data-id="cuidiTj2nBHLS94Q5qTIYiTni" data-title="AcWing 1224. 交换瓶子" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1224-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90/" data-id="cuid-Yvo3B0VicoMeQIk2xCRs" data-title="AcWing 1224. 交换瓶子" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -578,7 +668,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/" data-id="cuid2HdYPdOD_UulEXbyLI0-c" data-title="AcWing 1113. 红与黑" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/" data-id="cuidy31vid4VXOPZ9kZH2y1Yz" data-title="AcWing 1113. 红与黑" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -778,70 +868,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/" data-id="cuidXR_ggcM_lr33u9OZB-k3Z" data-title="BFS 模板题" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-AcWing-1101-献给阿尔吉侬的花束" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/13/AcWing-1101-%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T17:17:48.000Z" itemprop="datePublished">2026-02-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/13/AcWing-1101-%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F/">AcWing 1101 献给阿尔吉侬的花束</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>阿尔吉侬是一只聪明又慵懒的小白鼠，它最擅长的就是走各种各样的迷宫。</p>
-<p>今天它要挑战一个非常大的迷宫，研究员们为了鼓励阿尔吉侬尽快到达终点，就在终点放了一块阿尔吉侬最喜欢的奶酪。</p>
-<p>现在研究员们想知道，如果阿尔吉侬足够聪明，它最少需要多少时间就能吃到奶酪。</p>
-<p>迷宫用一个 R×C 的字符矩阵来表示。</p>
-<p>字符 S 表示阿尔吉侬所在的位置，字符 E 表示奶酪所在的位置，字符 # 表示墙壁，字符 . 表示可以通行。</p>
-<p>阿尔吉侬在 1 个单位时间内可以从当前的位置走到它上下左右四个方向上的任意一个位置，但不能走出地图边界。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行是一个正整数 T，表示一共有 T 组数据。</p>
-<p>每一组数据的第一行包含了两个用空格分开的正整数 R 和 C，表示地图是一个 R×C 的矩阵。</p>
-<p>接下来的 R 行描述了地图的具体内容，每一行包含了 C 个字符。字符含义如题目描述中所述。保证有且仅有一个 S 和 E。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每一组数据，输出阿尔吉侬吃到奶酪的最少单位时间。</p>
-<p>若阿尔吉侬无法吃到奶酪，则输出“oop!”（只输出引号里面的内容，不输出引号）。</p>
-<p>每组数据的输出结果占一行。</p>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1&lt;T≤10,<br>2≤R,C≤200</p>
-<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3 4</span><br><span class="line">.S..</span><br><span class="line">###.</span><br><span class="line">..E.</span><br><span class="line">3 4</span><br><span class="line">.S..</span><br><span class="line">.E..</span><br><span class="line">....</span><br><span class="line">3 4</span><br><span class="line">.S..</span><br><span class="line">####</span><br><span class="line">..E.</span><br></pre></td></tr></table></figure>
-
-<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1</span><br><span class="line">oop!</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">210</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">point</span>&#123;</span><br><span class="line">	<span class="type">int</span> x,y,step;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t,R,C;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">	    cin&gt;&gt;R&gt;&gt;C;</span><br><span class="line">        <span class="type">char</span> a[N][N];          <span class="comment">// 局部化：每组用例重新初始化</span></span><br><span class="line">        <span class="type">int</span> v[N][N] = &#123;<span class="number">0</span>&#125;;     <span class="comment">// 局部化：每组用例默认全0</span></span><br><span class="line">        queue&lt;point&gt; r;        <span class="comment">// 局部化：每组用例新建空队列</span></span><br><span class="line">        point start,endn;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; R;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j &lt; C;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				cin&gt;&gt;a[i][j];</span><br><span class="line">				<span class="keyword">if</span>(a[i][j] == <span class="string">&#x27;S&#x27;</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					start.x = i;</span><br><span class="line">					start.y = j;</span><br><span class="line">					start.step = <span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(a[i][j] == <span class="string">&#x27;E&#x27;</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					endn.x = i;</span><br><span class="line">					endn.y = j;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		r.<span class="built_in">push</span>(start);</span><br><span class="line">		v[start.x][start.y] = <span class="number">1</span>;</span><br><span class="line">		<span class="type">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">while</span>(r.<span class="built_in">size</span>())</span><br><span class="line">		&#123;</span><br><span class="line">		    point cur = r.<span class="built_in">front</span>();</span><br><span class="line">		    <span class="type">int</span> x = cur.x,y = cur.y;</span><br><span class="line">		    r.<span class="built_in">pop</span>();</span><br><span class="line">			<span class="keyword">if</span>(x == endn.x&amp;&amp;y == endn.y)</span><br><span class="line">			&#123;</span><br><span class="line">				cout&lt;&lt;cur.step&lt;&lt;endl;</span><br><span class="line">				flag = <span class="literal">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>;k &lt; <span class="number">4</span>;k++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> tx,ty;</span><br><span class="line">				tx = x+dx[k];</span><br><span class="line">				ty = y+dy[k];</span><br><span class="line">				<span class="keyword">if</span>(tx&gt;=<span class="number">0</span>&amp;&amp;tx&lt;R&amp;&amp;ty&gt;=<span class="number">0</span>&amp;&amp;ty&lt;C&amp;&amp;(a[tx][ty]==<span class="string">&#x27;.&#x27;</span>||a[tx][ty] == <span class="string">&#x27;E&#x27;</span>)&amp;&amp;v[tx][ty] ==<span class="number">0</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					point temp;</span><br><span class="line">					temp.x = tx;</span><br><span class="line">					temp.y = ty;</span><br><span class="line">					temp.step =cur.step<span class="number">+1</span>;</span><br><span class="line">					r.<span class="built_in">push</span>(temp);</span><br><span class="line">					v[tx][ty] = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!flag)</span><br><span class="line">		&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">&quot;oop!&quot;</span>&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1101-%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F/" data-id="cuide_DDmxVwVUZD4mRuz7Sfx" data-title="AcWing 1101 献给阿尔吉侬的花束" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/" data-id="cuidFyuVxIGmpSCcedDIicePB" data-title="BFS 模板题" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -890,7 +917,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 20px;">BFS</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DFS/" style="font-size: 15px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
+      <a href="/tags/BFS/" style="font-size: 16.67px;">BFS</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/DFS/" style="font-size: 13.33px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
     </div>
   </div>
 
@@ -912,6 +939,10 @@
       <ul>
         
           <li>
+            <a href="/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/">AcWing 1239 乘积最大</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/">糖果传递</a>
           </li>
         
@@ -925,10 +956,6 @@
         
           <li>
             <a href="/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/">大臣的旅费</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">AcWing 1233. 全球变暖</a>
           </li>
         
       </ul>
