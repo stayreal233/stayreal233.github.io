@@ -71,6 +71,141 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AcWing-1238-日志统计" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/12/AcWing-1238-%E6%97%A5%E5%BF%97%E7%BB%9F%E8%AE%A1/" class="article-date">
+  <time class="dt-published" datetime="2026-02-12T13:24:46.000Z" itemprop="datePublished">2026-02-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/12/AcWing-1238-%E6%97%A5%E5%BF%97%E7%BB%9F%E8%AE%A1/">AcWing 1238 日志统计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>小明维护着一个程序员论坛。现在他收集了一份”点赞”日志，日志共有 N 行。</p>
+<p>其中每一行的格式是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ts id  </span><br></pre></td></tr></table></figure>
+
+<p>表示在 ts 时刻编号 id 的帖子收到一个”赞”。</p>
+<p>现在小明想统计有哪些帖子曾经是”热帖”。</p>
+<p>如果一个帖子曾在任意一个长度为 D 的时间段内收到不少于 K 个赞，小明就认为这个帖子曾是”热帖”。</p>
+<p>具体来说，如果存在某个时刻 T 满足该帖在 [T,T+D) 这段时间内(注意是左闭右开区间)收到不少于 K 个赞，该帖就曾是”热帖”。</p>
+<p>给定日志，请你帮助小明统计出所有曾是”热帖”的帖子编号。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含三个整数 N,D,K。</p>
+<p>以下 N 行每行一条日志，包含两个整数 ts 和 id。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>按从小到大的顺序输出热帖 id。</p>
+<p>每个 id 占一行。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤K≤N≤105,<br>0≤ts,id≤105,<br>1≤D≤10000</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7 10 2</span><br><span class="line">0 1</span><br><span class="line">0 10</span><br><span class="line">10 10</span><br><span class="line">10 1</span><br><span class="line">9 1</span><br><span class="line">100 3</span><br><span class="line">100 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>难度：<strong>中等</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时&#x2F;空限制：1s &#x2F; 64MB</td>
+</tr>
+<tr>
+<td>总通过数：23439</td>
+</tr>
+<tr>
+<td>总尝试数：49145</td>
+</tr>
+<tr>
+<td>来源：[第九届蓝桥杯省赛C++ B组](<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/search/1/?search_content=%E7%AC%AC%E4%B9%9D%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9BC++">https://www.acwing.com/problem/search/1/?search_content=第九届蓝桥杯省赛C%2B%2B</a> B组&amp;source_file_id&#x3D;4184173&amp;show_algorithm_tags&#x3D;0)[第九届蓝桥杯省赛Java B组](<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/search/1/?search_content=%E7%AC%AC%E4%B9%9D%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9BJava">https://www.acwing.com/problem/search/1/?search_content=第九届蓝桥杯省赛Java</a> B组&amp;source_file_id&#x3D;4184173&amp;show_algorithm_tags&#x3D;0)</td>
+</tr>
+<tr>
+<td>算法标签<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/search/1/?search_content=%E5%8F%8C%E6%8C%87%E9%92%88&source_file_id=4184173&show_algorithm_tags=1">双指针</a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/search/1/?search_content=%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3&source_file_id=4184173&show_algorithm_tags=1">滑动窗口</a></td>
+</tr>
+</tbody></table>
+<h2 id="1-暴力"><a href="#1-暴力" class="headerlink" title="1 暴力"></a>1 暴力</h2><p>(通过 6&#x2F;11 讨分嘛 不寒碜 )<br>最容易想到的暴力解法<br>第一层循环是 时间 0到最大时间<br>第二层循环是 所有的id 判断它的时刻是否属于要求的长度的时间区间<br>是的话就统计它的次数 +1<br>然后判断一下它的次数是否已经&gt;k 是的话将布尔数组它的位置 置为true<br>然后再每次判断新的时间区间时 要将cnt初始化为全0</p>
+<p>C++ 代码<br>#include &lt;bits&#x2F;stdc++.h&gt;<br>#define ts first<br>#define id second<br>using namespace std;</p>
+<p>const int N &#x3D; 1e5+10;<br>typedef pair&lt;int,int&gt; pii;<br>pii blog[N];<br>bool hot[N];<br>int cnt[N];<br>int n,d,k;</p>
+<p>int main(){<br>    scanf(“%d%d%d”,&amp;n,&amp;d,&amp;k);<br>    int maxt &#x3D; 0;<br>    for(int i &#x3D; 1;i&lt;&#x3D;n;i++)<br>            {<br>                scanf(“%d%d”,&amp;blog[i].ts,&amp;blog[i].id);<br>                maxt &#x3D; max(blog[i].ts,maxt);<br>            }</p>
+<pre><code>for(int time = 0;time &lt;= maxt; time++)
+{
+memset(cnt,0,sizeof(cnt));
+for(int i = 1;i&lt;=n;i++)
+{
+    int t = blog[i].ts;
+    int id = blog[i].id;
+    if( t &gt;= time &amp;&amp; t &lt;time+d)
+        cnt[id]++;
+    if(cnt[id] &gt;= k)
+        hot[id] = true;
+}
+}
+for(int i = 0;i&lt;=1e5;i++)
+if(hot[i]) printf(&quot;%d\n&quot;,i);
+</code></pre>
+<p>}</p>
+<h2 id="双指针优化"><a href="#双指针优化" class="headerlink" title="双指针优化"></a>双指针优化</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; pii;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span><span class="number">+10</span>;</span><br><span class="line">pii blog[N];</span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"><span class="type">int</span> n,d,k;</span><br><span class="line"><span class="type">int</span> cnt[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;d&gt;&gt;k;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin&gt;&gt;blog[i].first&gt;&gt;blog[i].second;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(blog,blog+n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>,j = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="type">int</span> id = blog[i].second;</span><br><span class="line">		cnt[id]++;</span><br><span class="line">		<span class="keyword">while</span>(blog[i].first-blog[j].first&gt;=d)</span><br><span class="line">		&#123;</span><br><span class="line">			cnt[blog[j].second]--;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(cnt[id]&gt;=k)st[id]=<span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt;= <span class="number">1e5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(st[i])</span><br><span class="line">		&#123;</span><br><span class="line">			cout&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>双指针优化</p>
+<ul>
+<li><p><img src="https://thumbnail0.baidupcs.com/thumbnail/4080c11e6l7bd2b215bdd9d2ec21be7e?chkbd=0&chkv=0&dp-callid=0&dp-logid=3795785431479381709&expires=8h&fid=1103647027800-250528-217905217923447&ft=image&quality=100&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-yHWFYwVnnOoiUa66an0uvGbsx7w=&size=c1080_u1080&time=1770894000&vuk=1103647027800" alt="img"></p>
+</li>
+<li><p>核心思想</p>
+<p>：滑动窗口</p>
+<ul>
+<li><p>维护窗口</p>
+<p>﻿[j,i][j, i][j,i]﻿</p>
+<p>保证时间跨度≤D</p>
+</li>
+<li><p>窗口右移时，只需处理头尾变化（去掉logs[j]，加入logs[i]）</p>
+</li>
+</ul>
+</li>
+<li><p>优势：将时间复杂度优化到O(N)</p>
+</li>
+<li><p>关键操作</p>
+<ul>
+<li><p>窗口右移：当</p>
+<p>﻿logs[i].x−logs[j].x≥Dlogs[i].x - logs[j].x \geq Dlogs[i].x−logs[j].x≥D﻿</p>
+<p>时，j++</p>
+</li>
+<li><p>计数更新：cnt[logs[i].y]++，同时检查是否≥K</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/12/AcWing-1238-%E6%97%A5%E5%BF%97%E7%BB%9F%E8%AE%A1/" data-id="cuidY76IT46k5SSHPSWpKZjuy" data-title="AcWing 1238 日志统计" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Luogu-P1908-逆序对" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/11/Luogu-P1908-%E9%80%86%E5%BA%8F%E5%AF%B9/" class="article-date">
@@ -157,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/11/Luogu-P1908-%E9%80%86%E5%BA%8F%E5%AF%B9/" data-id="cuidYdVHFS8HbAJpFn3z9kNE3" data-title="Luogu P1908 逆序对" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/11/Luogu-P1908-%E9%80%86%E5%BA%8F%E5%AF%B9/" data-id="cuiddgPSEgnk5fSd7TUfNTvbG" data-title="Luogu P1908 逆序对" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -291,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/" data-id="cuid1TIW3rlQ1icI16-cOUYwf" data-title="AcWing 1217 小朋友排队" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/11/AcWing-1217-%E5%B0%8F%E6%9C%8B%E5%8F%8B%E6%8E%92%E9%98%9F/" data-id="cuidv7AomQypv9XiTPBPZ1sZO" data-title="AcWing 1217 小朋友排队" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -402,7 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/10/%E6%89%AB%E6%8F%8F%E7%BA%BF/" data-id="cuidu1hLU78ymchL7B5iUKghh" data-title="扫描线" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/10/%E6%89%AB%E6%8F%8F%E7%BA%BF/" data-id="cuidA7hvYn6Xp1W3IbnJ6xDps" data-title="扫描线" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -460,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/" data-id="cuidOs12_qapiCuZ1j4dP7uqg" data-title="AcWing1237.螺旋折线" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/" data-id="cuidD-PRnD-qnQHrAhEvCPo7h" data-title="AcWing1237.螺旋折线" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -516,7 +651,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/" data-id="cuideqM-C8Lz7VXPENxY9eXG1" data-title="AcWing1270.数列区间最大值" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/" data-id="cuidiUUhVN1AjPcgJEvDBnM9e" data-title="AcWing1270.数列区间最大值" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -593,7 +728,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuidYR7gZ-ZoGqTGiJaosSMqj" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuid5BRU-z9PBWCH7rceHOjt3" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -644,7 +779,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/hello-world/" data-id="cuidLkleTbO5_zW9k9KZhp-Ht" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/hello-world/" data-id="cuidCipyYtJgHqeyAI-XojhWr" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -691,7 +826,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/10/27/LeetCode-123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="cuidftNvi6k4vvW2dVneYpo2n" data-title="LeetCode 123. 买卖股票的最佳时机 III" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/10/27/LeetCode-123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="cuidmMsnATsXZd5nYDhnCx_E5" data-title="LeetCode 123. 买卖股票的最佳时机 III" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -762,6 +897,10 @@
       <ul>
         
           <li>
+            <a href="/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/">糖果传递</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/">股票买卖Ⅱ&amp;&amp; 货仓选址</a>
           </li>
         
@@ -775,10 +914,6 @@
         
           <li>
             <a href="/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">AcWing 1233. 全球变暖</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/">AcWing 1240. 完全二叉树的权值</a>
           </li>
         
       </ul>
