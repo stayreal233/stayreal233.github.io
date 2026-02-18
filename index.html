@@ -71,6 +71,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AcWing-112-雷达设备" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/" class="article-date">
+  <time class="dt-published" datetime="2026-02-18T17:25:08.000Z" itemprop="datePublished">2026-02-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/">AcWing 112 雷达设备</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>假设海岸是一条无限长的直线，陆地位于海岸的一侧，海洋位于另外一侧。</p>
+<p>每个小岛都位于海洋一侧的某个点上。</p>
+<p>雷达装置均位于海岸线上，且雷达的监测范围为 d，当小岛与某雷达的距离不超过 d 时，该小岛可以被雷达覆盖。</p>
+<p>我们使用笛卡尔坐标系，定义海岸线为 x 轴，海的一侧在 x 轴上方，陆地一侧在 x 轴下方。</p>
+<p>现在给出每个小岛的具体坐标以及雷达的检测范围，请你求出能够使所有小岛都被雷达覆盖所需的最小雷达数目。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行输入两个整数 n 和 d，分别代表小岛数目和雷达检测范围。</p>
+<p>接下来 n 行，每行输入两个整数，分别代表小岛的 x，y 轴坐标。</p>
+<p>同一行数据之间用空格隔开。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，代表所需的最小雷达数目，若没有解决方案则所需数目输出 −1。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤1000,<br>1≤d≤200,<br>−1000≤x,y≤1000</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 2</span><br><span class="line">1 2</span><br><span class="line">-3 1</span><br><span class="line">2 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>算法<br>(贪心) O(nlogn)<br>如下图所示，对于任意一个小岛 (x,y)<br>，我们都可以在海岸线上求出能覆盖该小岛的建造雷达的区间 [a,b]<br>。</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.acwing.com/media/article/image/2019/02/26/1_742fce9a39-QQ%E5%9B%BE%E7%89%8720190226014010.png">https://cdn.acwing.com/media/article/image/2019/02/26/1_742fce9a39-QQ%E5%9B%BE%E7%89%8720190226014010.png</a></p>
+<p>由勾股定理可知：</p>
+<p>a&#x3D;x−d2−y2−−−−−−√<br>;<br>b&#x3D;x+d2−y2−−−−−−√<br>;<br>将所有小岛转化成区间后，问题转化为：给定 n<br> 个区间，在 x<br> 轴上选择尽量少的点，使得所有区间至少包含一个点。</p>
+<p>我们先给出做法，再证明其正确性。</p>
+<p>算法步骤：</p>
+<p>将所有区间按右端点从小到大排序；<br>依次考虑每个区间：<br>如果当前区间包含最后一个选择的点，则直接跳过；<br>如果当前区间不包含最后一个选择的点，则在当前区间的右端点的位置选一个新的点；<br>证明：</p>
+<p>首先上述做法一定可以保证所有区间都至少包含一个点。</p>
+<p>然后我们再证明这样选出的点的数量是最少的，不妨设选出的点数是 m<br>：</p>
+<p>按照上述做法，我们选择的点都是某个区间的右端点，而且由于区间按右端点排好序了，所以我们选择的点也是排好序的；<br>只有在当前区间和上一个点所对应的区间是没有交集时，我们才会选择一个新点，所以所有选出的点所对应的区间是如下图所示的情况，两两之间没有交集。</p>
+<p>所以我们找到了 m<br> 个两两之间没有交集的区间，因此我们至少需要选 m<br> 个点。而且通过上述做法，我们可以只选 m<br> 个点。因此最优解就是 m<br>。</p>
+<p>时间复杂度<br>计算每个坐标所对应的区间，需要 O(n)<br> 的计算量；<br>将所有区间排序需要 O(nlogn)<br> 的计算量；<br>扫描所有区间需要 O(n)<br> 的计算量；<br>所以总共的时间复杂度是 O(nlogn)<br>。</p>
+<p>C++ 代码<br>#include <cstring><br>#include <iostream><br>#include <algorithm><br>#include <cmath></p>
+<p>using namespace std;</p>
+<p>typedef pair&lt;double, double&gt; PDD;<br>const int N &#x3D; 1010;<br>const double eps &#x3D; 1e-6, INF &#x3D; 1e10;</p>
+<p>int n, d;<br>PDD seg[N];</p>
+<p>int main()<br>{<br>    cin &gt;&gt; n &gt;&gt; d;</p>
+<pre><code>bool success = true;
+
+for (int i = 0; i &lt; n; i ++ )
+{
+    int x, y;
+    cin &gt;&gt; x &gt;&gt; y;
+    if (y &gt; d)
+    {
+        success = false;
+        break;
+    }
+    auto len = sqrt(d * d - y * y);
+    seg[i] = {x + len, x - len};
+}
+
+if (!success) puts(&quot;-1&quot;);
+else
+{
+    sort(seg, seg + n);
+    int res = 0;
+    double last = -INF;
+    for (int i = 0; i &lt; n; i ++ )
+    {
+        if (seg[i].second &gt; last + eps)
+        {
+            res ++ ;
+            last = seg[i].first;
+        }
+    }
+    cout &lt;&lt; res &lt;&lt; endl;
+}
+return 0;
+</code></pre>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/" data-id="cuidkptOI5ZqRjwTgsBugVZu4" data-title="AcWing 112 雷达设备" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9D%90%E6%A0%87/" rel="tag">坐标</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AcWing-1247-后缀表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
@@ -114,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cuidPlcXSkI-bcjsKH1xJj9Jt" data-title="AcWing 1247 后缀表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cuid1chBth8HN6YEcHM4K-8NU" data-title="AcWing 1247 后缀表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -204,7 +313,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidz0d0b0G4Eq2ITXwByjxUJ" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidW1-jwW3W10hXk4dZFc9zW" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -251,7 +360,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuid-Hj3yU9wWKpULkkTJDHJ8" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuidNlQ0Sw8jvu_pOHPkw1DNH" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -332,7 +441,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidgTaexI2Txj6CZ7ioQEmCK" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidPET8D-z33Rc1BWiO2soQT" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -392,7 +501,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidcNfySTPhL7V4hZd3N7QsL" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidw8u6XQm-nDSfqGTWZ5o5j" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -464,7 +573,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" data-id="cuidOqJqjcCy3HTQ_hJeoqkTl" data-title="大臣的旅费" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" data-id="cuidfjCAVVlUTefoUp0N8X9uq" data-title="大臣的旅费" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -535,7 +644,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/" data-id="cuidjzGvUncfPGnBuYANATdTs" data-title="AcWing 1233. 全球变暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/" data-id="cuidaWldEdbVQV2j9KgfVStko" data-title="AcWing 1233. 全球变暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -598,7 +707,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/" data-id="cuidVwydPVGp75ciP-kvJPpUu" data-title="AcWing 1240. 完全二叉树的权值" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/" data-id="cuiddlVeaImF80WBdjhg2L2Ib" data-title="AcWing 1240. 完全二叉树的权值" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -665,71 +774,11 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1224-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90/" data-id="cuidzaye-ZGAS4lOAxnil2zwI" data-title="AcWing 1224. 交换瓶子" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1224-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90/" data-id="cuid2gDkI-5dKUVtTNZ5dtFpP" data-title="AcWing 1224. 交换瓶子" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-AcWing-1113-红与黑" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/" class="article-date">
-  <time class="dt-published" datetime="2026-02-13T10:32:48.000Z" itemprop="datePublished">2026-02-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/">AcWing 1113. 红与黑</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>有一间长方形的房子，地上铺了红色、黑色两种颜色的正方形瓷砖。</p>
-<p>你站在其中一块黑色的瓷砖上，只能向相邻（上下左右四个方向）的黑色瓷砖移动。</p>
-<p>请写一个程序，计算你总共能够到达多少块黑色的瓷砖。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入包括多个数据集合。</p>
-<p>每个数据集合的第一行是两个整数 W 和 H，分别表示 x 方向和 y 方向瓷砖的数量。</p>
-<p>在接下来的 H 行中，每行包括 W 个字符。每个字符表示一块瓷砖的颜色，规则如下</p>
-<p>1）‘.’：黑色的瓷砖；<br>2）‘#’：红色的瓷砖；<br>3）‘@’：黑色的瓷砖，并且你站在这块瓷砖上。该字符在每个数据集合中唯一出现一次。</p>
-<p>当在一行中读入的是两个零时，表示输入结束。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对每个数据集合，分别输出一行，显示你从初始位置出发能到达的瓷砖数(记数时包括初始位置的瓷砖)。</p>
-<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤W,H≤20</p>
-<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">6 9 </span><br><span class="line">....#. </span><br><span class="line">.....# </span><br><span class="line">...... </span><br><span class="line">...... </span><br><span class="line">...... </span><br><span class="line">...... </span><br><span class="line">...... </span><br><span class="line">#@...# </span><br><span class="line">.#..#. </span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
-
-<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">45</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">25</span>;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="type">int</span> c;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y,<span class="type">char</span> s[][N],<span class="type">int</span> v[][N])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> tx = x+dx[i],ty = y+dy[i];</span><br><span class="line">        <span class="keyword">if</span>(tx&gt;=<span class="number">0</span>&amp;&amp;tx&lt;m&amp;&amp;ty&gt;=<span class="number">0</span>&amp;&amp;ty&lt;n&amp;&amp;(s[tx][ty]==<span class="string">&#x27;.&#x27;</span>||s[tx][ty] ==<span class="string">&#x27;@&#x27;</span>)&amp;&amp;v[tx][ty]==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            v[tx][ty] = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">f</span>(tx,ty,s,v);</span><br><span class="line">            c++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(cin&gt;&gt;n&gt;&gt;m&amp;&amp;n&amp;&amp;m)&#123;</span><br><span class="line">        c=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> x,y;</span><br><span class="line">        <span class="type">char</span> s[N][N];</span><br><span class="line">        <span class="type">int</span> v[N][N];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; m;i++)</span><br><span class="line">            cin&gt;&gt;s[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j &lt; n;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(s[i][j] == <span class="string">&#x27;@&#x27;</span>)</span><br><span class="line">                    x = i,y = j;</span><br><span class="line">                v[i][j] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">f</span>(x,y,s,v);</span><br><span class="line">        <span class="keyword">if</span>(!c)</span><br><span class="line">        &#123;</span><br><span class="line">            c = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;c&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/" data-id="cuid4CTixmoZ_BSkY7yGhDmPc" data-title="AcWing 1113. 红与黑" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li></ul>
 
     </footer>
   </div>
@@ -764,7 +813,7 @@ return 0;
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="tag">中位数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" rel="tag">按层求和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" rel="tag">树的直径</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="tag">中位数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%90%E6%A0%87/" rel="tag">坐标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" rel="tag">按层求和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" rel="tag">树的直径</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
     </div>
   </div>
 
@@ -774,7 +823,7 @@ return 0;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 17.5px;">BFS</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DFS/" style="font-size: 15px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 12.5px;">数学</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
+      <a href="/tags/BFS/" style="font-size: 17.5px;">BFS</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DFS/" style="font-size: 15px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 12.5px;">数学</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
     </div>
   </div>
 
@@ -796,6 +845,10 @@ return 0;
       <ul>
         
           <li>
+            <a href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/">AcWing 112 雷达设备</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">AcWing 1247 后缀表达式</a>
           </li>
         
@@ -809,10 +862,6 @@ return 0;
         
           <li>
             <a href="/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/">股票买卖Ⅱ&amp;&amp; 货仓选址</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/">灵能传输</a>
           </li>
         
       </ul>
