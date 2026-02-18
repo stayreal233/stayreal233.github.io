@@ -71,6 +71,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AcWing-1247-后缀表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2026-02-18T16:39:15.000Z" itemprop="datePublished">2026-02-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">AcWing 1247 后缀表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>给定 N 个加号、M 个减号以及 N+M+1 个整数 A1,A2,⋅⋅⋅,AN+M+1，小明想知道在所有由这 N 个加号、M 个减号以及 N+M+1 个整数凑出的合法的后缀表达式中，结果最大的是哪一个？</p>
+<p>请你输出这个最大的结果。</p>
+<p>例如使用 123+−，则 “23+1−” 这个后缀表达式结果是 4，是最大的。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含两个整数 N 和 M。</p>
+<p>第二行包含 N+M+1 个整数 A1,A2,⋅⋅⋅,AN+M+1。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，代表答案。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>0≤N,M≤105,<br>−109≤Ai≤109</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1</span><br><span class="line">1 2 3</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[12pt, a4paper]&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[utf8]&#123;inputenc&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[T1]&#123;fontenc&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath, amssymb&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;listings&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;xcolor&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[margin=2.5cm]&#123;geometry&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;fontspec&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;xeCJK&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\setCJKmainfont</span>&#123;SimSun&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\lstset</span>&#123;</span><br><span class="line">    language=C++,</span><br><span class="line">    basicstyle=<span class="keyword">\ttfamily</span><span class="keyword">\small</span>,</span><br><span class="line">    keywordstyle=<span class="keyword">\color</span>&#123;blue&#125;<span class="keyword">\bfseries</span>,</span><br><span class="line">    commentstyle=<span class="keyword">\color</span>&#123;gray&#125;<span class="keyword">\itshape</span>,</span><br><span class="line">    stringstyle=<span class="keyword">\color</span>&#123;red&#125;,</span><br><span class="line">    numbers=left,</span><br><span class="line">    numberstyle=<span class="keyword">\tiny</span><span class="keyword">\color</span>&#123;gray&#125;,</span><br><span class="line">    breaklines=true,</span><br><span class="line">    frame=single,</span><br><span class="line">    backgroundcolor=<span class="keyword">\color</span>&#123;gray!10&#125;,</span><br><span class="line">    tabsize=4</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\title</span>&#123;<span class="keyword">\textbf</span>&#123;后缀表达式最大值——贪心算法解析&#125;&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line"></span><br><span class="line">这道题是一道非常经典的<span class="keyword">\textbf</span>&#123;贪心算法&#125;题目，表面上看是考察后缀表达式，实际上考察的是我们对<span class="keyword">\textbf</span>&#123;括号嵌套&#125;和<span class="keyword">\textbf</span>&#123;负号性质&#125;的数学理解。</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;核心思路分析&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\subsection</span>&#123;后缀表达式与括号的关系&#125;</span><br><span class="line"></span><br><span class="line">首先，我们要理解&quot;后缀表达式&quot;在数学上的等价意义。后缀表达式和带括号的中缀表达式是等价的。这意味着：<span class="keyword">\textbf</span>&#123;只要有减号，我们可以通过添加括号，改变后面所有数字的符号。&#125;</span><br><span class="line"></span><br><span class="line">例如，给定减号，我们可以构造出如下形式：</span><br><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;</span><br><span class="line">    <span class="keyword">\item</span> <span class="built_in">$</span>A - (B + C + D)<span class="built_in">$</span> <span class="built_in">$</span><span class="keyword">\Rightarrow</span><span class="built_in">$</span> 减去多个数。</span><br><span class="line">    <span class="keyword">\item</span> <span class="built_in">$</span>A - (B - C - D)<span class="built_in">$</span> <span class="built_in">$</span><span class="keyword">\Rightarrow</span><span class="built_in">$</span> <span class="built_in">$</span>A - B + C + D<span class="built_in">$</span>，即通过一个负号和括号，把原本的减号变成了加号。</span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\subsection</span>&#123;分情况讨论&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\textbf</span>&#123;情况 A：没有减号（<span class="built_in">$</span>M = 0<span class="built_in">$</span>）&#125;</span><br><span class="line"></span><br><span class="line">如果没有减号，所有的数字只能相加。</span><br><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;</span><br><span class="line">    <span class="keyword">\item</span> 结论：结果就是所有数字的和 <span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\sum</span> A<span class="built_in">_</span>i<span class="built_in">$</span>。</span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\textbf</span>&#123;情况 B：有减号（<span class="built_in">$</span>M &gt; 0<span class="built_in">$</span>）&#125;</span><br><span class="line"></span><br><span class="line">只要有一个或多个减号，情况就会变得非常灵活：</span><br><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;</span><br><span class="line">    <span class="keyword">\item</span> 我们至少要减去一个数（减去最小值 <span class="built_in">$</span>A<span class="built_in">_</span>&#123;<span class="keyword">\min</span>&#125;<span class="built_in">$</span> 以获得最大收益）。</span><br><span class="line">    <span class="keyword">\item</span> 我们至少要保留一个数作为正数（保留最大值 <span class="built_in">$</span>A<span class="built_in">_</span>&#123;<span class="keyword">\max</span>&#125;<span class="built_in">$</span>）。</span><br><span class="line">    <span class="keyword">\item</span> 对于剩下的 <span class="built_in">$</span>N+M-1<span class="built_in">$</span> 个数，可以利用括号将负数变为正贡献。</span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\textbf</span>&#123;关键结论：&#125; 当 <span class="built_in">$</span>M &gt; 0<span class="built_in">$</span> 时，最大值公式为：</span><br><span class="line"><span class="keyword">\[</span></span><br><span class="line"><span class="keyword">\text</span>&#123;最大和&#125; = A<span class="built_in">_</span>&#123;<span class="keyword">\max</span>&#125; - A<span class="built_in">_</span>&#123;<span class="keyword">\min</span>&#125; + <span class="keyword">\sum</span><span class="built_in">_</span>&#123;i <span class="keyword">\in</span> <span class="keyword">\text</span>&#123;其余&#125;&#125; |A<span class="built_in">_</span>i|</span><br><span class="line"><span class="keyword">\]</span></span><br><span class="line">也就是说，除了最大值和最小值之外，其余所有数我们都可以取其<span class="keyword">\textbf</span>&#123;绝对值&#125;累加进结果。</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;解题关键点&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;</span><br><span class="line">    <span class="keyword">\item</span> <span class="keyword">\textbf</span>&#123;数据范围&#125;：<span class="built_in">$</span>A<span class="built_in">_</span>i<span class="built_in">$</span> 最大 <span class="built_in">$</span>10<span class="built_in">^</span>9<span class="built_in">$</span>，且有 <span class="built_in">$</span>20<span class="built_in">$</span> 万个数，总和会超过 <span class="keyword">\texttt</span>&#123;int&#125;，必须使用 <span class="keyword">\texttt</span>&#123;long long&#125;。</span><br><span class="line">    <span class="keyword">\item</span> <span class="keyword">\textbf</span>&#123;符号的灵活性&#125;：意识到减号不仅可以减去一个正数，还可以通过括号把一串减号变成加号。</span><br><span class="line">    <span class="keyword">\item</span> <span class="keyword">\textbf</span>&#123;排序&#125;：为了方便找到最大值和最小值，对数组进行排序是最简单的做法。</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;C++ 代码实现&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;lstlisting&#125;</span><br><span class="line"><span class="params">#</span>include &lt;iostream&gt;</span><br><span class="line"><span class="params">#</span>include &lt;vector&gt;</span><br><span class="line"><span class="params">#</span>include &lt;algorithm&gt;</span><br><span class="line"><span class="params">#</span>include &lt;cmath&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    ios::sync<span class="built_in">_</span>with<span class="built_in">_</span>stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line"></span><br><span class="line">    int n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    int total<span class="built_in">_</span>cnt = n + m + 1;</span><br><span class="line">    vector&lt;LL&gt; a(total<span class="built_in">_</span>cnt);</span><br><span class="line">    for (int i = 0; i &lt; total<span class="built_in">_</span>cnt; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    LL res = 0;</span><br><span class="line"></span><br><span class="line">    // 情况 1: 如果没有减号，直接把所有数加起来</span><br><span class="line">    if (m == 0) &#123;</span><br><span class="line">        for (int i = 0; i &lt; total<span class="built_in">_</span>cnt; i++) &#123;</span><br><span class="line">            res += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 情况 2: 如果有减号</span><br><span class="line">    else &#123;</span><br><span class="line">        sort(a.begin(), a.end());</span><br><span class="line"></span><br><span class="line">        // 根据公式：Max - Min + Sum(abs(其他所有数))</span><br><span class="line">        res = a[total<span class="built_in">_</span>cnt - 1] - a[0];</span><br><span class="line"></span><br><span class="line">        for (int i = 1; i &lt; total<span class="built_in">_</span>cnt - 1; i++) &#123;</span><br><span class="line">            if (a[i] &lt; 0) res -= a[i]; // 减去负数等于加正数</span><br><span class="line">            else res += a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;lstlisting&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;深入理解（为什么公式成立？）&#125;</span><br><span class="line"></span><br><span class="line">很多同学会问：<span class="keyword">\textbf</span>&#123;&quot;如果有 1 个加号，100 个减号，这个公式也成立吗？&quot;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\textbf</span>&#123;答案是肯定的。&#125;假设我们有最大值 <span class="built_in">$</span><span class="keyword">\mathit</span>&#123;Max&#125;<span class="built_in">$</span>，最小值 <span class="built_in">$</span><span class="keyword">\mathit</span>&#123;Min&#125;<span class="built_in">$</span>，以及一堆其他的数 <span class="built_in">$</span>X, Y, Z, <span class="keyword">\dots</span><span class="built_in">$</span>。即便有 100 个减号，我们可以这样构造：</span><br><span class="line"><span class="keyword">\[</span></span><br><span class="line"><span class="keyword">\mathit</span>&#123;Max&#125; - (<span class="keyword">\mathit</span>&#123;Min&#125; - X - Y - Z <span class="keyword">\cdots</span>)</span><br><span class="line"><span class="keyword">\]</span></span><br><span class="line">在这个括号里，所有的减号都会因为括号外的那个减号变成加号。</span><br><span class="line"></span><br><span class="line"><span class="keyword">\textbf</span>&#123;如果我们有很多加号怎么办？&#125;加号更简单，直接把加号放在括号外面即可：</span><br><span class="line"><span class="keyword">\[</span></span><br><span class="line"><span class="keyword">\mathit</span>&#123;Max&#125; - (<span class="keyword">\mathit</span>&#123;Min&#125; - X) + Y + Z <span class="keyword">\cdots</span></span><br><span class="line"><span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\textbf</span>&#123;总结：&#125;这道题的精髓在于发现<span class="keyword">\textbf</span>&#123;后缀表达式（括号）赋予了我们改变符号的巨大权力&#125;。只要有一个减号，我们就能把剩下的所有数根据需要变成正的或者负的。为了让结果最大，我们只需要保证至少减去一个最小的数，并保留一个最大的数即可。</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cuidL9SVQNZRWZ7JR2i41MqxM" data-title="AcWing 1247 后缀表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AcWing-1239-乘积最大" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" class="article-date">
@@ -147,7 +204,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidvTFMN1y3IkQ0P2t5V07aA" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidczXdx7QGOH_3NBkbtwwxA" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -194,7 +251,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuidKrmtyuS1iM2ZdE83Q8_EP" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuidBQHMaMpWJMKsEGXNmO4ZI" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -275,7 +332,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidIwoJIQ8Q7pyIUQtiPCyX5" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidHYq3VXu-czhFZaiJR811E" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -335,7 +392,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidcSUpOoIeq_ivjfMrPsNnW" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidYekJJq8ENWI8Lc9UfyTkx" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -407,7 +464,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" data-id="cuid7zdNZmVdTSIRuf6RpTSwj" data-title="大臣的旅费" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" data-id="cuidsFpIWlDz1Fc_fHNUjeolS" data-title="大臣的旅费" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -478,7 +535,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/" data-id="cuidRcCT2Y946slUE35H41Gb5" data-title="AcWing 1233. 全球变暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/14/AcWing-1233-%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/" data-id="cuid_M91kTlPaQHliRvkppOzf" data-title="AcWing 1233. 全球变暖" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -541,7 +598,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/" data-id="cuidrhU2xGdmFccy8ddo-ppK4" data-title="AcWing 1240. 完全二叉树的权值" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1240-%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9D%83%E5%80%BC/" data-id="cuid5uS2Jh3R5N6Wi1d18SLpR" data-title="AcWing 1240. 完全二叉树的权值" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -608,7 +665,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1224-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90/" data-id="cuid-Yvo3B0VicoMeQIk2xCRs" data-title="AcWing 1224. 交换瓶子" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1224-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90/" data-id="cuidmH3ErqUftyZcTplZYgTP5" data-title="AcWing 1224. 交换瓶子" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -668,7 +725,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/" data-id="cuidy31vid4VXOPZ9kZH2y1Yz" data-title="AcWing 1113. 红与黑" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/13/AcWing-1113-%E7%BA%A2%E4%B8%8E%E9%BB%91/" data-id="cuidLlyB3ZvcWDCJjfK0xjNw8" data-title="AcWing 1113. 红与黑" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -682,211 +739,11 @@ return 0;
 
 
   
-    <article id="post-BFS-模板题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/" class="article-date">
-  <time class="dt-published" datetime="2026-02-12T17:19:13.000Z" itemprop="datePublished">2026-02-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/">BFS 模板题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="ACWing-844-走迷宫"><a href="#ACWing-844-走迷宫" class="headerlink" title="ACWing 844 走迷宫"></a>ACWing 844 走迷宫</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> a[N][N],v[N][N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">point</span>&#123;</span><br><span class="line">	<span class="type">int</span> x;</span><br><span class="line">	<span class="type">int</span> y;</span><br><span class="line">	<span class="type">int</span> step;</span><br><span class="line">&#125;;</span><br><span class="line">queue&lt;point&gt; r;</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j &lt;= m;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin&gt;&gt;a[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	point start;</span><br><span class="line">	start.x = start.y = <span class="number">1</span>;</span><br><span class="line">	start.step = <span class="number">0</span>;</span><br><span class="line">	r.<span class="built_in">push</span>(start);</span><br><span class="line">	v[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(r.<span class="built_in">size</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> x = r.<span class="built_in">front</span>().x,y = r.<span class="built_in">front</span>().y;</span><br><span class="line">		<span class="keyword">if</span>(x == n&amp;&amp; y == m)</span><br><span class="line">		&#123;</span><br><span class="line">			cout&lt;&lt;r.<span class="built_in">front</span>().step;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>;k &lt;= <span class="number">3</span>;k++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> tx,ty;</span><br><span class="line">			tx = x+dx[k];</span><br><span class="line">			ty = y+dy[k];</span><br><span class="line">			<span class="keyword">if</span>(tx &gt;= <span class="number">1</span>&amp;&amp;tx &lt;= n&amp;&amp;ty &gt;= <span class="number">1</span>&amp;&amp;ty &lt;= m&amp;&amp;a[tx][ty]==<span class="number">0</span>&amp;&amp;v[tx][ty]==<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				point temp;</span><br><span class="line">				temp.x = tx;</span><br><span class="line">				temp.y = ty;</span><br><span class="line">				temp.step = r.<span class="built_in">front</span>().step<span class="number">+1</span>;</span><br><span class="line">				r.<span class="built_in">push</span>(temp);</span><br><span class="line">				v[tx][ty]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		r.<span class="built_in">pop</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这是一个非常经典的问题。你的代码使用的是 <strong>广度优先搜索 (Breadth-First Search, 简称 BFS)</strong> 算法。</p>
-<p>之所以这段代码能保证得出 <strong>最少步数（最短路径）</strong>，核心原因在于 BFS 的 <strong>“逐层向外扩张”</strong> 的特性和 <strong>队列 (Queue)</strong> 的 <strong>先进先出 (FIFO)</strong> 机制。</p>
-<p>以下是详细的逻辑证明和解释：</p>
-<h3 id="1-核心原理：像水波纹一样扩散"><a href="#1-核心原理：像水波纹一样扩散" class="headerlink" title="1. 核心原理：像水波纹一样扩散"></a>1. 核心原理：像水波纹一样扩散</h3><p>想象你在平静的湖面中心扔了一颗石子，水波会形成同心圆一圈一圈向外扩散。</p>
-<ul>
-<li>第 0 秒，水波在中心（起点）。</li>
-<li>第 1 秒，水波到达所有离中心距离为 1 的点。</li>
-<li>第 2 秒，水波到达所有离中心距离为 2 的点。</li>
-<li>…以此类推。</li>
-</ul>
-<p>BFS 的工作方式完全相同：</p>
-<ul>
-<li><strong>第一层</strong>：它首先处理所有步数为 0 的点（起点）。</li>
-<li><strong>第二层</strong>：接着，它把所有从起点 <strong>1步</strong> 能到达的、且未走过的点加入队列。</li>
-<li><strong>第三层</strong>：处理完所有“1步”的点后，它才会去处理从这些点出发再走一步（即 <strong>2步</strong>）能到达的点。</li>
-</ul>
-<p>因为你是按 <strong>步数递增</strong> 的顺序（0步 -&gt; 1步 -&gt; 2步…）来遍历格子的，所以<strong>只要你第一次遇到了终点 <code>(n, m)</code>，那么当前的 <code>step</code> 一定是能够到达该点的最小数值。</strong> 如果有更短的路径（比如 step-1），你早在上一轮循环中就已经发现并结束程序了。</p>
-<h3 id="2-队列-Queue-的保证机制"><a href="#2-队列-Queue-的保证机制" class="headerlink" title="2. 队列 (Queue) 的保证机制"></a>2. 队列 (Queue) 的保证机制</h3><p>你的代码中使用了 <code>queue&lt;point&gt; r</code>。队列的特性是 <strong>先进先出</strong>。</p>
-<ol>
-<li><strong>入队顺序有序</strong>：<ul>
-<li>一开始队列里只有步数为 <code>0</code> 的起点。</li>
-<li>当你从步数为 <code>k</code> 的点扩展时，你新加入队列的点，步数都是 <code>k+1</code>。</li>
-<li>这保证了队列里的元素始终保持着步数 <strong>非递减</strong> 的顺序（例如：<code>1, 1, 1, 2, 2, 3, 3...</code>）。</li>
-</ul>
-</li>
-<li><strong>绝对不会“插队”</strong>：<ul>
-<li>你绝不可能在处理步数为 <code>k</code> 的节点之前，先去处理步数为 <code>k+1</code> 的节点。</li>
-<li>因此，程序绝对不会先找到一条长路径（例如 10 步），然后后来才发现一条短路径（例如 5 步）。</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-标记数组-v-visited-的作用"><a href="#3-标记数组-v-visited-的作用" class="headerlink" title="3. 标记数组 v (visited) 的作用"></a>3. 标记数组 <code>v</code> (visited) 的作用</h3><p>代码中 <code>if(... &amp;&amp; v[tx][ty] == 0)</code> 这一句至关重要。</p>
-<ul>
-<li>它的作用是：<strong>一旦一个点被访问过，就再也不会被访问。</strong></li>
-<li>结合 BFS 的特性，<strong>一个点第一次被访问时，一定是通过最短路径到达的</strong>。</li>
-<li>如果在之后的搜索中，你又从另一条路绕到了这个点，那么这条新路一定 <strong>大于等于</strong> 之前的步数。既然我们找的是最短路，更长的路直接忽略即可。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这段代码能保证最短路径的逻辑链条是：</p>
-<ol>
-<li>这是<strong>无权图</strong>（每走一步代价都是 1）。</li>
-<li><strong>BFS</strong> 按照距离起点的“层数”由近及远进行搜索。</li>
-<li><strong>队列</strong> 保证了我们处理完所有“距离为 k”的点之后，才会处理“距离为 k+1”的点。</li>
-<li>因此，<strong>第一次</strong> 摸到终点时，当前的 <code>step</code> 就是理论上的最小值。</li>
-</ol>
-<h1 id="ACWing-845-八数码"><a href="#ACWing-845-八数码" class="headerlink" title="ACWing 845 八数码"></a>ACWing 845 八数码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">unordered_map&lt;string,<span class="type">int</span>&gt; d;</span><br><span class="line">queue&lt;string&gt; q;</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bfs</span><span class="params">(string str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    q.<span class="built_in">push</span>(str);</span><br><span class="line">    string end = <span class="string">&quot;12345678x&quot;</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> s = q.<span class="built_in">front</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(s == end)<span class="keyword">return</span> d[s];</span><br><span class="line">        <span class="type">int</span> k = s.<span class="built_in">find</span>(<span class="string">&#x27;x&#x27;</span>);</span><br><span class="line">        <span class="type">int</span> x = k/<span class="number">3</span>,y = k%<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> a = x+dx[i],b = y+dy[i];</span><br><span class="line">            <span class="keyword">if</span>(a &lt; <span class="number">0</span>||a &gt;= <span class="number">3</span>||b &lt; <span class="number">0</span>||b &gt;= <span class="number">3</span>)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> dis = d[s];</span><br><span class="line">            <span class="built_in">swap</span>(s[k],s[a*<span class="number">3</span>+b]);</span><br><span class="line">            <span class="keyword">if</span>(!d.<span class="built_in">count</span>(s))</span><br><span class="line">            &#123;</span><br><span class="line">                d[s] = dis<span class="number">+1</span>;</span><br><span class="line">                q.<span class="built_in">push</span>(s);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">swap</span>(s[k],s[a*<span class="number">3</span>+b]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span>(cin&gt;&gt;c)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(c != <span class="string">&#x27; &#x27;</span>)s+=c;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">bfs</span>(s)&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="一、代码整体功能"><a href="#一、代码整体功能" class="headerlink" title="一、代码整体功能"></a>一、代码整体功能</h3><p>这段代码是经典的<strong>八数码问题求解器</strong>：</p>
-<ul>
-<li>八数码问题：给定一个 3×3 的棋盘，其中 8 个位置是数字 1-8，1 个位置是 <code>x</code>（代表空格）；通过交换空格与上下左右的数字，求最少需要多少步能将棋盘还原为目标状态 <code>12345678x</code>。</li>
-<li>核心算法：广度优先搜索（BFS）—— 因为 BFS 是 “按层遍历”，能保证第一次到达目标状态时的步数就是<strong>最小步数</strong>（最短路径），这是解决这类 “最少步数” 问题的最优选择。</li>
-<li>输出：若能还原，返回最少步数；若无法还原（八数码存在无解情况），返回 -1。</li>
-</ul>
-<h3 id="二、核心模块与重点解析"><a href="#二、核心模块与重点解析" class="headerlink" title="二、核心模块与重点解析"></a>二、核心模块与重点解析</h3><h4 id="1-全局变量（BFS-核心依赖）"><a href="#1-全局变量（BFS-核心依赖）" class="headerlink" title="1. 全局变量（BFS 核心依赖）"></a>1. 全局变量（BFS 核心依赖）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;string,int&gt; d;  // 核心：状态→步数（同时判重）</span><br><span class="line">queue&lt;string&gt; q;              // BFS队列：存储待处理的棋盘状态</span><br><span class="line">int dx[4] = &#123;-1,1,0,0&#125;;       // 上下左右四个方向的行偏移（上-1，下+1）</span><br><span class="line">int dy[4] = &#123;0,0,-1,1&#125;;       // 上下左右四个方向的列偏移（左-1，右+1）</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;string,int&gt; d</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>key</strong>：棋盘状态的字符串（比如 <code>12x456783</code>），用字符串表示 3×3 棋盘是最简洁的方式；</li>
-<li><strong>value</strong>：到达该状态的最少步数；</li>
-<li><strong>额外作用</strong>：判重（<code>d.count(s)</code> 可判断该状态是否已访问过），避免重复处理同一状态导致队列无限增长</li>
-</ul>
-</li>
-<li><p><code>queue&lt;string&gt; q</code>：BFS 的 “待处理队列”，保证按 “步数递增” 的顺序处理状态（层序遍历），这是 BFS 能求最短路径的核心。</p>
-</li>
-<li><p>方向数组 <code>dx/dy</code>：把 “上下左右” 四个方向抽象为偏移量，避免写重复的 if-else 逻辑，是处理网格类问题的经典写法。</p>
-</li>
-</ul>
-<h4 id="2-输入处理（main-函数）"><a href="#2-输入处理（main-函数）" class="headerlink" title="2. 输入处理（main 函数）"></a>2. 输入处理（main 函数）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">char c;</span><br><span class="line">while(cin&gt;&gt;c) &#123;</span><br><span class="line">    if(c != &#x27; &#x27;)s+=c;  // 拼接输入为无空格的字符串（比如输入&quot;1 2 3 x 4&quot;→&quot;123x4&quot;）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>输入逻辑：输入格式是 “每个字符用空格分隔”（比如 <code>1 2 3 x 4 5 6 7 8</code>），<code>cin&gt;&gt;c</code> 会<strong>自动跳过空格 &#x2F; 换行</strong>，所以代码里的 <code>if(c != &#39; &#39;)</code> 其实可以省略（不影响功能），但保留也能正确拼接出长度为 9 的棋盘字符串。</li>
-<li>最终效果：将分散的输入字符拼接为一个长度为 9 的字符串，代表整个 3×3 棋盘（比如 <code>123x45678</code> 对应棋盘：第一行 1 2 3，第二行 x 4 5，第三行 6 7 8）。</li>
-</ul>
-<h4 id="3-BFS-核心函数（重点中的重点）"><a href="#3-BFS-核心函数（重点中的重点）" class="headerlink" title="3. BFS 核心函数（重点中的重点）"></a>3. BFS 核心函数（重点中的重点）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">int bfs(string str) &#123;</span><br><span class="line">    q.push(str);  // 初始状态入队</span><br><span class="line">    string end = &quot;12345678x&quot;;  // 目标状态</span><br><span class="line">    while(q.size()) &#123;  // 队列非空则继续遍历</span><br><span class="line">        auto s = q.front(); q.pop();  // 取出队首状态（当前处理的状态）</span><br><span class="line">        </span><br><span class="line">        // 终止条件：找到目标状态，返回步数</span><br><span class="line">        if(s == end) return d[s];</span><br><span class="line">        </span><br><span class="line">        // 步骤1：找到空格&#x27;x&#x27;的位置（字符串索引→二维坐标）</span><br><span class="line">        int k = s.find(&#x27;x&#x27;);  // 找到&#x27;x&#x27;在字符串中的索引（0-8）</span><br><span class="line">        int x = k/3, y = k%3; // 转换为3×3棋盘的二维坐标：x=行，y=列</span><br><span class="line">        // 例：k=3 → x=1（第2行，0开始），y=0（第1列）</span><br><span class="line">        </span><br><span class="line">        // 步骤2：遍历四个方向（上下左右）</span><br><span class="line">        for(int i = 0;i &lt; 4;i++) &#123;</span><br><span class="line">            int a = x + dx[i], b = y + dy[i];  // 新坐标（空格交换后的位置）</span><br><span class="line">            if(a &lt; 0||a &gt;= 3||b &lt; 0||b &gt;= 3) continue;  // 越界则跳过（棋盘只有3行3列）</span><br><span class="line">            </span><br><span class="line">            // 步骤3：交换空格与相邻位置，生成新状态</span><br><span class="line">            int dis = d[s];  // 当前状态的步数（初始状态d[str]默认0）</span><br><span class="line">            swap(s[k], s[a*3+b]);  // 交换：字符串中k位置（x）和a*3+b位置（新坐标）</span><br><span class="line">            // 注：a*3+b 是二维坐标→字符串索引的逆运算（行×3+列）</span><br><span class="line">            </span><br><span class="line">            // 步骤4：判重+记录步数+入队</span><br><span class="line">            if(!d.count(s)) &#123;  // 该状态未访问过</span><br><span class="line">                d[s] = dis + 1;  // 步数=当前步数+1</span><br><span class="line">                q.push(s);       // 新状态入队，等待处理</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            // 步骤5：回溯交换（关键！）</span><br><span class="line">            swap(s[k], s[a*3+b]);  // 恢复原状态，处理下一个方向</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;  // 遍历完所有状态仍未找到目标→无解</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这部分是代码的核心，我拆解几个<strong>关键知识点</strong>：</p>
-<h5 id="（1）棋盘状态的-“字符串↔二维坐标”-映射"><a href="#（1）棋盘状态的-“字符串↔二维坐标”-映射" class="headerlink" title="（1）棋盘状态的 “字符串↔二维坐标” 映射"></a>（1）棋盘状态的 “字符串↔二维坐标” 映射</h5><p>这是八数码问题的核心技巧，必须理解：</p>
-<ul>
-<li><p>字符串长度为 9，索引 0-8 对应 3×3 棋盘的位置：</p>
-<table>
-<thead>
-<tr>
-<th align="center">索引</th>
-<th align="center">0</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center">6</th>
-<th align="center">7</th>
-<th align="center">8</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">坐标</td>
-<td align="center">(0,0)</td>
-<td align="center">(0,1)</td>
-<td align="center">(0,2)</td>
-<td align="center">(1,0)</td>
-<td align="center">(1,1)</td>
-<td align="center">(1,2)</td>
-<td align="center">(2,0)</td>
-<td align="center">(2,1)</td>
-<td align="center">(2,2)</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>转换公式：</p>
-<ul>
-<li>字符串索引 <code>k</code> → 二维坐标：<code>x = k/3</code>（行），<code>y = k%3</code>（列）；</li>
-<li>二维坐标 <code>(a,b)</code> → 字符串索引：<code>a*3 + b</code></li>
-</ul>
-</li>
-</ul>
-<h5 id="（2）BFS-求最短路径的原理"><a href="#（2）BFS-求最短路径的原理" class="headerlink" title="（2）BFS 求最短路径的原理"></a>（2）BFS 求最短路径的原理</h5><p>BFS 是 “按层遍历”：</p>
-<ul>
-<li>初始状态是第 0 层（步数 0）；</li>
-<li>初始状态交换一次得到的所有状态是第 1 层（步数 1）；</li>
-<li>第 1 层状态交换一次得到的所有新状态是第 2 层（步数 2）；</li>
-<li>以此类推，<strong>第一次到达目标状态的层数就是最少步数</strong>（因为 BFS 不会跳过更短的路径）。</li>
-</ul>
-<h5 id="（3）回溯交换的必要性"><a href="#（3）回溯交换的必要性" class="headerlink" title="（3）回溯交换的必要性"></a>（3）回溯交换的必要性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">swap(s[k], s[a*3+b]);  // 生成新状态</span><br><span class="line">// ... 处理新状态 ...</span><br><span class="line">swap(s[k], s[a*3+b]);  // 回溯</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>s</code> 是当前循环的临时变量，代表 “当前处理的棋盘状态”；</li>
-<li>如果不回溯，处理完第一个方向后，<code>s</code> 已经被修改，后续方向的交换会基于错误的状态，导致所有新状态都出错；</li>
-<li>回溯的本质：保证每个方向的交换都是基于 “原始的当前状态”，互不干扰。</li>
-</ul>
-<h5 id="（4）判重的关键作用"><a href="#（4）判重的关键作用" class="headerlink" title="（4）判重的关键作用"></a>（4）判重的关键作用</h5><p>八数码的总状态数是 <code>9! = 362880</code> 种（有限），但如果不判重：</p>
-<ul>
-<li>同一个状态会被多次入队，队列无限增长，内存溢出；</li>
-<li>重复处理同一状态，时间复杂度爆炸；</li>
-<li><code>unordered_map d</code> 既记录步数，又通过 <code>d.count(s)</code> 判重，一举两得。</li>
-</ul>
-<h3 id="三、代码的小瑕疵（新手易踩坑）"><a href="#三、代码的小瑕疵（新手易踩坑）" class="headerlink" title="三、代码的小瑕疵（新手易踩坑）"></a>三、代码的小瑕疵（新手易踩坑）</h3><p>原代码有一个 “隐式逻辑”，新手可能疑惑：</p>
-<ul>
-<li><p>初始状态 <code>str</code> 入队时，<code>d[str]</code> 没有显式赋值为 0，但 <code>unordered_map</code> 的默认值是 0，所以第一次取 <code>d[s]</code> 时是 0，不影响结果；</p>
-</li>
-<li><p>建议显式添加 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d[str] = 0;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.push(str);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">q.push(str);</span><br><span class="line">d[str] = 0;  // 显式初始化初始状态的步数为0</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="四、总结（核心关键点）"><a href="#四、总结（核心关键点）" class="headerlink" title="四、总结（核心关键点）"></a>四、总结（核心关键点）</h3><ol>
-<li><strong>状态表示</strong>：用长度为 9 的字符串表示 3×3 棋盘，是八数码问题的简洁高效写法，核心是 “字符串索引↔二维坐标” 的转换（<code>k/3</code>&#x2F;<code>k%3</code>&#x2F;<code>a*3+b</code>）；</li>
-<li><strong>BFS 核心</strong>：队列保证层序遍历（最短步数），<code>unordered_map</code> 同时记录步数和判重，是 BFS 解决最短路径问题的经典组合；</li>
-<li><strong>方向处理</strong>：方向数组 <code>dx/dy</code> 简化四个方向的遍历，越界判断避免非法操作；</li>
-<li><strong>回溯交换</strong>：交换生成新状态后必须回溯，保证每个方向的处理基于原始状态；</li>
-<li><strong>无解处理</strong>：BFS 遍历完所有状态仍未找到目标，返回 -1（八数码无解的本质是 “逆序数为奇数”）。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/13/BFS-%E6%A8%A1%E6%9D%BF%E9%A2%98/" data-id="cuidFyuVxIGmpSCcedDIicePB" data-title="BFS 模板题" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -917,7 +774,7 @@ return 0;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 16.67px;">BFS</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/DFS/" style="font-size: 13.33px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
+      <a href="/tags/BFS/" style="font-size: 17.5px;">BFS</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DFS/" style="font-size: 15px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 12.5px;">数学</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
     </div>
   </div>
 
@@ -939,6 +796,10 @@ return 0;
       <ul>
         
           <li>
+            <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">AcWing 1247 后缀表达式</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/">AcWing 1239 乘积最大</a>
           </li>
         
@@ -952,10 +813,6 @@ return 0;
         
           <li>
             <a href="/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/">灵能传输</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/">大臣的旅费</a>
           </li>
         
       </ul>
