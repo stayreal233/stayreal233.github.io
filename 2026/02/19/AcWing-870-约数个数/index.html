@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>AcWing 870 约数个数 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="给定 n 个正整数 ai，请你输出这些数的乘积的约数个数，答案对 109+7 取模。 输入格式第一行包含整数 n。 接下来 n 行，每行包含一个整数 ai。 输出格式输出一个整数，表示所给正整数的乘积的约数个数，答案需对 109+7 取模。 数据范围1≤n≤100,1≤ai≤2×109 输入样例：12343268  输出样例：112   数论经典题：乘积的约数个数（算术基本定理）这是一道非常经典的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AcWing 870 约数个数">
+<meta property="og:url" content="http://example.com/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="给定 n 个正整数 ai，请你输出这些数的乘积的约数个数，答案对 109+7 取模。 输入格式第一行包含整数 n。 接下来 n 行，每行包含一个整数 ai。 输出格式输出一个整数，表示所给正整数的乘积的约数个数，答案需对 109+7 取模。 数据范围1≤n≤100,1≤ai≤2×109 输入样例：12343268  输出样例：112   数论经典题：乘积的约数个数（算术基本定理）这是一道非常经典的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-19T08:49:11.000Z">
+<meta property="article:modified_time" content="2026-02-19T09:02:05.502Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="模板">
+<meta property="article:tag" content="约数">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-AcWing-870-约数个数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2026-02-19T08:49:11.000Z" itemprop="datePublished">2026-02-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      AcWing 870 约数个数
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>给定 n 个正整数 ai，请你输出这些数的乘积的约数个数，答案对 109+7 取模。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含整数 n。</p>
+<p>接下来 n 行，每行包含一个整数 ai。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数，表示所给正整数的乘积的约数个数，答案需对 109+7 取模。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤100,<br>1≤ai≤2×109</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2</span><br><span class="line">6</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">12</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><h1 id="数论经典题：乘积的约数个数（算术基本定理）"><a href="#数论经典题：乘积的约数个数（算术基本定理）" class="headerlink" title="数论经典题：乘积的约数个数（算术基本定理）"></a>数论经典题：乘积的约数个数（算术基本定理）</h1><p>这是一道非常经典的<strong>数论</strong>题目，主要考察的是 ** 算术基本定理（唯一分解定理）** 的应用。</p>
+<p>要解出这道题，我们不需要真的把所有数乘起来（因为积会非常巨大，远超 <code>long long</code> 的范围），而是通过分解质因数的方法来间接计算。</p>
+<hr>
+<h2 id="一、核心数学原理"><a href="#一、核心数学原理" class="headerlink" title="一、核心数学原理"></a>一、核心数学原理</h2><h3 id="1-算术基本定理"><a href="#1-算术基本定理" class="headerlink" title="1. 算术基本定理"></a>1. 算术基本定理</h3><p>任何一个大于 1 的自然数 N，都可以唯一分解成有限个质因数的乘积：</p>
+<p>N&#x3D;p1^α1×p2^α2×⋯×pk^αk</p>
+<p>其中 pi 是质数，αi 是对应的指数（即这个质数出现了几次）。</p>
+<h3 id="2-约数个数定理"><a href="#2-约数个数定理" class="headerlink" title="2. 约数个数定理"></a>2. 约数个数定理</h3><p>如果一个数 N 已经写成了上面的质因数分解形式，那么它的<strong>约数个数</strong>为：</p>
+<p>约数个数&#x3D;(α1+1)×(α2+1)×⋯×(αk+1)</p>
+<p><strong>直观理解：</strong></p>
+<p>对于每一个质因数 pi，构造约数时可以选择取 0 个、1 个…… 直到 αi 个，共有 (αi+1) 种选法。</p>
+<p>根据乘法原理，总选法就是各指数加一后的乘积。</p>
+<h3 id="3-多个数乘积的情况"><a href="#3-多个数乘积的情况" class="headerlink" title="3. 多个数乘积的情况"></a>3. 多个数乘积的情况</h3><p>如果我们要算 a1×a2×⋯×an 的约数个数：</p>
+<ul>
+<li>分别对每一个 ai 进行质因数分解</li>
+<li>把所有数中相同质因数的<strong>指数累加</strong></li>
+<li>再用约数个数公式计算</li>
+</ul>
+<p><strong>示例：</strong> 6×8</p>
+<ul>
+<li>6&#x3D;2^1×3^1</li>
+<li>8&#x3D;2^3</li>
+<li>乘积分解：2^(1+3)×3^1&#x3D;2^4×3^1</li>
+<li>约数个数：(4+1)×(1+1)&#x3D;10</li>
+</ul>
+<hr>
+<h2 id="二、解题步骤"><a href="#二、解题步骤" class="headerlink" title="二、解题步骤"></a>二、解题步骤</h2><ol>
+<li>用一个哈希表（C++ 中用 <code>std::unordered_map</code> &#x2F; <code>std::map</code>），key 存<strong>质数</strong>，value 存该质数的<strong>总指数</strong>。</li>
+<li>遍历每个输入数 ai，对其质因数分解，更新哈希表。</li>
+<li>遍历哈希表，按公式 (α+1) 累乘，对 1e9+7 取模。</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h3 id="三、-C-代码实现"><a href="#三、-C-代码实现" class="headerlink" title="三、 C++ 代码实现"></a>三、 C++ 代码实现</h3><p>代码逻辑简洁，通过 <code>map</code> 自动处理质因数的统计：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 质因数分解函数：统计 n 中每个质因数出现的次数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_prime_factors</span><span class="params">(<span class="type">int</span> n, unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&amp; primes)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 从 2 开始到 sqrt(n) 遍历</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n / i; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (n % i == <span class="number">0</span>) &#123;</span><br><span class="line">            n /= i;</span><br><span class="line">            primes[i]++; <span class="comment">// 统计质因数 i 的指数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果最后 n &gt; 1，说明剩下的 n 也是一个质因数</span></span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">1</span>) primes[n]++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用哈希表存储：质数 -&gt; 总指数</span></span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; primes;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        <span class="built_in">get_prime_factors</span>(a, primes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据约数个数定理计算答案</span></span><br><span class="line">    LL res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> prime : primes) &#123;</span><br><span class="line">        <span class="comment">// 每个指数 + 1 后乘到结果中</span></span><br><span class="line">        res = res * (prime.second + <span class="number">1</span>) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li><h2 id="四、关键点解析（新手必读）"><a href="#四、关键点解析（新手必读）" class="headerlink" title="四、关键点解析（新手必读）"></a>四、关键点解析（新手必读）</h2><h3 id="1-为什么只枚举到-n"><a href="#1-为什么只枚举到-n" class="headerlink" title="1. 为什么只枚举到 n"></a>1. 为什么只枚举到 n</h3><p>一个数 n 最多只有<strong>一个</strong>大于 n 的质因数（否则乘积会超过 n）。</p>
+<p>循环到 i≤n&#x2F;i 即可，最后若 n&gt;1，说明剩下的本身是质数。</p>
+<p>时间复杂度从 O(n) 降到 O(n)。</p>
+<h3 id="2-unordered-map-的作用"><a href="#2-unordered-map-的作用" class="headerlink" title="2. unordered_map 的作用"></a>2. <code>unordered_map</code> 的作用</h3><ul>
+<li>自动去重、自动累加</li>
+<li>所有数分解出的同一个质因数，都累加到同一个 key 上</li>
+</ul>
+<h3 id="3-溢出与取模"><a href="#3-溢出与取模" class="headerlink" title="3. 溢出与取模"></a>3. 溢出与取模</h3><ul>
+<li>乘法中间结果会超 <code>int</code>，必须用 <code>long long</code></li>
+<li>每次乘完立刻 <code>% MOD</code>，是大数取模题标准写法</li>
+</ul>
+<h3 id="4-时间复杂度"><a href="#4-时间复杂度" class="headerlink" title="4. 时间复杂度"></a>4. 时间复杂度</h3><ul>
+<li>对 n 个数，每个数分解 O(ai)</li>
+<li>总复杂度：O(nai)</li>
+<li>数据范围内运行极快，可轻松通过</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/" data-id="cuid6gMYHDpyWd7eGHusbgqt_" data-title="AcWing 870 约数个数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%A6%E6%95%B0/" rel="tag">约数</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          AcWing 871 约数之和
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AcWing 112 雷达设备</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="tag">中位数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%90%E6%A0%87/" rel="tag">坐标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" rel="tag">按层求和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" rel="tag">树的直径</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A6%E6%95%B0/" rel="tag">约数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 12.5px;">C++</a> <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">公式</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 17.5px;">数学</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 12.5px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/">辗转相除法求最大公约数</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/">AcWing 871 约数之和</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/">AcWing 870 约数个数</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/">AcWing 112 雷达设备</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">AcWing 1247 后缀表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

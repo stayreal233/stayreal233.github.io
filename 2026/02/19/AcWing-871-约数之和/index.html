@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>AcWing 871 约数之和 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数论经典题：乘积的约数之和（约数之和定理）这道题是上一题 “约数个数” 的延伸，核心考点依然是算术基本定理（唯一分解定理），重点考查约数之和定理的应用。  一、核心数学原理1. 唯一分解定理任何一个大于 1 的自然数 N，都可以唯一分解为： N&#x3D;p1^α1×p2^α2×⋯×pk^αk 其中 pi 是质数，αi 是该质数的指数（出现次数）。 2. 约数之和定理若 N 的质因数分解式如上，则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AcWing 871 约数之和">
+<meta property="og:url" content="http://example.com/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数论经典题：乘积的约数之和（约数之和定理）这道题是上一题 “约数个数” 的延伸，核心考点依然是算术基本定理（唯一分解定理），重点考查约数之和定理的应用。  一、核心数学原理1. 唯一分解定理任何一个大于 1 的自然数 N，都可以唯一分解为： N&#x3D;p1^α1×p2^α2×⋯×pk^αk 其中 pi 是质数，αi 是该质数的指数（出现次数）。 2. 约数之和定理若 N 的质因数分解式如上，则">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-19T14:57:45.000Z">
+<meta property="article:modified_time" content="2026-02-19T15:00:55.264Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="公式">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="约数">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-AcWing-871-约数之和" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/" class="article-date">
+  <time class="dt-published" datetime="2026-02-19T14:57:45.000Z" itemprop="datePublished">2026-02-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      AcWing 871 约数之和
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数论经典题：乘积的约数之和（约数之和定理）"><a href="#数论经典题：乘积的约数之和（约数之和定理）" class="headerlink" title="数论经典题：乘积的约数之和（约数之和定理）"></a>数论经典题：乘积的约数之和（约数之和定理）</h1><p>这道题是上一题 “约数个数” 的延伸，核心考点依然是<strong>算术基本定理（唯一分解定理）</strong>，重点考查<strong>约数之和定理</strong>的应用。</p>
+<hr>
+<h2 id="一、核心数学原理"><a href="#一、核心数学原理" class="headerlink" title="一、核心数学原理"></a>一、核心数学原理</h2><h3 id="1-唯一分解定理"><a href="#1-唯一分解定理" class="headerlink" title="1. 唯一分解定理"></a>1. 唯一分解定理</h3><p>任何一个大于 1 的自然数 N，都可以唯一分解为：</p>
+<p>N&#x3D;p1^α1×p2^α2×⋯×pk^αk</p>
+<p>其中 pi 是质数，αi 是该质数的指数（出现次数）。</p>
+<h3 id="2-约数之和定理"><a href="#2-约数之和定理" class="headerlink" title="2. 约数之和定理"></a>2. 约数之和定理</h3><p>若 N 的质因数分解式如上，则 N 的所有约数之和 S 为：</p>
+<p>S&#x3D;(p1^0+p1^1+⋯+p1^α1)×(p2^0+p2^1+⋯+p2^α2)×⋯×(pk^0+pk^1+⋯+pk^αk)</p>
+<p><strong>直观理解</strong>：</p>
+<p>从每个括号中各选一项相乘，得到的就是 N 的一个约数；将所有组合的结果相加（即括号展开），就是所有约数的总和。</p>
+<h3 id="3-多个数乘积的情况"><a href="#3-多个数乘积的情况" class="headerlink" title="3. 多个数乘积的情况"></a>3. 多个数乘积的情况</h3><p>对于 n 个数的乘积，只需先统计所有数中<strong>每个质因数的总指数</strong>，再套用约数之和定理即可 —— 无需直接计算大数乘积，避免溢出。</p>
+<hr>
+<h2 id="二、算法实现细节"><a href="#二、算法实现细节" class="headerlink" title="二、算法实现细节"></a>二、算法实现细节</h2><p>公式中每一项 (p0+p1+⋯+pα) 无需暴力计算幂次，可通过如下简洁循环高效求解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">long long t = 1;</span><br><span class="line">while (alpha--) &#123;</span><br><span class="line">    t = (t * p + 1) % MOD;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>技巧原理</strong>（递推推导）：</p>
+<ul>
+<li>α&#x3D;0 时：t&#x3D;1（对应 p0）</li>
+<li>α&#x3D;1 时：t&#x3D;1×p+1&#x3D;p+1（对应 p1+p0）</li>
+<li>α&#x3D;2 时：t&#x3D;(p+1)×p+1&#x3D;p2+p+1（对应 p2+p1+p0）</li>
+<li>以此类推，既简洁又避免大数幂运算的溢出风险。</li>
+</ul>
+<hr>
+<h2 id="三、C-代码实现"><a href="#三、C-代码实现" class="headerlink" title="三、C++ 代码实现"></a>三、C++ 代码实现</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;unordered_map&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long LL;</span><br><span class="line"></span><br><span class="line">const int MOD = 1e9 + 7;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    // 1. 哈希表存储：质因数 -&gt; 所有数乘积后的总指数</span><br><span class="line">    unordered_map&lt;int, int&gt; primes;</span><br><span class="line"></span><br><span class="line">    while (n--) &#123;</span><br><span class="line">        int a;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        // 分解当前数的质因数，累加指数</span><br><span class="line">        for (int i = 2; i &lt;= a / i; i++) &#123;</span><br><span class="line">            while (a % i == 0) &#123;</span><br><span class="line">                a /= i;</span><br><span class="line">                primes[i]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        // 剩余大于1的数也是质因数</span><br><span class="line">        if (a &gt; 1) primes[a]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 2. 按约数之和定理计算结果</span><br><span class="line">    LL res = 1;</span><br><span class="line">    for (auto prime : primes) &#123;</span><br><span class="line">        LL p = prime.first;    // 质因数底数</span><br><span class="line">        LL a = prime.second;   // 质因数总指数</span><br><span class="line">        </span><br><span class="line">        // 计算 (p^0 + p^1 + ... + p^a)</span><br><span class="line">        LL t = 1;</span><br><span class="line">        while (a--) &#123;</span><br><span class="line">            t = (t * p + 1) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        // 累乘每一项结果，每次取模避免溢出</span><br><span class="line">        res = res * t % MOD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、关键点解析"><a href="#四、关键点解析" class="headerlink" title="四、关键点解析"></a>四、关键点解析</h2><h3 id="1-指数与底数的双重关注"><a href="#1-指数与底数的双重关注" class="headerlink" title="1. 指数与底数的双重关注"></a>1. 指数与底数的双重关注</h3><p>与 “约数个数” 仅需用到指数（α+1）不同，约数之和需要同时用到<strong>底数（质数 *<em>p*</em>）** 和</strong>指数（*<em>α*</em>）**，需注意两者的类型处理（均需转为 <code>long long</code> 避免溢出）。</p>
+<h3 id="2-取模运算的陷阱"><a href="#2-取模运算的陷阱" class="headerlink" title="2. 取模运算的陷阱"></a>2. 取模运算的陷阱</h3><p>计算 <code>t = (t * p + 1) % MOD</code> 时：</p>
+<ul>
+<li>p 虽是 <code>int</code>，但 <code>t * p</code> 可能超过 2×109（如 p 接近 2×109 时）；</li>
+<li>必须将 <code>t</code> 定义为 <code>long long</code>，或对乘法项强制类型转换，确保运算不溢出。</li>
+</ul>
+<h3 id="3-计算顺序的合理性"><a href="#3-计算顺序的合理性" class="headerlink" title="3. 计算顺序的合理性"></a>3. 计算顺序的合理性</h3><p>先完整统计所有数的质因数及总指数，再统一计算约数之和 —— 因为约数之和定理针对的是 “最终乘积” 的整体质因数分解式，而非单个数字。</p>
+<h3 id="4-时间复杂度分析"><a href="#4-时间复杂度分析" class="headerlink" title="4. 时间复杂度分析"></a>4. 时间复杂度分析</h3><ul>
+<li>质因数分解：n 次操作，每次 O(ai)；</li>
+<li>哈希表遍历：质因数个数远小于 n×log(ai)；</li>
+<li>总复杂度 O(nai)，在 、 时约为 4.5×106，完全满足 1 秒限时。</li>
+</ul>
+<h3 id="总结比较（与约数个数题对比）"><a href="#总结比较（与约数个数题对比）" class="headerlink" title="总结比较（与约数个数题对比）"></a>总结比较（与约数个数题对比）</h3><table>
+<thead>
+<tr>
+<th align="center">题型</th>
+<th align="center">核心公式</th>
+<th align="center">核心差异</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">约数个数</td>
+<td align="center">∏(αi+1)</td>
+<td align="center">仅需指数 + 1 后累乘</td>
+</tr>
+<tr>
+<td align="center">约数之和</td>
+<td align="center">∏(∑j&#x3D;0αipij)</td>
+<td align="center">需计算幂和后累乘</td>
+</tr>
+</tbody></table>
+<p>两者代码框架几乎一致，核心区别仅在于<strong>最后累乘的逻辑</strong>，均基于质因数分解的核心思想。</p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>约数之和定理的核心是 “质因数幂和的乘积”，需先统计所有数的质因数总指数；</li>
+<li>用递推公式 <code>t = (t * p + 1) % MOD</code> 计算幂和，避免暴力幂运算和大数溢出；</li>
+<li>所有乘法运算需用 <code>long long</code> 存储中间结果，并及时取模（109+7）。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/" data-id="cuidmlFZq8IA7cn4Yq7yNwcL5" data-title="AcWing 871 约数之和" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%A6%E6%95%B0/" rel="tag">约数</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          辗转相除法求最大公约数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AcWing 870 约数个数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="tag">中位数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%90%E6%A0%87/" rel="tag">坐标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" rel="tag">按层求和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" rel="tag">树的直径</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A6%E6%95%B0/" rel="tag">约数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 12.5px;">C++</a> <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">公式</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 17.5px;">数学</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 12.5px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/">辗转相除法求最大公约数</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/">AcWing 871 约数之和</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/">AcWing 870 约数个数</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/">AcWing 112 雷达设备</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">AcWing 1247 后缀表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
