@@ -71,6 +71,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-扫描线" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/10/%E6%89%AB%E6%8F%8F%E7%BA%BF/" class="article-date">
+  <time class="dt-published" datetime="2026-02-10T08:16:06.000Z" itemprop="datePublished">2026-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/10/%E6%89%AB%E6%8F%8F%E7%BA%BF/">扫描线</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="扫描线"><a href="#扫描线" class="headerlink" title="扫描线"></a>扫描线</h1><p>1.扫描线是一根线，从下往上扫，以每个矩形的上下边为界，可以把n个矩形组成的区域分割成2n-1个区块。</p>
+<p>2.区块高度就是扫过的距离，即Yi+1-Yi。</p>
+<p>3.区块长度就是区块内矩形长度的并，即leni。</p>
+<p>4.面积并＝leni*(yi+1-yi)</p>
+<p>5.区块长度可以用<em>线段树</em>维护，每当扫到一个矩形的下边时，就加入该矩形长度的贡献；而当扫到这个矩形的上边时，就减去该矩形长度的贡献。</p>
+<p>6.区块长度需要通过矩形的X坐标来拼凑，但是，所给矩形的X坐标“值域大(10^9)，数量小(10^5)”，就需要离散化。</p>
+<p><a target="_blank" rel="noopener" href="https://tucdn.wpon.cn/2026/02/10/e51db5a673953-1770715188.png">https://tucdn.wpon.cn/2026/02/10/e51db5a673953-1770715188.png</a></p>
+<p><a target="_blank" rel="noopener" href="https://tucdn.wpon.cn/2026/02/10/19e3742b5ed19-1770720466.png">https://tucdn.wpon.cn/2026/02/10/19e3742b5ed19-1770720466.png</a></p>
+<h1 id="P5490-【模板】扫描线-矩形面积并"><a href="#P5490-【模板】扫描线-矩形面积并" class="headerlink" title="P5490 【模板】扫描线 &amp; 矩形面积并"></a>P5490 【模板】扫描线 &amp; 矩形面积并</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>求 <strong>n</strong> 个四边平行于坐标轴的矩形的面积并。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个正整数 <strong>n</strong>。</p>
+<p>接下来 <strong>n</strong> 行每行四个非负整数 <strong>x_1, y_1, x_2, y_2</strong>，表示一个矩形的四个端点坐标为 <strong>(x_1, y_1),(x_1, y_2),(x_2, y_2),(x_2, y_1)</strong>。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行一个正整数，表示 <strong>n</strong> 个矩形的并集覆盖的总面积。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">100 100 200 200</span><br><span class="line">150 150 250 255</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">18000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>对于 <strong>20%</strong> 的数据，<strong>1 \le n \le 1000</strong>。<br>对于 <strong>100%</strong> 的数据，<strong>1 \le n \le {10}^5</strong>，<strong>0 \le x_1 &lt; x_2 \le {10}^9</strong>，<strong>0 \le y_1 &lt; y_2 \le {10}^9</strong>。</p>
+<p>Updated on 4.10 by Dengduck（口胡） &amp; yummy（实现）：增加了一组数据。</p>
+<p>这是一个非常经典的**扫描线（Scanline）**算法题目。对于新手来说，理解这个问题的关键在于将二维的图形问题转化为一维的数据结构问题。</p>
+<p>为了让你最容易理解，我将分三步讲解：核心思路、代码实现、以及代码的逐行解释。</p>
+<h3 id="1-核心思路：就像切土豆片"><a href="#1-核心思路：就像切土豆片" class="headerlink" title="1. 核心思路：就像切土豆片"></a>1. 核心思路：就像切土豆片</h3><p>想象平面上有一堆重叠的矩形。我们拿一把刀（扫描线），从最左边开始，竖直地切下去，一直移动到最右边。</p>
+<p><strong>步骤如下：</strong></p>
+<ol>
+<li><strong>切分：</strong> 扫描线在每一个矩形的 <strong>左边（入边）</strong> 和 <strong>右边（出边）</strong> 停下来。这样，整个图形被切成了一个个竖直的长条。</li>
+<li><strong>计算面积：</strong> 每一个长条的面积 &#x3D; <code>(当前被覆盖的纵向长度) × (下一条线与当前线的横向距离)</code>。</li>
+<li><strong>累加：</strong> 把所有长条的面积加起来，就是总面积。</li>
+</ol>
+<p><strong>难点在于：如何快速计算“当前被覆盖的纵向长度”？</strong></p>
+<p>由于矩形的坐标非常大（<em>10^9</em>），我们不能开一个巨大的数组来标记。我们需要用到两个技巧：</p>
+<ol>
+<li><strong>离散化：</strong> 把所有用到的 <em>Y</em> 坐标收集起来，排序并去重。比如 <em>Y</em> 坐标是 <em>[100, 200, 150, 255]</em>，排序后变成 <em>100, 150, 200, 255</em>。这样就把无限的坐标轴映射成了有限的数组下标 <strong>1, 2, 3, 4</strong>。</li>
+<li><strong>线段树：</strong> 用线段树来维护当前 <strong>Y</strong> 轴上有多少长度被覆盖了。<ul>
+<li>遇到矩形<strong>左边</strong>：对应的 <strong>Y</strong> 区间覆盖次数 <strong>+1</strong>。</li>
+<li>遇到矩形<strong>右边</strong>：对应的 <strong>Y</strong> 区间覆盖次数 <strong>-1</strong>。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="2-新手友好的-C-代码"><a href="#2-新手友好的-C-代码" class="headerlink" title="2. 新手友好的 C++ 代码"></a>2. 新手友好的 C++ 代码</h3><p>这段代码尽量避免了复杂的压行和位运算技巧，重点在于清晰的变量命名和逻辑注释。</p>
+<p>C++</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">// 使用 long long 防止运算过程中溢出</span><br><span class="line">// 题目中坐标到了 10^9，面积可能达到 10^18，long long 是必须的</span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line">const int MAXN = 200005; // 矩形最多 1e5，扫描线和坐标最多 2e5</span><br><span class="line"></span><br><span class="line">// 【结构体 1】扫描线</span><br><span class="line">// 想象一条竖线，它有 x 坐标，还有它覆盖的 y 轴范围 [y1, y2]</span><br><span class="line">// flag = 1 表示这是矩形的左边（开始覆盖）</span><br><span class="line">// flag = -1 表示这是矩形的右边（结束覆盖）</span><br><span class="line">struct ScanLine &#123;</span><br><span class="line">    ll x, y1, y2;</span><br><span class="line">    int flag;</span><br><span class="line"></span><br><span class="line">    // 重载小于号，让扫描线按 x 坐标从左到右排序</span><br><span class="line">    bool operator&lt;(const ScanLine &amp;other) const &#123;</span><br><span class="line">        return x &lt; other.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; lines[MAXN];</span><br><span class="line"></span><br><span class="line">// 【结构体 2】线段树节点</span><br><span class="line">struct Node &#123;</span><br><span class="line">    int l, r;   // 节点管理的离散化后的下标范围 [l, r]</span><br><span class="line">    int cnt;    // 当前区间被完全覆盖了多少次</span><br><span class="line">    ll len;     // 当前区间内被实际覆盖的物理长度</span><br><span class="line">&#125; tree[MAXN * 8]; // 线段树一般开 4 倍，这里为了保险开 8 倍</span><br><span class="line"></span><br><span class="line">// 原始的 y 坐标数组，用于离散化（把巨大的坐标映射成小的下标）</span><br><span class="line">vector&lt;ll&gt; raw_y;</span><br><span class="line"></span><br><span class="line">// --- 线段树辅助函数 ---</span><br><span class="line"></span><br><span class="line">// 向上更新：用子节点的信息更新父节点</span><br><span class="line">// 这是本题最难理解的部分，请仔细看注释</span><br><span class="line">void pushup(int u) &#123;</span><br><span class="line">    // 情况 1：如果当前节点被完全覆盖了 (cnt &gt; 0)</span><br><span class="line">    // 那么它的有效长度就是它管理的物理区间长度</span><br><span class="line">    // 注意：raw_y 的下标是从 0 开始的</span><br><span class="line">    // 节点 u 管理下标范围 [tree[u].l, tree[u].r]，对应的物理区间是 raw_y[tree[u].r + 1] - raw_y[tree[u].l]</span><br><span class="line">    // 比如：下标 0~1，对应物理坐标 raw_y[0] 到 raw_y[1] 的距离</span><br><span class="line">    if (tree[u].cnt &gt; 0) &#123;</span><br><span class="line">        tree[u].len = raw_y[tree[u].r + 1] - raw_y[tree[u].l];</span><br><span class="line">    &#125; </span><br><span class="line">    // 情况 2：如果没有被完全覆盖，且是叶子节点</span><br><span class="line">    else if (tree[u].l == tree[u].r) &#123;</span><br><span class="line">        tree[u].len = 0;</span><br><span class="line">    &#125; </span><br><span class="line">    // 情况 3：如果没有被完全覆盖，且不是叶子节点</span><br><span class="line">    // 长度等于左右儿子的长度之和</span><br><span class="line">    else &#123;</span><br><span class="line">        tree[u].len = tree[u * 2].len + tree[u * 2 + 1].len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 建树</span><br><span class="line">void build(int u, int l, int r) &#123;</span><br><span class="line">    tree[u].l = l;</span><br><span class="line">    tree[u].r = r;</span><br><span class="line">    tree[u].cnt = 0;</span><br><span class="line">    tree[u].len = 0;</span><br><span class="line">    </span><br><span class="line">    if (l == r) return;</span><br><span class="line">    </span><br><span class="line">    int mid = (l + r) &gt;&gt; 1;</span><br><span class="line">    build(u * 2, l, mid);</span><br><span class="line">    build(u * 2 + 1, mid + 1, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 修改区间</span><br><span class="line">// L, R: 我们要修改的目标区间（离散化后的下标）</span><br><span class="line">// v: 增加的值（1 或 -1）</span><br><span class="line">void modify(int u, int L, int R, int v) &#123;</span><br><span class="line">    // 如果当前节点管理的区间完全包含在目标区间内</span><br><span class="line">    if (L &lt;= tree[u].l &amp;&amp; tree[u].r &lt;= R) &#123;</span><br><span class="line">        tree[u].cnt += v;</span><br><span class="line">        pushup(u); // 更新当前节点的长度</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int mid = (tree[u].l + tree[u].r) &gt;&gt; 1;</span><br><span class="line">    // 如果目标区间涉及到左儿子</span><br><span class="line">    if (L &lt;= mid) modify(u * 2, L, R, v);</span><br><span class="line">    // 如果目标区间涉及到右儿子</span><br><span class="line">    if (R &gt; mid) modify(u * 2 + 1, L, R, v);</span><br><span class="line">    </span><br><span class="line">    pushup(u); // 子节点变了，父节点也要算一下</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// --- 查找 Y 坐标对应的下标 ---</span><br><span class="line">int find_y(ll y) &#123;</span><br><span class="line">    // lower_bound 返回第一个大于等于 y 的位置</span><br><span class="line">    return lower_bound(raw_y.begin(), raw_y.end(), y) - raw_y.begin();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // 优化输入输出速度</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(0);</span><br><span class="line"></span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        ll x1, y1, x2, y2;</span><br><span class="line">        cin &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;</span><br><span class="line">        </span><br><span class="line">        // 矩形左边：入边，权值 +1</span><br><span class="line">        lines[i * 2] = &#123;x1, y1, y2, 1&#125;;</span><br><span class="line">        // 矩形右边：出边，权值 -1</span><br><span class="line">        lines[i * 2 + 1] = &#123;x2, y1, y2, -1&#125;;</span><br><span class="line">        </span><br><span class="line">        // 把用到的 y 坐标都存起来</span><br><span class="line">        raw_y.push_back(y1);</span><br><span class="line">        raw_y.push_back(y2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // --- 离散化 Y 坐标 ---</span><br><span class="line">    sort(raw_y.begin(), raw_y.end()); // 排序</span><br><span class="line">    // unique 去重，返回去重后的尾部迭代器</span><br><span class="line">    // erase 删除多余的元素</span><br><span class="line">    raw_y.erase(unique(raw_y.begin(), raw_y.end()), raw_y.end());</span><br><span class="line"></span><br><span class="line">    // --- 排序扫描线 ---</span><br><span class="line">    sort(lines, lines + 2 * n);</span><br><span class="line"></span><br><span class="line">    // --- 建树 ---</span><br><span class="line">    // 注意：如果有 k 个不同的 y 坐标，构成的区间只有 k-1 个</span><br><span class="line">    // 比如 y 坐标有 3 个：10, 20, 30。区间只有 [10,20] 和 [20,30]</span><br><span class="line">    // 所以范围是 0 到 raw_y.size() - 2</span><br><span class="line">    if (raw_y.size() &gt; 1) &#123;</span><br><span class="line">        build(1, 0, raw_y.size() - 2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ll ans = 0;</span><br><span class="line">    </span><br><span class="line">    // --- 开始扫描 ---</span><br><span class="line">    // 只需要遍历到倒数第二条线，因为最后一条线是矩形的右边缘，右边没有面积了</span><br><span class="line">    for (int i = 0; i &lt; 2 * n - 1; i++) &#123;</span><br><span class="line">        // 1. 获取当前线段 y1, y2 在数组中的下标</span><br><span class="line">        int L = find_y(lines[i].y1);</span><br><span class="line">        int R = find_y(lines[i].y2);</span><br><span class="line">        </span><br><span class="line">        // 2. 更新线段树</span><br><span class="line">        // 注意：我们更新的是区间 [L, R-1]</span><br><span class="line">        // 因为线段树节点 i 管辖的是 raw_y[i] 到 raw_y[i+1] 这一段长度</span><br><span class="line">        // 比如 y=10~30，对应下标 0~2。</span><br><span class="line">        // 它覆盖了 区间0(10~20) 和 区间1(20~30)，所以更新范围是 0 到 1</span><br><span class="line">        if (L &lt; R) &#123;</span><br><span class="line">            modify(1, L, R - 1, lines[i].flag);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        // 3. 累加面积</span><br><span class="line">        // 面积 = (线段树维护的当前被覆盖的总长度) * (下一条线和当前线的 x 距离)</span><br><span class="line">        ans += tree[1].len * (lines[i + 1].x - lines[i].x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-重点逻辑解释（必看）"><a href="#3-重点逻辑解释（必看）" class="headerlink" title="3. 重点逻辑解释（必看）"></a>3. 重点逻辑解释（必看）</h3><p>新手在做这道题时，最容易在以下两个地方卡住：</p>
+<h4 id="A-为什么更新范围是-L-R-1-而不是-L-R-？"><a href="#A-为什么更新范围是-L-R-1-而不是-L-R-？" class="headerlink" title="A. 为什么更新范围是 [L, R-1] 而不是 [L, R]？"></a>A. 为什么更新范围是 <code>[L, R-1]</code> 而不是 <code>[L, R]</code>？</h4><p>这是一个<strong>区间映射</strong>的问题。</p>
+<ul>
+<li>假设所有的 <strong>Y</strong> 坐标排序后是：<code>10, 20, 30, 40</code>。下标分别是 <code>0, 1, 2, 3</code>。</li>
+<li>线段树的<strong>叶子节点</strong>代表的是<strong>两个相邻坐标之间的线段</strong>。<ul>
+<li>节点 <code>0</code> 代表 <code>raw_y[0]</code> 到 <code>raw_y[1]</code> 的长度（即 <strong>10 \to 20</strong>）。</li>
+<li>节点 <code>1</code> 代表 <code>raw_y[1]</code> 到 <code>raw_y[2]</code> 的长度（即 <strong>20 \to 30</strong>）。</li>
+</ul>
+</li>
+<li>现在来了一个矩形，纵向范围是 <strong>10 \to 30</strong>。<ul>
+<li>离散化后，它对应的下标范围是 <strong>0</strong> 到 <strong>2</strong>。</li>
+<li>实际上，它覆盖了“节点 0”（10-20）和“节点 1”（20-30）。</li>
+<li>它<strong>并没有</strong>覆盖以 <strong>30</strong> 开头的区间。</li>
+<li>所以我们需要更新线段树的区间 <code>[0, 1]</code>，也就是 <code>[L, R-1]</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="B-为什么不需要-pushdown（Lazy-标记下放）？"><a href="#B-为什么不需要-pushdown（Lazy-标记下放）？" class="headerlink" title="B. 为什么不需要 pushdown（Lazy 标记下放）？"></a>B. 为什么不需要 <code>pushdown</code>（Lazy 标记下放）？</h4><p>这是扫描线算法的一个特殊性质。普通的线段树做区间加减时，查询子区间需要把父节点的标记推下去。</p>
+<p>但在扫描线求面积并中：</p>
+<ol>
+<li>操作是<strong>成对</strong>的：加多少次 1，最后一定会减多少次 1。</li>
+<li>我们<strong>只查询根节点</strong>：我们只需要知道整个 Y 轴上一共覆盖了多长（<code>tree[1].len</code>），不需要知道局部某个小区间被覆盖了多少次。</li>
+<li><strong>计算逻辑巧妙</strong>：<ul>
+<li>如果当前节点 <code>cnt &gt; 0</code>，说明这一段全被覆盖了，长度直接算出来。</li>
+<li>如果 <code>cnt == 0</code>，说明没有被全覆盖，长度就等于左儿子长度+右儿子长度（<code>pushup</code>）。</li>
+<li>我们永远不需要查询“某个子节点当前的 <code>cnt</code> 是多少”，所以不需要把 <code>cnt</code> 往下推。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/10/%E6%89%AB%E6%8F%8F%E7%BA%BF/" data-id="cuid-6owQaTGVMEO0oF8AtIDk" data-title="扫描线" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AcWing1237-螺旋折线" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/" class="article-date">
@@ -117,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/" data-id="cuidSZ217Sudxg0IkbOKgv1bc" data-title="AcWing1237.螺旋折线" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/10/AcWing1237-%E8%9E%BA%E6%97%8B%E6%8A%98%E7%BA%BF/" data-id="cuidRHQf4wBrkxK1Cj79TmM3H" data-title="AcWing1237.螺旋折线" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -173,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/" data-id="cuidXv0e6Cw_ySmj8Gkp0cT8m" data-title="AcWing1270.数列区间最大值" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/09/AcWing1270-%E6%95%B0%E5%88%97%E5%8C%BA%E9%97%B4%E6%9C%80%E5%A4%A7%E5%80%BC/" data-id="cuidoCJjNQto-vJ70brFHRdBW" data-title="AcWing1270.数列区间最大值" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -250,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuidt-6lBKmftCB8uVR-Y8WEr" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/%E7%BA%BF%E6%AE%B5%E6%A0%91/" data-id="cuidqb6pWtTc4y-2QP5Y2hUI6" data-title="线段树" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -301,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/08/hello-world/" data-id="cuidxV3DgKPNmClepkwNZkWqv" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/08/hello-world/" data-id="cuidWx3HYX16fs6r56tVWAent" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -348,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/10/27/LeetCode-123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="cuid3-nrnUMMAT-mdF1swHm02" data-title="LeetCode 123. 买卖股票的最佳时机 III" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/10/27/LeetCode-123-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="cuidhw-kmgwCHhvrtdVs6srpf" data-title="LeetCode 123. 买卖股票的最佳时机 III" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -397,7 +506,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 12.5px;">C++</a> <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">公式</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 17.5px;">数学</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 12.5px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
+      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 12.5px;">C++</a> <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">公式</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 17.5px;">数学</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 15px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
     </div>
   </div>
 
@@ -419,6 +528,10 @@
       <ul>
         
           <li>
+            <a href="/2026/02/20/AcWing-1246-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">AcWing 1246 等差数列</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/">辗转相除法求最大公约数</a>
           </li>
         
@@ -432,10 +545,6 @@
         
           <li>
             <a href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/">AcWing 112 雷达设备</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">AcWing 1247 后缀表达式</a>
           </li>
         
       </ul>

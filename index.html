@@ -71,6 +71,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AcWing-1246-等差数列" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/20/AcWing-1246-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/" class="article-date">
+  <time class="dt-published" datetime="2026-02-19T16:07:58.000Z" itemprop="datePublished">2026-02-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/02/20/AcWing-1246-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">AcWing 1246 等差数列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>数学老师给小明出了一道等差数列求和的题目。</p>
+<p>但是粗心的小明忘记了一部分的数列，只记得其中 N 个整数。</p>
+<p>现在给出这 N 个整数，小明想知道包含这 N 个整数的最短的等差数列有几项？</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入的第一行包含一个整数 N。</p>
+<p>第二行包含 N 个整数 A1,A2,⋅⋅⋅,AN。(注意 A1∼AN 并不一定是按等差数<br>列中的顺序给出)</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一个整数表示答案。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>2≤N≤100000,<br>0≤Ai≤109</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">2 6 4 10 20</span><br></pre></td></tr></table></figure>
+
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h4><p>包含 2、6、4、10、20 的最短的等差数列是 2、4、6、8、10、12、14、16、18、20。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>思路：<br>每一项与第一项的差一定是d的倍数<br>当d ！&#x3D; 0 时， (a末 - a初) &#x2F; d  + 1 —- 让公差d最大即可<br>当d  &#x3D;&#x3D; 0 时，答案为 n<br>C++ 代码</p>
+<p>#include <cstdio><br>#include <algorithm><br>#include <cstring></p>
+<p>using namespace std;</p>
+<p>const int N &#x3D; 100010;</p>
+<p>int a[N];</p>
+<p>&#x2F;&#x2F;求最大公约数<br>int gcd(int a, int b){<br>    return b ? gcd(b, a % b) : a;<br>}</p>
+<p>int main(){<br>    int n;<br>    scanf(“%d”, &amp;n);</p>
+<pre><code>for(int i = 0; i &lt; n; i ++){
+    scanf(&quot;%d&quot;, &amp;a[i]);
+}
+
+sort(a, a + n);
+
+//求后面各项与第一项所有差值的最大公约数
+int d = 0;
+for(int i = 1; i &lt; n; i ++) d = gcd(d, a[i] - a[0]);
+
+if(!d) printf(&quot;%d\n&quot;, n);
+else printf(&quot;%d\n&quot;, (a[n - 1] - a[0]) / d + 1);
+
+return 0;
+</code></pre>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/20/AcWing-1246-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/" data-id="cuidb4KXT-kx3LbhmrpS3lDqi" data-title="AcWing 1246 等差数列" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%A6%E6%95%B0/" rel="tag">约数</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-辗转相除法求最大公约数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/" class="article-date">
@@ -112,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/" data-id="cuid8Qw4QP5DD5enjzEfHNOMT" data-title="辗转相除法求最大公约数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/" data-id="cuidjxeV6VJTKkSb9KJXGm17j" data-title="辗转相除法求最大公约数" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -215,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/" data-id="cuidmlFZq8IA7cn4Yq7yNwcL5" data-title="AcWing 871 约数之和" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/19/AcWing-871-%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C/" data-id="cuidtZDL9_vVPv8DQJQohKs3a" data-title="AcWing 871 约数之和" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -325,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/" data-id="cuid6gMYHDpyWd7eGHusbgqt_" data-title="AcWing 870 约数个数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/19/AcWing-870-%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0/" data-id="cuid5H-hZkABaJ4b2yTvQm_Ts" data-title="AcWing 870 约数个数" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -434,7 +513,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/" data-id="cuidUZ43TdSaCNqwSoUD-l6_y" data-title="AcWing 112 雷达设备" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/" data-id="cuidhTsmqjQFkjXGntJBFsTRm" data-title="AcWing 112 雷达设备" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -491,7 +570,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cuidJrMYFj3cvLLQud_0hXh6d" data-title="AcWing 1247 后缀表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="cuidGkhtUqyCVWrMKBA2ATIPA" data-title="AcWing 1247 后缀表达式" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -581,7 +660,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidauK4kfPRYGf1nTemjjIF-" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/AcWing-1239-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" data-id="cuidItPbylOF8uqRd-OPcI9wa" data-title="AcWing 1239 乘积最大" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -628,7 +707,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuidn2vfCM_oeOHeRNMNDwQYb" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%B3%96%E6%9E%9C%E4%BC%A0%E9%80%92/" data-id="cuidRkENCuhA6m7wQLMKbO1pN" data-title="糖果传递" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -709,7 +788,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidNBiD5Ec6ass85wM104KVr" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E8%82%A1%E7%A5%A8%E4%B9%B0%E5%8D%96%E2%85%A1/" data-id="cuidlno5337qMzALvbLvcsWKo" data-title="股票买卖Ⅱ&amp;&amp; 货仓选址" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -769,83 +848,11 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidhcA7TWymYwwWqugTmz-QZ" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/02/18/%E7%81%B5%E8%83%BD%E4%BC%A0%E8%BE%93/" data-id="cuidLYVyc_QnJdm_spaj-7w7D" data-title="灵能传输" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-大臣的旅费" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" class="article-date">
-  <time class="dt-published" datetime="2026-02-15T07:16:17.000Z" itemprop="datePublished">2026-02-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/">大臣的旅费</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>这道题就是一道求树的直径的题目（即找出树中最长的一条路径）</p>
-<p>求这个分为两步：①任取一点x 求其他所有的点到这个点的距离存到dist[]中；②找到距离x最远的点y，然后以y作为新的起点，再重复①过程，此时距离y最远的一个点和y之间的路径就是一条直径。</p>
-<p>算法分析1<br>由于题目说到不重复经过大城市，从首都到达每个大城市的方案都是唯一的。因此可以知道该图是一棵树，本题求的是树的直径</p>
-<p>树的直径：树中长度最长的路径</p>
-<p>1、任取一点x</p>
-<p>2、找到距离x最远的点y</p>
-<p>3、从y开始遍历，找到离y最远的点，与y最远的点的距离是树的直径</p>
-<p>证明：y一定是树的直径的端点</p>
-<p>假设y不是树的直径的端点，分两种情况，如图所示，其中uv是树的直径</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.acwing.com/media/article/image/2020/01/22/7416_b4f1c07a3d-edb3811ce18d6cb9a3a702c619c567b.png">https://cdn.acwing.com/media/article/image/2020/01/22/7416_b4f1c07a3d-edb3811ce18d6cb9a3a702c619c567b.png</a></p>
-<p>情况1：xy与uv有交点，由于离x最远的点是y，因此</p>
-<p>有 1 + 3 &lt;&#x3D; 3 + 4</p>
-<p>即 3 &lt;&#x3D; 4</p>
-<p>则 3 + 2 &lt;&#x3D; 4 + 2</p>
-<p>由于 3 + 2是树的直径，因此4 + 2一定是树的直径，因此y不是树的直径的端点矛盾</p>
-<p>情况2:xy与uv没有交点，由于离x最远的点是y，因此</p>
-<p>有 1 + 2 &gt;&#x3D; 1 + 3 + 5</p>
-<p>即 2 &gt;&#x3D; 3 + 5</p>
-<p>即 2 &gt; 5</p>
-<p>则 2 + 3 &gt; 5</p>
-<p>则 2 + 3 + 5 &gt; 4 + 5</p>
-<p>由于 4 + 5是树的直径，但存在着一个长度更长的路径，因此y不是树的直径的端点矛盾</p>
-<p>因此，y一定是树的直径的端点</p>
-<p>方法1<br>dfs<br>1、通过深度优先遍历找到与x的最远距离的点y</p>
-<p>2、再通过深度优先遍历找到与y的最远距离</p>
-<p>注意：递归函数需要记录上一结点father</p>
-<p>dfs:用vector来存</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span><span class="number">+10</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Edge</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> id,w;	</span><br><span class="line">&#125;;</span><br><span class="line">vector&lt;Edge&gt; h[N];</span><br><span class="line"><span class="type">int</span> dist[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> father,<span class="type">int</span> distance)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	dist[u] = distance;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> node:h[u])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(node.id!=father)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">dfs</span>(node.id,u,distance+node.w);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; n<span class="number">-1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> a,b,c;</span><br><span class="line">		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">		h[a].<span class="built_in">push_back</span>(&#123;b,c&#125;);</span><br><span class="line">		h[b].<span class="built_in">push_back</span>(&#123;a,c&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> u = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(dist[i]&gt;dist[u])</span><br><span class="line">		&#123;</span><br><span class="line">			u = i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">dfs</span>(u,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(dist[i]&gt;dist[u])</span><br><span class="line">		&#123;</span><br><span class="line">			u = i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> s = dist[u];</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> ans = s*<span class="number">10</span>+s*(s<span class="number">+1ll</span>)/<span class="number">2</span>;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>dfs:用邻接数组来存</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span><span class="number">+10</span>,M = <span class="number">2</span>*N;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> h[M],e[M],ne[M],w[M],idx;</span><br><span class="line"><span class="type">int</span> dist[N];</span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b,w[idx] = c,ne[idx] = h[a],h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> father,<span class="type">int</span> distance)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dist[u] = distance;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = h[u];i!=<span class="number">-1</span>;i=ne[i])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span>(j!=father)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">dfs</span>(j,u,distance + w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="built_in">memset</span>(h,<span class="number">-1</span>,<span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a,b,c;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a,b,c),<span class="built_in">add</span>(b,a,c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> maxidx = <span class="number">0</span>,maxdist = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(dist[i]&gt;maxdist)&#123;</span><br><span class="line">            maxdist = dist[i];</span><br><span class="line">            maxidx = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(dist,<span class="number">0</span>,<span class="keyword">sizeof</span> dist);</span><br><span class="line">    <span class="built_in">dfs</span>(maxidx,<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">    maxdist = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(dist[i]&gt;maxdist)</span><br><span class="line">        &#123;</span><br><span class="line">            maxdist = dist[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = maxdist * <span class="number">10</span> + maxdist * (maxdist + <span class="number">1ll</span>) / <span class="number">2</span>);</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/02/15/%E5%A4%A7%E8%87%A3%E7%9A%84%E6%97%85%E8%B4%B9/" data-id="cuidA1yvOS7N62alq6Cvqyt3_" data-title="大臣的旅费" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" rel="tag">树的直径</a></li></ul>
 
     </footer>
   </div>
@@ -890,7 +897,7 @@ return 0;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 12.5px;">C++</a> <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">公式</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 17.5px;">数学</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 12.5px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
+      <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/C/" style="font-size: 12.5px;">C++</a> <a href="/tags/DFS/" style="font-size: 12.5px;">DFS</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">公式</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 17.5px;">数学</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 15px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 20px;">贪心</a>
     </div>
   </div>
 
@@ -912,6 +919,10 @@ return 0;
       <ul>
         
           <li>
+            <a href="/2026/02/20/AcWing-1246-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">AcWing 1246 等差数列</a>
+          </li>
+        
+          <li>
             <a href="/2026/02/19/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/">辗转相除法求最大公约数</a>
           </li>
         
@@ -925,10 +936,6 @@ return 0;
         
           <li>
             <a href="/2026/02/19/AcWing-112-%E9%9B%B7%E8%BE%BE%E8%AE%BE%E5%A4%87/">AcWing 112 雷达设备</a>
-          </li>
-        
-          <li>
-            <a href="/2026/02/19/AcWing-1247-%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/">AcWing 1247 后缀表达式</a>
           </li>
         
       </ul>
