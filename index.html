@@ -71,10 +71,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-P1720-月落乌啼算钱（斐波那契数列）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-P1518-USACO2-4-两只塔姆沃斯牛-The-Tamworth-Two" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/03/15/P1720-%E6%9C%88%E8%90%BD%E4%B9%8C%E5%95%BC%E7%AE%97%E9%92%B1%EF%BC%88%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%89/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T17:17:33.000Z" itemprop="datePublished">2026-03-15</time>
+    <a href="/2026/04/04/P1518-USACO2-4-%E4%B8%A4%E5%8F%AA%E5%A1%94%E5%A7%86%E6%B2%83%E6%96%AF%E7%89%9B-The-Tamworth-Two/" class="article-date">
+  <time class="dt-published" datetime="2026-04-04T13:20:49.000Z" itemprop="datePublished">2026-04-04</time>
 </a>
     
   <div class="article-category">
@@ -89,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/15/P1720-%E6%9C%88%E8%90%BD%E4%B9%8C%E5%95%BC%E7%AE%97%E9%92%B1%EF%BC%88%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%89/">P1720 月落乌啼算钱（斐波那契数列）</a>
+      <a class="p-name article-title" href="/2026/04/04/P1518-USACO2-4-%E4%B8%A4%E5%8F%AA%E5%A1%94%E5%A7%86%E6%B2%83%E6%96%AF%E7%89%9B-The-Tamworth-Two/">P1518 [USACO2.4] 两只塔姆沃斯牛 The Tamworth Two</a>
     </h1>
   
 
@@ -97,513 +97,253 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="P1720-月落乌啼算钱（斐波那契数列）"><a href="#P1720-月落乌啼算钱（斐波那契数列）" class="headerlink" title="P1720 月落乌啼算钱（斐波那契数列）"></a>P1720 月落乌啼算钱（斐波那契数列）</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>（本道题目木有隐藏歌曲……不用猜了……）</p>
-<p>《爱与愁的故事第一弹·heartache》最终章。</p>
-<p>吃完 pizza，月落乌啼知道超出自己的预算了。为了不在爱与愁大神面前献丑，只好还是硬着头皮去算钱……</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>算完钱后，月落乌啼想着：“你坑我！”于是当爱与愁大神问多少钱时，月落乌啼说了一堆乱码。爱与愁大神说：“算了算了，我只问第 $n$ 样菜价格多少？”月落乌啼写出了：</p>
-<p>$$F_n&#x3D;\dfrac{\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n}{\sqrt{5}}$$</p>
-<p>由于爱与愁大神学过编程，于是就用 $1$ 分钟的时间求出了 $F_n$ 的结果。月落乌啼为此大吃一惊。你能学学爱与愁大神求出 $F_n$ 的值吗？</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行一个自然数 $n$。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>只有 $1$ 行一个实数 $F_n$，保留两位小数。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8.00</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>对于所有数据：$0 \leq n\leq 48$。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    ans = (math.<span class="built_in">pow</span>((<span class="number">1</span>+math.sqrt(<span class="number">5</span>))/<span class="number">2</span>,n)-math.<span class="built_in">pow</span>((<span class="number">1</span>-math.sqrt(<span class="number">5</span>))/<span class="number">2</span>,n))/(math.sqrt(<span class="number">5</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:<span class="number">.2</span>f&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/15/P1720-%E6%9C%88%E8%90%BD%E4%B9%8C%E5%95%BC%E7%AE%97%E9%92%B1%EF%BC%88%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%89/" data-id="cuidHoq9Qgso9MH14h45GlpKk" data-title="P1720 月落乌啼算钱（斐波那契数列）" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B0%83%E5%BA%93/" rel="tag">调库</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P2669-NOIP-2015-普及组-金币" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/15/P2669-NOIP-2015-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%87%91%E5%B8%81/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T17:08:50.000Z" itemprop="datePublished">2026-03-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/15/P2669-NOIP-2015-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%87%91%E5%B8%81/">P2669 [NOIP 2015 普及组] 金币</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="P2669-NOIP-2015-普及组-金币"><a href="#P2669-NOIP-2015-普及组-金币" class="headerlink" title="P2669 [NOIP 2015 普及组] 金币"></a>P2669 [NOIP 2015 普及组] 金币</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>NOIP2015 普及组 T1</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>国王将金币作为工资，发放给忠诚的骑士。第一天，骑士收到一枚金币；之后两天（第二天和第三天），每天收到两枚金币；之后三天（第四、五、六天），每天收到三枚金币；之后四天（第七、八、九、十天），每天收到四枚金币……；这种工资发放模式会一直这样延续下去：当连续 $n$ 天每天收到 $n$ 枚金币后，骑士会在之后的连续 $n+1$ 天里，每天收到 $n+1$ 枚金币。</p>
-<p>请计算在前 $k$ 天里，骑士一共获得了多少金币。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一个正整数 $k$，表示发放金币的天数。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个正整数，即骑士收到的金币数。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">14</span><br></pre></td></tr></table></figure>
-
-<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例 #2"></a>输入输出样例 #2</h2><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入 #2"></a>输入 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出 #2"></a>输出 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">29820</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p><strong>【样例 1 说明】</strong></p>
-<p>骑士第一天收到一枚金币；第二天和第三天，每天收到两枚金币；第四、五、六天，每天收到三枚金币。因此一共收到 $1+2+2+3+3+3&#x3D;14$ 枚金币。</p>
-<p>对于 $100%$ 的数据，$1\le k\le 10^4$。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    k = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    nums = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">150</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,i+<span class="number">1</span>):</span><br><span class="line">            nums.append(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,k):</span><br><span class="line">        ans+=nums[i]</span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/15/P2669-NOIP-2015-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%87%91%E5%B8%81/" data-id="cuidO1wTvFmyZQ0f4zTKYvT6K" data-title="P2669 [NOIP 2015 普及组] 金币" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%93%E8%A1%A8/" rel="tag">打表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P5721-【深基4-例6】数字直角三角形" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/15/P5721-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B6%E3%80%91%E6%95%B0%E5%AD%97%E7%9B%B4%E8%A7%92%E4%B8%89%E8%A7%92%E5%BD%A2/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T16:50:02.000Z" itemprop="datePublished">2026-03-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/15/P5721-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B6%E3%80%91%E6%95%B0%E5%AD%97%E7%9B%B4%E8%A7%92%E4%B8%89%E8%A7%92%E5%BD%A2/">P5721 【深基4.例6】数字直角三角形</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="P5721-【深基4-例6】数字直角三角形"><a href="#P5721-【深基4-例6】数字直角三角形" class="headerlink" title="P5721 【深基4.例6】数字直角三角形"></a>P5721 【深基4.例6】数字直角三角形</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给出 $n$，请输出一个直角边长度是 $n$ 的数字直角三角形。所有数字都是 $2$ 位组成的，如果没有 $2$ 位则加上前导 $0$。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入一个正整数 $n$。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出如题目要求的数字直角三角形。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0102030405</span><br><span class="line">06070809</span><br><span class="line">101112</span><br><span class="line">1314</span><br><span class="line">15</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>数据保证，$1\le n\le13$。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    a = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    b = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,a):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,a-i):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;b:02d&#125;</span>&quot;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            b+=<span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/15/P5721-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B6%E3%80%91%E6%95%B0%E5%AD%97%E7%9B%B4%E8%A7%92%E4%B8%89%E8%A7%92%E5%BD%A2/" data-id="cuid1R2eHzoXhPKmijMnwjepv" data-title="P5721 【深基4.例6】数字直角三角形" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%A0%E4%BD%8D/" rel="tag">占位</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P5719-【深基4-例3】分类平均" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/14/P5719-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B3%E3%80%91%E5%88%86%E7%B1%BB%E5%B9%B3%E5%9D%87/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T15:13:15.000Z" itemprop="datePublished">2026-03-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/14/P5719-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B3%E3%80%91%E5%88%86%E7%B1%BB%E5%B9%B3%E5%9D%87/">P5719 【深基4.例3】分类平均</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="P5719-【深基4-例3】分类平均"><a href="#P5719-【深基4-例3】分类平均" class="headerlink" title="P5719 【深基4.例3】分类平均"></a>P5719 【深基4.例3】分类平均</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定 $n$ 和 $k$，将从 1 到 $n$ 之间的所有正整数可以分为两类：A 类数可以被 $k$ 整除（也就是说是 $k$ 的倍数），而 B 类数不能。请输出这两类数的平均数，精确到小数点后 $1$ 位，用空格隔开。</p>
-<p>数据保证两类数的个数都不会是 $0$。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入两个正整数 $n$ 与 $k$。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行，两个实数，分别表示 A 类数与 B 类数的平均数。精确到小数点后一位。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100 16</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">56.0 50.1</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>数据保证，$1 \leq n\leq 10000$，$1 \leq k \leq 100$。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    n,k = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    res1 = <span class="number">0</span></span><br><span class="line">    num = <span class="number">0</span></span><br><span class="line">    num1 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i % k == <span class="number">0</span>:</span><br><span class="line">            res+=i</span><br><span class="line">            num+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res1+=i</span><br><span class="line">            num1+=<span class="number">1</span></span><br><span class="line">    res = res/num</span><br><span class="line">    res1 = res1/num1</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;res:<span class="number">.1</span>f&#125;</span> <span class="subst">&#123;res1:<span class="number">.1</span>f&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/14/P5719-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B3%E3%80%91%E5%88%86%E7%B1%BB%E5%B9%B3%E5%9D%87/" data-id="cuidc4dd4gNM7FarjkTF-yEN9" data-title="P5719 【深基4.例3】分类平均" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E6%95%B0/" rel="tag">小数</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P5726-【深基4-习9】打分" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/14/P5726-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%B9%A09%E3%80%91%E6%89%93%E5%88%86/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T14:50:40.000Z" itemprop="datePublished">2026-03-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/14/P5726-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%B9%A09%E3%80%91%E6%89%93%E5%88%86/">P5726 【深基4.习9】打分</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="P5726-【深基4-习9】打分"><a href="#P5726-【深基4-习9】打分" class="headerlink" title="P5726 【深基4.习9】打分"></a>P5726 【深基4.习9】打分</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在有 $n(n \le 1000)$ 位评委给选手打分，分值从 $0$ 到 $10$。需要去掉一个最高分，去掉一个最低分（如果有多个最高或者最低分，也只需要去掉一个），剩下的评分的平均数就是这位选手的得分。现在输入评委人数和他们的打分，请输出选手的最后得分，精确到 $2$ 位小数。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行输入一个正整数 $n$，表示有 $n$ 个评委。</p>
-<p>第二行输入 $n$ 个整数，第 $i$ 个整数表示第 $i$ 个评委打出的分值。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行一个两位小数，表示选手的最后得分。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">9 5 6 8 9</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7.67</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>数据保证，$3 \leq n \leq 1000$，每个评委打出的分值为 $0$ 到 $10$（含 $0$ 与 $10$）之间的整数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br><span class="line">    nums.sort()</span><br><span class="line">    alls = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n-<span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(nums[i])</span><br><span class="line">        alls += nums[i]</span><br><span class="line">    ans = alls/(n-<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:<span class="number">.2</span>f&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/14/P5726-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%B9%A09%E3%80%91%E6%89%93%E5%88%86/" data-id="cuidBt0CJMxt2a6UKHV-VDFwK" data-title="P5726 【深基4.习9】打分" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sort/" rel="tag">sort</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E6%95%B0/" rel="tag">小数</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P1075-NOIP-2012-普及组-质因数分解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/14/P1075-NOIP-2012-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%B4%A8%E5%9B%A0%E6%95%B0%E5%88%86%E8%A7%A3/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T14:48:41.000Z" itemprop="datePublished">2026-03-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/14/P1075-NOIP-2012-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%B4%A8%E5%9B%A0%E6%95%B0%E5%88%86%E8%A7%A3/">P1075 [NOIP 2012 普及组] 质因数分解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="P1075-NOIP-2012-普及组-质因数分解"><a href="#P1075-NOIP-2012-普及组-质因数分解" class="headerlink" title="P1075 [NOIP 2012 普及组] 质因数分解"></a>P1075 [NOIP 2012 普及组] 质因数分解</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>已知正整数 $n$ 是两个不同的质数的乘积，试求出两者中较大的那个质数。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入一个正整数 $n$。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个正整数 $p$，即较大的那个质数。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">21</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>$1 \le n\le 2\times 10^9$</p>
-<p>NOIP 2012 普及组 第一题</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> n%<span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>,<span class="built_in">int</span>(math.sqrt(n))+<span class="number">1</span>,<span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> n % i== <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,n):</span><br><span class="line">        <span class="keyword">if</span> is_prime(i):</span><br><span class="line">            <span class="keyword">if</span> n % i == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">if</span> is_prime(n/i):</span><br><span class="line">                    <span class="built_in">print</span>(<span class="built_in">int</span>(n/i))</span><br><span class="line">                    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/14/P1075-NOIP-2012-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%B4%A8%E5%9B%A0%E6%95%B0%E5%88%86%E8%A7%A3/" data-id="cuidnlCo4YYJikNrw3zLtbcHK" data-title="P1075 [NOIP 2012 普及组] 质因数分解" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sys/" rel="tag">sys</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%A8%E6%95%B0/" rel="tag">质数</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P1217-USACO1-5-回文质数-Prime-Palindromes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/14/P1217-USACO1-5-%E5%9B%9E%E6%96%87%E8%B4%A8%E6%95%B0-Prime-Palindromes/" class="article-date">
-  <time class="dt-published" datetime="2026-03-14T12:48:57.000Z" itemprop="datePublished">2026-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/14/P1217-USACO1-5-%E5%9B%9E%E6%96%87%E8%B4%A8%E6%95%B0-Prime-Palindromes/">P1217 [USACO1.5] 回文质数 Prime Palindromes</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="P1217-USACO1-5-回文质数-Prime-Palindromes"><a href="#P1217-USACO1-5-回文质数-Prime-Palindromes" class="headerlink" title="P1217 [USACO1.5] 回文质数 Prime Palindromes"></a>P1217 [USACO1.5] 回文质数 Prime Palindromes</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>因为 $151$ 既是一个质数又是一个回文数（从左到右和从右到左是看一样的），所以 $151$ 是回文质数。</p>
-<p>写一个程序来找出范围 $[a,b] (5 \le a &lt; b \le 100,000,000)$（一亿）间的所有回文质数。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行输入两个正整数 $a$ 和 $b$。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个回文质数的列表，一行一个。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 500</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">7</span><br><span class="line">11</span><br><span class="line">101</span><br><span class="line">131</span><br><span class="line">151</span><br><span class="line">181</span><br><span class="line">191</span><br><span class="line">313</span><br><span class="line">353</span><br><span class="line">373</span><br><span class="line">383</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>Hint 1: Generate the palindromes and see if they are prime.</p>
-<p>提示 1: 找出所有的回文数再判断它们是不是质数（素数）.</p>
-<p>Hint 2: Generate palindromes by combining digits properly. You might need more than one of the loops like below.</p>
-<p>提示 2: 要产生正确的回文数，你可能需要几个像下面这样的循环。</p>
-<p>题目翻译来自NOCOW。</p>
-<p>USACO Training Section 1.5</p>
-<p>产生长度为 $5$ 的回文数：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (d1 = <span class="number">1</span>; d1 &lt;= <span class="number">9</span>; d1+=<span class="number">2</span>) &#123;    <span class="comment">// 只有奇数才会是素数</span></span><br><span class="line">     <span class="keyword">for</span> (d2 = <span class="number">0</span>; d2 &lt;= <span class="number">9</span>; d2++) &#123;</span><br><span class="line">         <span class="keyword">for</span> (d3 = <span class="number">0</span>; d3 &lt;= <span class="number">9</span>; d3++) &#123;</span><br><span class="line">           palindrome = <span class="number">10000</span>*d1 + <span class="number">1000</span>*d2 <span class="number">+100</span>*d3 + <span class="number">10</span>*d2 + d1;<span class="comment">//(处理回文数...)</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n&lt;<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> n%<span class="number">2</span>==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>,<span class="built_in">int</span>(math.sqrt(n))+<span class="number">1</span>,<span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> n%i==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_p</span>(<span class="params">minx,maxx</span>):</span><br><span class="line">    ps = []</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        p = d1</span><br><span class="line">        <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">            ps.append(p)</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        p = d1*<span class="number">10</span>+d1</span><br><span class="line">        <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">            ps.append(p)</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> d2 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            p = <span class="number">100</span>*d1+<span class="number">10</span>*d2+d1</span><br><span class="line">            <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">                ps.append(p)</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> d2 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            p = <span class="number">1000</span>*d1+<span class="number">100</span>*d2+<span class="number">10</span>*d2+d1</span><br><span class="line">            <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">                ps.append(p)</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> d2 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">for</span> d3 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">                p = <span class="number">10000</span>*d1+<span class="number">1000</span>*d2+<span class="number">100</span>*d3+<span class="number">10</span>*d2+d1</span><br><span class="line">                <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">                    ps.append(p)</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> d2 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">for</span> d3 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">                p = <span class="number">100000</span>*d1+<span class="number">10000</span>*d2+<span class="number">1000</span>*d3+<span class="number">100</span>*d3+<span class="number">10</span>*d2+d1</span><br><span class="line">                <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">                    ps.append(p)</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> d2 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">for</span> d3 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">                <span class="keyword">for</span> d4 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">                    p = <span class="number">1000000</span>*d1+<span class="number">100000</span>*d2+<span class="number">10000</span>*d3+<span class="number">1000</span>*d4+<span class="number">100</span>*d3+<span class="number">10</span>*d2+d1</span><br><span class="line">                    <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">                        ps.append(p)</span><br><span class="line">    <span class="keyword">for</span> d1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> d2 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">for</span> d3 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">                <span class="keyword">for</span> d4 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">10</span>):</span><br><span class="line">                    p = <span class="number">10000000</span>*d1+<span class="number">1000000</span>*d2+<span class="number">100000</span>*d3+<span class="number">10000</span>*d4+<span class="number">1000</span>*d4+<span class="number">100</span>*d3+<span class="number">10</span>*d2+d1</span><br><span class="line">                    <span class="keyword">if</span> minx &lt;= p &lt;= maxx:</span><br><span class="line">                        ps.append(p)</span><br><span class="line">    <span class="keyword">return</span> ps</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a,b = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br><span class="line">    p_list = generate_p(a,b)</span><br><span class="line">    <span class="keyword">for</span> p_num <span class="keyword">in</span> p_list:</span><br><span class="line">        <span class="keyword">if</span> is_prime(p_num):</span><br><span class="line">            <span class="built_in">print</span>(p_num)</span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/14/P1217-USACO1-5-%E5%9B%9E%E6%96%87%E8%B4%A8%E6%95%B0-Prime-Palindromes/" data-id="cuid-fLfzQvuZa03qNjo78qUu" data-title="P1217 [USACO1.5] 回文质数 Prime Palindromes" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/append/" rel="tag">append</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/list/" rel="tag">list</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sqrt/" rel="tag">sqrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%9E%E6%96%87/" rel="tag">回文</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AA%E7%8E%AF/" rel="tag">循环</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%A8%E6%95%B0/" rel="tag">质数</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P1055-NOIP-2008-普及组-ISBN-号码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/12/P1055-NOIP-2008-%E6%99%AE%E5%8F%8A%E7%BB%84-ISBN-%E5%8F%B7%E7%A0%81/" class="article-date">
-  <time class="dt-published" datetime="2026-03-12T15:38:06.000Z" itemprop="datePublished">2026-03-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E5%A7%90/">算法题姐</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/12/P1055-NOIP-2008-%E6%99%AE%E5%8F%8A%E7%BB%84-ISBN-%E5%8F%B7%E7%A0%81/">P1055 [NOIP 2008 普及组] ISBN 号码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="P1055-NOIP-2008-普及组-ISBN-号码"><a href="#P1055-NOIP-2008-普及组-ISBN-号码" class="headerlink" title="P1055 [NOIP 2008 普及组] ISBN 号码"></a>P1055 [NOIP 2008 普及组] ISBN 号码</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>每一本正式出版的图书都有一个 ISBN 号码与之对应，ISBN 码包括 $9$ 位数字、$1$ 位识别码和 $3$ 位分隔符，其规定格式如 <code>x-xxx-xxxxx-x</code>，其中符号 <code>-</code> 就是分隔符（键盘上的减号），最后一位是识别码，例如 <code>0-670-82162-4</code>就是一个标准的 ISBN 码。ISBN 码的首位数字表示书籍的出版语言，例如 $0$ 代表英语；第一个分隔符 <code>-</code> 之后的三位数字代表出版社，例如 $670$ 代表维京出版社；第二个分隔符后的五位数字代表该书在该出版社的编号；最后一位为识别码。</p>
-<p>识别码的计算方法如下：</p>
-<p>首位数字乘以 $1$ 加上次位数字乘以 $2$ ……以此类推，用所得的结果 $ \bmod 11$，所得的余数即为识别码，如果余数为 $10$，则识别码为大写字母 $X$。例如 ISBN 号码 <code>0-670-82162-4</code> 中的识别码 $4$ 是这样得到的：对 <code>067082162</code> 这 $9$ 个数字，从左至右，分别乘以 $1,2,\dots,9$ 再求和，即 $0\times 1+6\times 2+……+2\times 9&#x3D;158$，然后取 $158 \bmod 11$ 的结果 $4$ 作为识别码。</p>
-<p>你的任务是编写程序判断输入的 ISBN 号码中识别码是否正确，如果正确，则仅输出 <code>Right</code>；如果错误，则输出你认为是正确的 ISBN 号码。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一个字符序列，表示一本书的 ISBN 号码（保证输入符合 ISBN 号码的格式要求）。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行，假如输入的 ISBN 号码的识别码正确，那么输出 <code>Right</code>，否则，按照规定的格式，输出正确的 ISBN 号码（包括分隔符 <code>-</code>）。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0-670-82162-4</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Right</span><br></pre></td></tr></table></figure>
-
-<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例 #2"></a>输入输出样例 #2</h2><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入 #2"></a>输入 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0-670-82162-0</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出 #2"></a>输出 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0-670-82162-4</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>2008 普及组第一题</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    strs = <span class="built_in">input</span>()</span><br><span class="line">    out_list = []</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> strs:</span><br><span class="line">        <span class="keyword">if</span> char.isdigit():</span><br><span class="line">            out_list.append(<span class="built_in">int</span>(char))</span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;X&#x27;</span>:</span><br><span class="line">            out_list.append(<span class="number">10</span>)</span><br><span class="line">    ans = out_list[<span class="number">9</span>]</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">        res += out_list[i]*(i+<span class="number">1</span>)</span><br><span class="line">    res = res%<span class="number">11</span></span><br><span class="line">    <span class="keyword">if</span> res==ans:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Right&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> res == <span class="number">10</span>:</span><br><span class="line">            res = <span class="string">&#x27;X&#x27;</span></span><br><span class="line">        strs=strs[:<span class="number">12</span>]+<span class="built_in">str</span>(res)</span><br><span class="line">        <span class="built_in">print</span>(strs)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>列表可以改，字符串不能改，只能拼接达到改的效果</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/12/P1055-NOIP-2008-%E6%99%AE%E5%8F%8A%E7%BB%84-ISBN-%E5%8F%B7%E7%A0%81/" data-id="cuidH8Pp_dq5SYzFnkVmsT2oT" data-title="P1055 [NOIP 2008 普及组] ISBN 号码" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%97%E8%A1%A8/" rel="tag">列表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-P5715-【深基3-例8】三位数排序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/03/09/P5715-%E3%80%90%E6%B7%B1%E5%9F%BA3-%E4%BE%8B8%E3%80%91%E4%B8%89%E4%BD%8D%E6%95%B0%E6%8E%92%E5%BA%8F/" class="article-date">
-  <time class="dt-published" datetime="2026-03-09T13:02:53.000Z" itemprop="datePublished">2026-03-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/09/P5715-%E3%80%90%E6%B7%B1%E5%9F%BA3-%E4%BE%8B8%E3%80%91%E4%B8%89%E4%BD%8D%E6%95%B0%E6%8E%92%E5%BA%8F/">P5715 【深基3.例8】三位数排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="方法-2：列表-sort-方法（最简洁，实战优先）"><a href="#方法-2：列表-sort-方法（最简洁，实战优先）" class="headerlink" title="方法 2：列表 sort () 方法（最简洁，实战优先）"></a>方法 2：列表 sort () 方法（最简洁，实战优先）</h3><p>利用 Python 列表的<code>sort()</code>方法<strong>原地排序</strong>（直接修改列表），是最符合 Python 风格的简洁写法，新手优先掌握。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 方法2：列表sort()方法（核心推荐）</span><br><span class="line"># 步骤1：读取输入并转为列表（3个整数）</span><br><span class="line">nums = list(map(int, input().split()))</span><br><span class="line"></span><br><span class="line"># 步骤2：列表原地排序（默认升序）</span><br><span class="line">nums.sort()  # 执行后nums直接变成[1,5,14]（以样例1为例）</span><br><span class="line"></span><br><span class="line"># 步骤3：输出（用空格连接列表元素）</span><br><span class="line">print(&#x27; &#x27;.join(map(str, nums)))  # 或简化为 print(nums[0], nums[1], nums[2])</span><br></pre></td></tr></table></figure>
-
-<p><strong>关键解释</strong>：</p>
+        <h1 id="P1518-USACO2-4-两只塔姆沃斯牛-The-Tamworth-Two"><a href="#P1518-USACO2-4-两只塔姆沃斯牛-The-Tamworth-Two" class="headerlink" title="P1518 [USACO2.4] 两只塔姆沃斯牛 The Tamworth Two"></a>P1518 [USACO2.4] 两只塔姆沃斯牛 The Tamworth Two</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>两只牛逃跑到了森林里。Farmer John 开始用他的专家技术追捕这两头牛。你的任务是模拟他们的行为（牛和 John）。</p>
+<p>追击在 $10 \times 10$ 的平面网格内进行。一个格子可以是：空地，一个障碍物，两头牛（它们总在一起），或者 Farmer John。两头牛和 Farmer John 可以在同一个格子内（当他们相遇时），但是他们都不能进入有障碍的格子。</p>
+<p>一个格子可以是：</p>
 <ul>
-<li><code>list(map(int, input().split()))</code>：将输入的 3 个字符串转成整数，再封装成列表（如<code>[1,14,5]</code>）；</li>
-<li><code>nums.sort()</code>：列表内置的排序方法，<strong>原地修改</strong>列表（无返回值），默认按升序排列；</li>
-<li><code>&#39; &#39;.join(map(str, nums))</code>：将列表中的整数转成字符串，再用空格连接成一行（如<code>[1,5,14]</code>→<code>&quot;1 5 14&quot;</code>），比逐个打印更通用。</li>
+<li><code>.</code> 空地；</li>
+<li><code>*</code> 障碍物；</li>
+<li><code>C</code> 两头牛；</li>
+<li><code>F</code> Farmer John。</li>
 </ul>
-<h3 id="方法-3：sorted-函数法（返回新列表，不修改原列表）"><a href="#方法-3：sorted-函数法（返回新列表，不修改原列表）" class="headerlink" title="方法 3：sorted () 函数法（返回新列表，不修改原列表）"></a>方法 3：sorted () 函数法（返回新列表，不修改原列表）</h3><p>使用 Python 内置的<code>sorted()</code>函数，返回<strong>新的排序后列表</strong>（原列表不变），区分<code>sort()</code>和<code>sorted()</code>的核心差异。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 方法3：sorted()函数法</span><br><span class="line"># 步骤1：读取输入并转为列表</span><br><span class="line">nums = list(map(int, input().split()))</span><br><span class="line"></span><br><span class="line"># 步骤2：sorted()返回新的排序后列表（原nums不变）</span><br><span class="line">sorted_nums = sorted(nums)  # nums仍为[1,14,5]，sorted_nums为[1,5,14]</span><br><span class="line"></span><br><span class="line"># 步骤3：输出</span><br><span class="line">print(&#x27; &#x27;.join(map(str, sorted_nums)))</span><br></pre></td></tr></table></figure>
+<p>这里有一个地图的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*...*.....</span><br><span class="line">......*...</span><br><span class="line">...*...*..</span><br><span class="line">..........</span><br><span class="line">...*.F....</span><br><span class="line">*.....*...</span><br><span class="line">...*......</span><br><span class="line">..C......*</span><br><span class="line">...*.*....</span><br><span class="line">.*.*......</span><br></pre></td></tr></table></figure>
 
-<p><strong>关键解释</strong>：</p>
+<p>牛在地图里以固定的方式游荡。每分钟，它们可以向前移动或是转弯。如果前方无障碍（地图边沿也是障碍），它们会按照原来的方向前进一步。否则它们会用这一分钟顺时针转 $90$ 度。 同时，它们不会离开地图。</p>
+<p>Farmer John 深知牛的移动方法，他也这么移动。</p>
+<p>每次（每分钟）Farmer John 和两头牛的移动是同时的。如果他们在移动的时候穿过对方，但是没有在同一格相遇，我们不认为他们相遇了。当他们在某分钟末在某格子相遇，那么追捕结束。</p>
+<p>读入十行表示地图。每行都只包含 $10$ 个字符，表示的含义和上面所说的相同。保证地图中只有一个 <code>F</code> 和一个 <code>C</code>。<code>F</code> 和 <code>C</code> 一开始不会处于同一个格子中。</p>
+<p>计算 Farmer John 需要多少分钟来抓住他的牛，假设牛和 Farmer John 一开始的行动方向都是正北（即上）。 如果 John 和牛永远不会相遇，输出 $0$。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入共十行，每行 $10$ 个字符，表示如上文描述的地图。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个数字，表示 John 需要多少时间才能抓住牛们。如果 John 无法抓住牛，则输出 $0$。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*...*.....</span><br><span class="line">......*...</span><br><span class="line">...*...*..</span><br><span class="line">..........</span><br><span class="line">...*.F....</span><br><span class="line">*.....*...</span><br><span class="line">...*......</span><br><span class="line">..C......*</span><br><span class="line">...*.*....</span><br><span class="line">.*.*......</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">49</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>翻译来自NOCOW</p>
+<p>USACO 2.4</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">directions = [</span><br><span class="line">        (-<span class="number">1</span>,<span class="number">0</span>),</span><br><span class="line">        (<span class="number">0</span>,<span class="number">1</span>),</span><br><span class="line">        (<span class="number">1</span>,<span class="number">0</span>),</span><br><span class="line">        (<span class="number">0</span>,-<span class="number">1</span>)]</span><br><span class="line">mp = []</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    fx = fy = cx = cy = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        line = <span class="built_in">input</span>().strip()</span><br><span class="line">        mp.append(line)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">if</span> line[j] == <span class="string">&#x27;F&#x27;</span>:</span><br><span class="line">                fx,fy = i,j</span><br><span class="line">            <span class="keyword">if</span> line[j] == <span class="string">&#x27;C&#x27;</span>:</span><br><span class="line">                cx,cy = i,j</span><br><span class="line">    fd = <span class="number">0</span></span><br><span class="line">    cd = <span class="number">0</span></span><br><span class="line">    time = <span class="number">0</span></span><br><span class="line">    visited = <span class="built_in">set</span>()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        state = (fx,fy,fd,cx,cy,cd)</span><br><span class="line">        <span class="keyword">if</span> state <span class="keyword">in</span> visited:</span><br><span class="line">            <span class="built_in">print</span>(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        visited.add(state)</span><br><span class="line">        new_fx, new_fy, new_fd = move(fx, fy, fd)</span><br><span class="line">        new_cx, new_cy, new_cd = move(cx, cy, cd)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 更新位置和方向</span></span><br><span class="line">        fx, fy, fd = new_fx, new_fy, new_fd</span><br><span class="line">        cx, cy, cd = new_cx, new_cy, new_cd</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 时间+1</span></span><br><span class="line">        time += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> fx == cx <span class="keyword">and</span> fy == cy:</span><br><span class="line">            <span class="built_in">print</span>(time)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">move</span>(<span class="params">x,y,d</span>):</span><br><span class="line">    dx,dy = directions[d]</span><br><span class="line">    nx = x+dx</span><br><span class="line">    ny = y+dy</span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span>&lt;=nx&lt;<span class="number">10</span> <span class="keyword">and</span> <span class="number">0</span>&lt;=ny&lt;<span class="number">10</span> <span class="keyword">and</span> mp[nx][ny]!=<span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> nx,ny,d</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> x,y,(d+<span class="number">1</span>)%<span class="number">4</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/04/P1518-USACO2-4-%E4%B8%A4%E5%8F%AA%E5%A1%94%E5%A7%86%E6%B2%83%E6%96%AF%E7%89%9B-The-Tamworth-Two/" data-id="cuidg12stzJlkK0E75rlOOaEX" data-title="P1518 [USACO2.4] 两只塔姆沃斯牛 The Tamworth Two" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/set/" rel="tag">set</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P1045-NOIP-2003-普及组-麦森数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/04/P1045-NOIP-2003-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%BA%A6%E6%A3%AE%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2026-04-04T10:57:06.000Z" itemprop="datePublished">2026-04-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/04/P1045-NOIP-2003-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%BA%A6%E6%A3%AE%E6%95%B0/">P1045 [NOIP 2003 普及组] 麦森数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P1045-NOIP-2003-普及组-麦森数"><a href="#P1045-NOIP-2003-普及组-麦森数" class="headerlink" title="P1045 [NOIP 2003 普及组] 麦森数"></a>P1045 [NOIP 2003 普及组] 麦森数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>形如 $2^{P}-1$ 的素数称为麦森数，这时 $P$ 一定也是个素数。但反过来不一定，即如果 $P$ 是个素数，$2^{P}-1$ 不一定也是素数。到 1998 年底，人们已找到了 37 个麦森数。最大的一个是 $P&#x3D;3021377$，它有 909526 位。麦森数有许多重要应用，它与完全数密切相关。</p>
+<p>任务：输入 $P(1000&lt;P&lt;3100000)$，计算 $2^{P}-1$ 的位数和最后 $500$ 位数字（用十进制高精度数表示）</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>文件中只包含一个整数 $P(1000&lt;P&lt;3100000)$</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>第一行：十进制高精度数 $2^{P}-1$ 的位数。</p>
+<p>第 $2\sim 11$ 行：十进制高精度数 $2^{P}-1$ 的最后 $500$ 位数字。（每行输出 $50$ 位，共输出 $10$ 行，不足 $500$ 位时高位补 $0$）</p>
+<p>不必验证 $2^{P}-1$ 与 $P$ 是否为素数。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1279</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">386</span><br><span class="line">00000000000000000000000000000000000000000000000000</span><br><span class="line">00000000000000000000000000000000000000000000000000</span><br><span class="line">00000000000000104079321946643990819252403273640855</span><br><span class="line">38615262247266704805319112350403608059673360298012</span><br><span class="line">23944173232418484242161395428100779138356624832346</span><br><span class="line">49081399066056773207629241295093892203457731833496</span><br><span class="line">61583550472959420547689811211693677147548478866962</span><br><span class="line">50138443826029173234888531116082853841658502825560</span><br><span class="line">46662248318909188018470682222031405210266984354887</span><br><span class="line">32958028878050869736186900714720710555703168729087</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p><strong>【题目来源】</strong></p>
+<p>NOIP 2003 普及组第四题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    p = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    digits = <span class="built_in">int</span>(p*math.log10(<span class="number">2</span>))+<span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(digits)</span><br><span class="line">    mod = <span class="number">10</span>**<span class="number">500</span></span><br><span class="line">    last_500 = <span class="built_in">pow</span>(<span class="number">2</span>,p,mod)-<span class="number">1</span></span><br><span class="line">    res = <span class="built_in">str</span>(last_500).zfill(<span class="number">500</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="built_in">print</span>(res[i*<span class="number">50</span>:(i+<span class="number">1</span>)*<span class="number">50</span>])</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/04/P1045-NOIP-2003-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%BA%A6%E6%A3%AE%E6%95%B0/" data-id="cuidLTw-DYJ0aQf62qA5FBjZa" data-title="P1045 [NOIP 2003 普及组] 麦森数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P1249-最大乘积" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/04/P1249-%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/" class="article-date">
+  <time class="dt-published" datetime="2026-04-04T08:42:34.000Z" itemprop="datePublished">2026-04-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/04/P1249-%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/">P1249 最大乘积</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P1249-最大乘积"><a href="#P1249-最大乘积" class="headerlink" title="P1249 最大乘积"></a>P1249 最大乘积</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个正整数一般可以分为几个互不相同的自然数的和，如 $3&#x3D;1+2$，$4&#x3D;1+3$，$5&#x3D;1+4&#x3D;2+3$，$6&#x3D;1+5&#x3D;2+4$。</p>
+<p>现在你的任务是将指定的正整数 $n$ 分解成若干个互不相同的自然数（也可以不分解，就是这个数字本身）的和，且使这些自然数的乘积最大。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>只有一个正整数 $n$，（$3 \leq n \leq 10000$）。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>第一行是分解方案，相邻的数之间用一个空格分开，并且按由小到大的顺序。</p>
+<p>第二行是最大的乘积。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 3 5</span><br><span class="line">30</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    parts = []</span><br><span class="line">    current = <span class="number">2</span></span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> total+current &lt;= n:</span><br><span class="line">        parts.append(current)</span><br><span class="line">        total+=current</span><br><span class="line">        current+=<span class="number">1</span></span><br><span class="line">    diff = n - total</span><br><span class="line">    i = <span class="built_in">len</span>(parts)-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> diff &gt; <span class="number">0</span>:</span><br><span class="line">        parts[i]+=<span class="number">1</span></span><br><span class="line">        diff-=<span class="number">1</span></span><br><span class="line">        i = (i-<span class="number">1</span>)%<span class="built_in">len</span>(parts)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>,parts)))</span><br><span class="line">    ans = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> parts:</span><br><span class="line">        ans*=num</span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/04/P1249-%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/" data-id="cuid9rIfwvJ4kYIbQ-VNpF-1L" data-title="P1249 最大乘积" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P1553-数字反转（升级版）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/04/P1553-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%EF%BC%88%E5%8D%87%E7%BA%A7%E7%89%88%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2026-04-04T08:00:50.000Z" itemprop="datePublished">2026-04-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/04/P1553-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%EF%BC%88%E5%8D%87%E7%BA%A7%E7%89%88%EF%BC%89/">P1553 数字反转（升级版）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P1553-数字反转（升级版）"><a href="#P1553-数字反转（升级版）" class="headerlink" title="P1553 数字反转（升级版）"></a>P1553 数字反转（升级版）</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p><strong>以下为原题面，仅供参考:</strong></p>
+<p>给定一个数，请将该数各个位上数字反转得到一个新数。</p>
+<p>这次与 NOIp2011 普及组第一题不同的是：这个数可以是小数，分数，百分数，整数。整数反转是将所有数位对调；小数反转是把整数部分的数反转，再将小数部分的数反转，不交换整数部分与小数部分；分数反转是把分母的数反转，再把分子的数反转，不交换分子与分母；百分数的分子一定是整数，百分数只改变数字部分。整数新数也应满足整数的常见形式，即除非给定的原数为零，否则反转后得到的新数的最高位数字不应为零；小数新数的末尾不为 $0$（除非小数部分除了 $0$ 没有别的数，那么只保留1个 $0$）；分数不约分，分子和分母都不是小数（约分滴童鞋抱歉了，不能过哦。输入数据保证分母不为 $0$），本次没有负数。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个数，请将该数各个位上数字反转得到一个新数。</p>
+<p>这次与 NOIp2011 普及组第一题不同的是：这个数可以是小数，分数，百分数，整数。</p>
 <ul>
-<li><p><code>sorted(nums)</code>：内置函数，接收可迭代对象（如列表），返回升序排列的新列表，<strong>不修改原列表</strong>；</p>
+<li><p>整数反转是将所有数位对调。</p>
 </li>
-<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort()</span><br></pre></td></tr></table></figure>
-
-<p> vs </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted()</span><br></pre></td></tr></table></figure>
-
-<p>：</p>
-<ul>
-<li><code>sort()</code>：列表方法，原地排序，无返回值（适合直接修改原列表）；</li>
-<li><code>sorted()</code>：内置函数，返回新列表，原列表保留（适合需要保留原始数据的场景）。</li>
-</ul>
+<li><p>小数反转是把整数部分的数反转，再将小数部分的数反转，不交换整数部分与小数部分。</p>
+</li>
+<li><p>分数反转是把分母的数反转，再把分子的数反转，不交换分子与分母。</p>
+</li>
+<li><p>百分数的分子一定是整数，百分数只改变数字部分。</p>
 </li>
 </ul>
-<h3 id="方法-4：数学最值法（练习-min-max-函数）"><a href="#方法-4：数学最值法（练习-min-max-函数）" class="headerlink" title="方法 4：数学最值法（练习 min&#x2F;max 函数）"></a>方法 4：数学最值法（练习 min&#x2F;max 函数）</h3><p>用<code>min()</code>找最小值、<code>max()</code>找最大值，中间值 &#x3D; 总和 - 最小值 - 最大值，适合练习内置最值函数的用法。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 方法4：数学最值法</span><br><span class="line"># 步骤1：读取输入并赋值</span><br><span class="line">a, b, c = map(int, input().split())</span><br><span class="line"></span><br><span class="line"># 步骤2：计算最小值、最大值、中间值</span><br><span class="line">total = a + b + c</span><br><span class="line">min_num = min(a, b, c)    # 找三个数中的最小值</span><br><span class="line">max_num = max(a, b, c)    # 找三个数中的最大值</span><br><span class="line">mid_num = total - min_num - max_num  # 中间值=总和-最小-最大</span><br><span class="line"></span><br><span class="line"># 步骤3：输出</span><br><span class="line">print(min_num, mid_num, max_num)</span><br></pre></td></tr></table></figure>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一个实数 $s$</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个实数，即 $s$ 的反转数</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5087462</span><br></pre></td></tr></table></figure>
 
-<p><strong>关键解释</strong>：</p>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2647805</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例 #2"></a>输入输出样例 #2</h2><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入 #2"></a>输入 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">600.084</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出 #2"></a>输出 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6.48</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出样例-3"><a href="#输入输出样例-3" class="headerlink" title="输入输出样例 #3"></a>输入输出样例 #3</h2><h3 id="输入-3"><a href="#输入-3" class="headerlink" title="输入 #3"></a>输入 #3</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">700/27</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-3"><a href="#输出-3" class="headerlink" title="输出 #3"></a>输出 #3</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7/72</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出样例-4"><a href="#输入输出样例-4" class="headerlink" title="输入输出样例 #4"></a>输入输出样例 #4</h2><h3 id="输入-4"><a href="#输入-4" class="headerlink" title="输入 #4"></a>输入 #4</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8670%</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-4"><a href="#输出-4" class="headerlink" title="输出 #4"></a>输出 #4</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">768%</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p><strong>【数据范围】</strong></p>
 <ul>
-<li><code>min(a,b,c)</code>&#x2F;<code>max(a,b,c)</code>：Python 内置函数，直接返回多个参数中的最小 &#x2F; 最大值；</li>
-<li>中间值计算逻辑：因为只有三个数，总和减去最小和最大，剩下的就是中间值（适合 3 个数的场景，简单高效）；</li>
-<li>注意：此方法仅适用于<strong>恰好 3 个数</strong>的排序，扩展到更多数时不适用，但本题场景下非常简洁。</li>
+<li>对于 $25%$ 的数据，$s$ 是整数，不大于 $20$ 位；</li>
+<li>对于 $25%$ 的数据，$s$ 是小数，整数部分和小数部分均不大于 $10$ 位；</li>
+<li>对于 $25%$ 的数据，$s$ 是分数，分子和分母均不大于 $10$ 位；</li>
+<li>对于 $25%$ 的数据，$s$ 是百分数，分子不大于 $19$ 位。</li>
 </ul>
+<p><strong>【数据保证】</strong></p>
+<ul>
+<li><p>对于整数翻转而言，整数原数和整数新数满足整数的常见形式，即除非给定的原数为零，否则反转后得到的新数和原来的数字的最高位数字不应为零。</p>
+</li>
+<li><p>对于小数翻转而言，其小数点前面部分同上，小数点后面部分的形式，保证满足小数的常见形式，也就是末尾没有多余的 $0$（小数部分除了 $0$ 没有别的数，那么只保留 $1$ 个 $0$。若反转之后末尾数字出现 $0$，请省略多余的 $0$）</p>
+</li>
+<li><p>对于分数翻转而言，分数不约分，分子和分母都不是小数。输入的分母不为 $0$。与整数翻转相关规定见上。</p>
+</li>
+<li><p>对于百分数翻转而言，见与整数翻转相关内容。</p>
+</li>
+</ul>
+<p>数据不存在负数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_int</span>(<span class="params"><span class="built_in">str</span></span>):</span><br><span class="line">    new_str = <span class="built_in">str</span>[::-<span class="number">1</span>]</span><br><span class="line">    n = <span class="built_in">len</span>(<span class="built_in">str</span>)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    flag = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">while</span> i &lt; n:</span><br><span class="line">            <span class="keyword">if</span> new_str[i]==<span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> new_str[i::]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_ff</span>(<span class="params"><span class="built_in">str</span></span>):</span><br><span class="line">    new_str = <span class="built_in">str</span>[::-<span class="number">1</span>]</span><br><span class="line">    n = <span class="built_in">len</span>(<span class="built_in">str</span>)</span><br><span class="line">    i = n-<span class="number">1</span></span><br><span class="line">    flag = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> new_str[i]==<span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">                i-=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> new_str[<span class="number">0</span>:i+<span class="number">1</span>]</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_float</span>(<span class="params"><span class="built_in">str</span></span>):</span><br><span class="line">    pos = <span class="built_in">str</span>.find(<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">    <span class="comment">#print(pos)</span></span><br><span class="line">    strint = <span class="built_in">str</span>[<span class="number">0</span>:pos]</span><br><span class="line">    strfloat = <span class="built_in">str</span>[pos+<span class="number">1</span>::]</span><br><span class="line">    <span class="comment">#print(strfloat)</span></span><br><span class="line">    strint = solve_int(strint)</span><br><span class="line">    strfloat = solve_ff(strfloat)</span><br><span class="line">    <span class="comment">#print(strfloat)</span></span><br><span class="line">    <span class="built_in">str</span> = strint+<span class="string">&#x27;.&#x27;</span>+strfloat</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_fenshu</span>(<span class="params"><span class="built_in">str</span></span>):</span><br><span class="line">    pos=<span class="built_in">str</span>.find(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">    fenzi = <span class="built_in">str</span>[<span class="number">0</span>:pos]</span><br><span class="line">    fenmu = <span class="built_in">str</span>[pos+<span class="number">1</span>:]</span><br><span class="line">    fenzi = solve_int(fenzi)</span><br><span class="line">    fenmu = solve_int(fenmu)</span><br><span class="line">    <span class="built_in">str</span> = fenzi+<span class="string">&#x27;/&#x27;</span>+fenmu</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_per</span>(<span class="params"><span class="built_in">str</span></span>):</span><br><span class="line">    n = <span class="built_in">len</span>(<span class="built_in">str</span>)</span><br><span class="line">    shu = <span class="built_in">str</span>[<span class="number">0</span>:n-<span class="number">1</span>]</span><br><span class="line">    shu = solve_int(shu)</span><br><span class="line">    <span class="built_in">str</span> = shu+<span class="string">&#x27;%&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    <span class="built_in">str</span> = <span class="built_in">input</span>().strip()</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">str</span>.find(<span class="string">&#x27;.&#x27;</span>)!=-<span class="number">1</span>:</span><br><span class="line">        <span class="built_in">str</span> = solve_float(<span class="built_in">str</span>)</span><br><span class="line">        <span class="comment">#str = str</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">str</span>.find(<span class="string">&#x27;/&#x27;</span>)!=-<span class="number">1</span>:</span><br><span class="line">        <span class="built_in">str</span> = solve_fenshu(<span class="built_in">str</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">str</span>.find(<span class="string">&#x27;%&#x27;</span>)!=-<span class="number">1</span>:</span><br><span class="line">        <span class="built_in">str</span> = solve_per(<span class="built_in">str</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">str</span> = solve_int(<span class="built_in">str</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">str</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/09/P5715-%E3%80%90%E6%B7%B1%E5%9F%BA3-%E4%BE%8B8%E3%80%91%E4%B8%89%E4%BD%8D%E6%95%B0%E6%8E%92%E5%BA%8F/" data-id="cuidPJ0zAknk4IjOGQoLr16yt" data-title="P5715 【深基3.例8】三位数排序" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/04/04/P1553-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%EF%BC%88%E5%8D%87%E7%BA%A7%E7%89%88%EF%BC%89/" data-id="cuidz5bGqQ2O7ZPpSBUKDzFgC" data-title="P1553 数字反转（升级版）" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%97%E8%A1%A8/" rel="tag">列表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
 
     </footer>
   </div>
@@ -613,10 +353,10 @@
 
 
   
-    <article id="post-P5712-【深基3-例4】Apples" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-P1598-USACO03FEB-垂直柱状图-Vertical-Histogram" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/03/09/P5712-%E3%80%90%E6%B7%B1%E5%9F%BA3-%E4%BE%8B4%E3%80%91Apples/" class="article-date">
-  <time class="dt-published" datetime="2026-03-09T06:24:29.000Z" itemprop="datePublished">2026-03-09</time>
+    <a href="/2026/04/04/P1598-USACO03FEB-%E5%9E%82%E7%9B%B4%E6%9F%B1%E7%8A%B6%E5%9B%BE-Vertical-Histogram/" class="article-date">
+  <time class="dt-published" datetime="2026-04-04T07:59:32.000Z" itemprop="datePublished">2026-04-04</time>
 </a>
     
   <div class="article-category">
@@ -631,7 +371,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/03/09/P5712-%E3%80%90%E6%B7%B1%E5%9F%BA3-%E4%BE%8B4%E3%80%91Apples/">P5712 【深基3.例4】Apples</a>
+      <a class="p-name article-title" href="/2026/04/04/P1598-USACO03FEB-%E5%9E%82%E7%9B%B4%E6%9F%B1%E7%8A%B6%E5%9B%BE-Vertical-Histogram/">P1598 [USACO03FEB] 垂直柱状图 Vertical Histogram</a>
     </h1>
   
 
@@ -639,29 +379,353 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="P5712-【深基3-例4】Apples"><a href="#P5712-【深基3-例4】Apples" class="headerlink" title="P5712 【深基3.例4】Apples"></a>P5712 【深基3.例4】Apples</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>小 B 喜欢吃苹果。她今天吃掉了 $x$ 个苹果。英语课上学到了 apple 这个词语，想用它来造句。如果她吃了 1 个苹果，就输出 <code>Today, I ate 1 apple.</code>；如果她没有吃，那么就把 1 换成 0；如果她吃了不止一个苹果，别忘了 <code>apple</code> 这个单词后面要加上代表复数的 <code>s</code>。你能帮她完成这个句子吗？</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入一行一个自然数 $x$，表示吃掉的苹果数。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>根据题目要求输出。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+        <h1 id="P1598-USACO03FEB-垂直柱状图-Vertical-Histogram"><a href="#P1598-USACO03FEB-垂直柱状图-Vertical-Histogram" class="headerlink" title="P1598 [USACO03FEB] 垂直柱状图 Vertical Histogram"></a>P1598 [USACO03FEB] 垂直柱状图 Vertical Histogram</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>写一个程序从输入文件中去读取四行大写字母（全都是大写的，每行不超过 $100$ 个字符），然后用柱状图输出每个字符在输入文件中出现的次数。严格地按照输出样例来安排你的输出格式。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>四行字符，由大写字母组成，每行不超过 $100$ 个字符。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>由若干行组成，前几行由空格和星号组成，最后一行则是由空格和字母组成的。在任何一行末尾不要打印不需要的多余空格。不要打印任何空行。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG.</span><br><span class="line">THIS IS AN EXAMPLE TO TEST FOR YOUR</span><br><span class="line">HISTOGRAM PROGRAM.</span><br><span class="line">HELLO!</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Today, I ate 1 apple.</span><br></pre></td></tr></table></figure>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">                            *</span><br><span class="line">                            *</span><br><span class="line">        *                   *</span><br><span class="line">        *                   *     *   *</span><br><span class="line">        *                   *     *   *</span><br><span class="line">*       *     *             *     *   *</span><br><span class="line">*       *     * *     * *   *     * * *</span><br><span class="line">*       *   * * *     * *   * *   * * * *</span><br><span class="line">*     * * * * * *     * * * * *   * * * *     * *</span><br><span class="line">* * * * * * * * * * * * * * * * * * * * * * * * * *</span><br><span class="line">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例 #2"></a>输入输出样例 #2</h2><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入 #2"></a>输入 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
-
-<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出 #2"></a>输出 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Today, I ate 3 apples.</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>对于所有数据，$0\le x \le 100$。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1：基础if-else条件判断</span></span><br><span class="line"><span class="comment"># 步骤1：读取输入并转换为整数（自然数）</span></span><br><span class="line">x = <span class="built_in">int</span>(<span class="built_in">input</span>().strip())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤2：判断单复数，确定单词</span></span><br><span class="line"><span class="keyword">if</span> x == <span class="number">0</span> <span class="keyword">or</span> x == <span class="number">1</span>:</span><br><span class="line">    apple_word = <span class="string">&quot;apple&quot;</span>  <span class="comment"># 0/1个用单数</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    apple_word = <span class="string">&quot;apples&quot;</span> <span class="comment"># 大于1个用复数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 步骤3：拼接并输出句子</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Today, I ate <span class="subst">&#123;x&#125;</span> <span class="subst">&#123;apple_word&#125;</span>.&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法3：函数封装版</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_apple_sentence</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    根据苹果数量生成对应的英文句子</span></span><br><span class="line"><span class="string">    :param x: 吃掉的苹果数（自然数0-100）</span></span><br><span class="line"><span class="string">    :return: 完整的英文句子</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 判断单复数</span></span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">0</span> <span class="keyword">or</span> x == <span class="number">1</span>:</span><br><span class="line">        apple_word = <span class="string">&quot;apple&quot;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        apple_word = <span class="string">&quot;apples&quot;</span></span><br><span class="line">    <span class="comment"># 生成句子并返回</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;Today, I ate <span class="subst">&#123;x&#125;</span> <span class="subst">&#123;apple_word&#125;</span>.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主程序入口</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 读取输入</span></span><br><span class="line">    x = <span class="built_in">int</span>(<span class="built_in">input</span>().strip())</span><br><span class="line">    <span class="comment"># 调用函数生成句子</span></span><br><span class="line">    sentence = generate_apple_sentence(x)</span><br><span class="line">    <span class="comment"># 输出结果</span></span><br><span class="line">    <span class="built_in">print</span>(sentence)</span><br></pre></td></tr></table></figure>
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>每行输出后面不允许出现多余的空格。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    count = [<span class="number">0</span>]*<span class="number">26</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        line = <span class="built_in">input</span>()</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> line:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;A&#x27;</span>&lt;=c&lt;=<span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">                idx = <span class="built_in">ord</span>(c)-<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">                count[idx]+=<span class="number">1</span></span><br><span class="line">    max_h = <span class="built_in">max</span>(count)</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(max_h,<span class="number">0</span>,-<span class="number">1</span>):</span><br><span class="line">        row = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">26</span>):</span><br><span class="line">            <span class="keyword">if</span> count[i]&gt;=h:</span><br><span class="line">                row.append(<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                row.append(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(row))</span><br><span class="line">    letters = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">26</span>):</span><br><span class="line">        letters.append(<span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>)+i))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(letters))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/03/09/P5712-%E3%80%90%E6%B7%B1%E5%9F%BA3-%E4%BE%8B4%E3%80%91Apples/" data-id="cuid6OUEy7oM-fEJOkI8CQMKz" data-title="P5712 【深基3.例4】Apples" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/04/04/P1598-USACO03FEB-%E5%9E%82%E7%9B%B4%E6%9F%B1%E7%8A%B6%E5%9B%BE-Vertical-Histogram/" data-id="cuidy661VehYDj58lBHtKxxSu" data-title="P1598 [USACO03FEB] 垂直柱状图 Vertical Histogram" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96%E8%BE%93%E5%87%BA/" rel="tag">标准化输出</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P1308-NOIP-2011-普及组-统计单词数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/04/P1308-NOIP-2011-%E6%99%AE%E5%8F%8A%E7%BB%84-%E7%BB%9F%E8%AE%A1%E5%8D%95%E8%AF%8D%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2026-04-03T16:43:09.000Z" itemprop="datePublished">2026-04-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/04/P1308-NOIP-2011-%E6%99%AE%E5%8F%8A%E7%BB%84-%E7%BB%9F%E8%AE%A1%E5%8D%95%E8%AF%8D%E6%95%B0/">P1308 [NOIP 2011 普及组] 统计单词数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P1308-NOIP-2011-普及组-统计单词数"><a href="#P1308-NOIP-2011-普及组-统计单词数" class="headerlink" title="P1308 [NOIP 2011 普及组] 统计单词数"></a>P1308 [NOIP 2011 普及组] 统计单词数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一般的文本编辑器都有查找单词的功能，该功能可以快速定位特定单词在文章中的位置，有的还能统计出特定单词在文章中出现的次数。</p>
+<p>现在，请你编程实现这一功能，具体要求是：给定一个单词，请你输出它在给定的文章中出现的次数和第一次出现的位置。注意：匹配单词时，不区分大小写，但要求完全匹配，即给定单词必须与文章中的某一独立单词在不区分大小写的情况下完全相同（参见样例 1），如果给定单词仅是文章中某一单词的一部分则不算匹配（参见样例 2）。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>共 $2$ 行。</p>
+<p>第 $1$ 行为一个字符串，其中只含字母，表示给定单词；</p>
+<p>第 $2$ 行为一个字符串，其中只可能包含字母和空格，表示给定的文章。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行，如果在文章中找到给定单词则输出两个整数，两个整数之间用一个空格隔开，分别是单词在文章中出现的次数和第一次出现的位置（即在文章中第一次出现时，单词首字母在文章中的位置，位置从 $0$ 开始）；如果单词在文章中没有出现，则直接输出一个整数 $-1$。</p>
+<p>注意：空格占一个字母位</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">To</span><br><span class="line">to be or not to be is a question</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 0</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例 #2"></a>输入输出样例 #2</h2><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入 #2"></a>输入 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">to</span><br><span class="line">Did the Ottoman Empire lose its power at that time</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出 #2"></a>输出 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>数据范围</p>
+<p>$1\leq $ 第一行单词长度 $\leq10$。</p>
+<p>$1\leq $ 文章长度 $\leq10^6$。</p>
+<p>noip2011 普及组第 2 题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    target = <span class="built_in">input</span>().lower()</span><br><span class="line">    text = <span class="built_in">input</span>().lower()</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    pos = -<span class="number">1</span></span><br><span class="line">    n = <span class="built_in">len</span>(text)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; n:</span><br><span class="line">        <span class="keyword">if</span> text[i] == <span class="string">&#x27; &#x27;</span>:</span><br><span class="line">            i+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        start = i</span><br><span class="line">        <span class="keyword">while</span> i&lt;n <span class="keyword">and</span> text[i]!=<span class="string">&#x27; &#x27;</span>:</span><br><span class="line">            i+=<span class="number">1</span></span><br><span class="line">        word = text[start:i]</span><br><span class="line">        <span class="keyword">if</span> word == target:</span><br><span class="line">            count+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> pos == -<span class="number">1</span>:</span><br><span class="line">                pos = start</span><br><span class="line">    <span class="keyword">if</span> count&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(count,pos)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(-<span class="number">1</span>)</span><br><span class="line">            </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/04/P1308-NOIP-2011-%E6%99%AE%E5%8F%8A%E7%BB%84-%E7%BB%9F%E8%AE%A1%E5%8D%95%E8%AF%8D%E6%95%B0/" data-id="cuid0md_sQRZAdrBd1wZ3Vtos" data-title="P1308 [NOIP 2011 普及组] 统计单词数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E8%AF%8D%E5%8C%B9%E9%85%8D/" rel="tag">单词匹配</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P5734-【深基6-例6】文字处理软件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/03/P5734-%E3%80%90%E6%B7%B1%E5%9F%BA6-%E4%BE%8B6%E3%80%91%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2026-04-03T15:57:07.000Z" itemprop="datePublished">2026-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/03/P5734-%E3%80%90%E6%B7%B1%E5%9F%BA6-%E4%BE%8B6%E3%80%91%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/">P5734 【深基6.例6】文字处理软件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P5734-【深基6-例6】文字处理软件"><a href="#P5734-【深基6-例6】文字处理软件" class="headerlink" title="P5734 【深基6.例6】文字处理软件"></a>P5734 【深基6.例6】文字处理软件</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>你需要开发一款文字处理软件。最开始时输入一个字符串作为初始文档。可以认为文档开头是第 $0$ 个字符。需要支持以下操作：</p>
+<ul>
+<li><code>1 str</code>：后接插入，在文档后面插入字符串 $\texttt{str}$，并输出文档的字符串；</li>
+<li><code>2 a b</code>：截取文档部分，只保留文档中从第 $a$ 个字符起 $b$ 个字符，并输出文档的字符串；</li>
+<li><code>3 a str</code>：插入片段，在文档中第 $a$ 个字符前面插入字符串 $\texttt{str}$，并输出文档的字符串；</li>
+<li><code>4 str</code>：查找子串，查找字符串 $\texttt{str}$ 在文档中最先的位置并输出；如果找不到输出 $-1$。</li>
+</ul>
+<p>为了简化问题，规定初始的文档和每次操作中的 $\texttt{str}$ 都不含有空格或换行。最多会有 $q$ 次操作。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行输入一个正整数 $q$，表示操作次数。</p>
+<p>第二行输入一个字符串 $\texttt{str}$，表示最开始的字符串。</p>
+<p>第三行开始，往下 $q$ 行，每行表示一个操作，操作如题目描述所示。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一共输出 $q$ 行。</p>
+<p>对于每个操作 $1,2,3$，根据操作的要求输出一个字符串。</p>
+<p>对于操作 $4$，根据操作的要求输出一个整数。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">ILove</span><br><span class="line">1 Luogu</span><br><span class="line">2 5 5</span><br><span class="line">3 3 guGugu</span><br><span class="line">4 gu</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ILoveLuogu</span><br><span class="line">Luogu</span><br><span class="line">LuoguGugugu</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>数据保证，$1 \leq q\le 100$，开始的字符串长度 $\leq 100$。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    q = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="built_in">str</span> = <span class="built_in">input</span>().strip()</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(q):</span><br><span class="line">        s = <span class="built_in">input</span>().split()</span><br><span class="line">        op = <span class="built_in">int</span>(s[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">if</span> op == <span class="number">1</span>:</span><br><span class="line">            </span><br><span class="line">            s1 = s[<span class="number">1</span>]</span><br><span class="line">            <span class="built_in">str</span> = <span class="built_in">str</span>+s1</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">str</span>)</span><br><span class="line">        <span class="keyword">elif</span> op == <span class="number">2</span>:</span><br><span class="line">            a = <span class="built_in">int</span>(s[<span class="number">1</span>])</span><br><span class="line">            b = <span class="built_in">int</span>(s[<span class="number">2</span>])</span><br><span class="line">            <span class="built_in">str</span> = <span class="built_in">str</span>[a:a+b]</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">str</span>)</span><br><span class="line">        <span class="keyword">elif</span> op == <span class="number">3</span>:</span><br><span class="line">            a = <span class="built_in">int</span>(s[<span class="number">1</span>])</span><br><span class="line">            s1 = s[<span class="number">2</span>]</span><br><span class="line">            <span class="built_in">str</span> = <span class="built_in">str</span>[<span class="number">0</span>:a]+s1+<span class="built_in">str</span>[a:]</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">str</span>)</span><br><span class="line">        <span class="keyword">elif</span> op ==<span class="number">4</span>:</span><br><span class="line">            str1 = s[<span class="number">1</span>]</span><br><span class="line">            pos = <span class="built_in">str</span>.find(str1)</span><br><span class="line">            <span class="built_in">print</span>(pos)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/03/P5734-%E3%80%90%E6%B7%B1%E5%9F%BA6-%E4%BE%8B6%E3%80%91%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86%E8%BD%AF%E4%BB%B6/" data-id="cuidYYbEylyzxfyQHqfENVkv_" data-title="P5734 【深基6.例6】文字处理软件" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string%E6%96%B9%E6%B3%95/" rel="tag">string方法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P1957-口算练习题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/03/P1957-%E5%8F%A3%E7%AE%97%E7%BB%83%E4%B9%A0%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2026-04-03T15:29:02.000Z" itemprop="datePublished">2026-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/03/P1957-%E5%8F%A3%E7%AE%97%E7%BB%83%E4%B9%A0%E9%A2%98/">P1957 口算练习题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P1957-口算练习题"><a href="#P1957-口算练习题" class="headerlink" title="P1957 口算练习题"></a>P1957 口算练习题</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>王老师正在教简单算术运算。细心的王老师收集了 $i$ 道学生经常做错的口算题，并且想整理编写成一份练习。编排这些题目是一件繁琐的事情，为此他想用计算机程序来提高工作效率。王老师希望尽量减少输入的工作量，比如 $\texttt{5+8}$ 的算式最好只要输入 $\texttt 5$ 和 $\texttt 8$，输出的结果要尽量详细以方便后期排版的使用，比如对于上述输入进行处理后输出 $\texttt{5+8&#x3D;13}$ 以及该算式的总长度 $6$。王老师把这个光荣的任务交给你，请你帮他编程实现以上功能。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个整数 $i$。</p>
+<p>接着的 $i$ 行为需要输入的算式，每行可能有三个数据或两个数据。</p>
+<p>若该行为三个数据则第一个数据表示运算类型，$\texttt a$ 表示加法运算，$\texttt b$ 表示减法运算，$\texttt c$ 表示乘法运算，接着的两个数据表示参加运算的运算数。</p>
+<p>若该行为两个数据，则表示本题的运算类型与上一题的运算类型相同，而这两个数据为运算数。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出 $2\times i$ 行。对于每个输入的算式，输出完整的运算式及结果，第二行输出该运算式的总长度。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">a 64 46</span><br><span class="line">275 125</span><br><span class="line">c 11 99</span><br><span class="line">b 46 64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">64+46=110</span><br><span class="line">9</span><br><span class="line">275+125=400</span><br><span class="line">11</span><br><span class="line">11*99=1089</span><br><span class="line">10</span><br><span class="line">46-64=-18</span><br><span class="line">9</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><h3 id="【数据规模与约定】"><a href="#【数据规模与约定】" class="headerlink" title="【数据规模与约定】"></a>【数据规模与约定】</h3><p>对于 $50%$ 的数据，输入的算式都有三个数据。</p>
+<p>对于所有数据，$0&lt;i\leq 50$，第一个算式一定有三个数据，运算数为非负整数且小于 $10000$。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">jia</span>(<span class="params">a,b</span>):</span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">jian</span>(<span class="params">a,b</span>):</span><br><span class="line">    <span class="keyword">return</span> a-b</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cheng</span>(<span class="params">a,b</span>):</span><br><span class="line">    <span class="keyword">return</span> a*b</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    i = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    op= <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">        s = <span class="built_in">input</span>().split()</span><br><span class="line">        <span class="comment">#print(op)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) == <span class="number">3</span>:</span><br><span class="line">            op = s[<span class="number">0</span>]</span><br><span class="line">            a = <span class="built_in">int</span>(s[<span class="number">1</span>])</span><br><span class="line">            b = <span class="built_in">int</span>(s[<span class="number">2</span>])</span><br><span class="line">            <span class="keyword">if</span> op==<span class="string">&#x27;a&#x27;</span>:</span><br><span class="line">                c = a+b</span><br><span class="line">                expr = <span class="string">f&quot;<span class="subst">&#123;a&#125;</span>+<span class="subst">&#123;b&#125;</span>=<span class="subst">&#123;c&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;b&#x27;</span>:</span><br><span class="line">                c = a-b</span><br><span class="line">                expr = <span class="string">f&quot;<span class="subst">&#123;a&#125;</span>-<span class="subst">&#123;b&#125;</span>=<span class="subst">&#123;c&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;c&#x27;</span>:</span><br><span class="line">                c = a*b</span><br><span class="line">                expr = <span class="string">f&quot;<span class="subst">&#123;a&#125;</span>*<span class="subst">&#123;b&#125;</span>=<span class="subst">&#123;c&#125;</span>&quot;</span></span><br><span class="line">            <span class="built_in">print</span>(expr)</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">len</span>(expr))</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">len</span>(s) == <span class="number">2</span>:</span><br><span class="line">            a = <span class="built_in">int</span>(s[<span class="number">0</span>])</span><br><span class="line">            b = <span class="built_in">int</span>(s[<span class="number">1</span>])</span><br><span class="line">            <span class="keyword">if</span> op==<span class="string">&#x27;a&#x27;</span>:</span><br><span class="line">                c = a+b</span><br><span class="line">                expr = <span class="string">f&quot;<span class="subst">&#123;a&#125;</span>+<span class="subst">&#123;b&#125;</span>=<span class="subst">&#123;c&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;b&#x27;</span>:</span><br><span class="line">                c = a-b</span><br><span class="line">                expr = <span class="string">f&quot;<span class="subst">&#123;a&#125;</span>-<span class="subst">&#123;b&#125;</span>=<span class="subst">&#123;c&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;c&#x27;</span>:</span><br><span class="line">                c = a*b</span><br><span class="line">                expr = <span class="string">f&quot;<span class="subst">&#123;a&#125;</span>*<span class="subst">&#123;b&#125;</span>=<span class="subst">&#123;c&#125;</span>&quot;</span></span><br><span class="line">            <span class="built_in">print</span>(expr)</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">len</span>(expr))</span><br><span class="line">            </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/03/P1957-%E5%8F%A3%E7%AE%97%E7%BB%83%E4%B9%A0%E9%A2%98/" data-id="cuidF_l4eBW5MokRfsAJFeAUd" data-title="P1957 口算练习题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">运算表达式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P1125-NOIP-2008-提高组-笨小猴" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/03/P1125-NOIP-2008-%E6%8F%90%E9%AB%98%E7%BB%84-%E7%AC%A8%E5%B0%8F%E7%8C%B4/" class="article-date">
+  <time class="dt-published" datetime="2026-04-03T15:05:36.000Z" itemprop="datePublished">2026-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/03/P1125-NOIP-2008-%E6%8F%90%E9%AB%98%E7%BB%84-%E7%AC%A8%E5%B0%8F%E7%8C%B4/">P1125 [NOIP 2008 提高组] 笨小猴</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P1125-NOIP-2008-提高组-笨小猴"><a href="#P1125-NOIP-2008-提高组-笨小猴" class="headerlink" title="P1125 [NOIP 2008 提高组] 笨小猴"></a>P1125 [NOIP 2008 提高组] 笨小猴</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>笨小猴的词汇量很小，所以每次做英语选择题的时候都很头疼。但是他找到了一种方法，经试验证明，用这种方法去选择选项的时候选对的几率非常大！</p>
+<p>这种方法的具体描述如下：假设 $\text{maxn}$ 是单词中出现次数最多的字母的出现次数，$\text{minn}$ 是单词中出现次数最少的字母的出现次数，如果 $\text{maxn}-\text{minn}$ 是一个质数，那么笨小猴就认为这是个 Lucky Word，这样的单词很可能就是正确的答案。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一个单词，其中只可能出现小写字母，并且长度小于 $100$。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>共两行，第一行是一个字符串，假设输入的单词是 Lucky Word，那么输出 <code>Lucky Word</code>，否则输出 <code>No Answer</code>；</p>
+<p>第二行是一个整数，如果输入的单词是 Lucky Word，输出 $\text{maxn}-\text{minn}$ 的值，否则输出 $0$。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Lucky Word</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例 #2"></a>输入输出样例 #2</h2><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入 #2"></a>输入 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">olympic</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出 #2"></a>输出 #2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">No Answer</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>【输入输出样例 1 解释】</p>
+<p>单词 <code>error</code> 中出现最多的字母 $\texttt r$ 出现了 $3$ 次，出现次数最少的字母出现了 $1$ 次，$3-1&#x3D;2$，$2$ 是质数。</p>
+<p>【输入输出样例 2 解释】</p>
+<p>单词 <code>olympic</code> 中出现最多的字母 $\texttt i$ 出现了 $1$ 次，出现次数最少的字母出现了 $1$ 次，$1-1&#x3D;0$，$0$ 不是质数。</p>
+<p>（本处原题面错误已经修正）</p>
+<p>noip2008 提高第一题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sushu</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="built_in">int</span>(math.sqrt(x)+<span class="number">1</span>)):</span><br><span class="line">        <span class="keyword">if</span> x%i==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    <span class="comment"># 第二步：一行代码统计</span></span><br><span class="line">    s = <span class="built_in">input</span>().strip()</span><br><span class="line">    count_dict = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> char <span class="keyword">in</span> count_dict:</span><br><span class="line">            count_dict[char]+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            count_dict[char] = <span class="number">1</span></span><br><span class="line">    vals = <span class="built_in">list</span>(count_dict.values())</span><br><span class="line">    vals.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">    maxn = vals[<span class="number">0</span>]</span><br><span class="line">    minn = vals[<span class="built_in">len</span>(vals)-<span class="number">1</span>]</span><br><span class="line">    temp = maxn-minn</span><br><span class="line">    <span class="keyword">if</span> sushu(temp):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Lucky Word&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(temp)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;No Answer&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solve()</span><br><span class="line">    sys.exit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/03/P1125-NOIP-2008-%E6%8F%90%E9%AB%98%E7%BB%84-%E7%AC%A8%E5%B0%8F%E7%8C%B4/" data-id="cuidHMzoDIaWBpGvaHtbVPTNg" data-title="P1125 [NOIP 2008 提高组] 笨小猴" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E6%95%B0/" rel="tag">计数</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-P1205-USACO1-2-方块转换-Transformations" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/03/P1205-USACO1-2-%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2-Transformations/" class="article-date">
+  <time class="dt-published" datetime="2026-04-03T14:39:14.000Z" itemprop="datePublished">2026-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">算法题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/03/P1205-USACO1-2-%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2-Transformations/">P1205 [USACO1.2] 方块转换 Transformations</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="P1205-USACO1-2-方块转换-Transformations"><a href="#P1205-USACO1-2-方块转换-Transformations" class="headerlink" title="P1205 [USACO1.2] 方块转换 Transformations"></a>P1205 [USACO1.2] 方块转换 Transformations</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一块 $n \times n$ 正方形的黑白瓦片的图案要被转换成新的正方形图案。写一个程序来找出将原始图案按照以下列转换方法转换成新图案的最小方式：</p>
+<ul>
+<li><p>转 $90\degree$：图案按顺时针转 $90\degree$。</p>
+</li>
+<li><p>转 $180\degree$：图案按顺时针转 $180\degree$。</p>
+</li>
+<li><p>转 $270\degree$：图案按顺时针转 $270\degree$。</p>
+</li>
+<li><p>反射：图案在水平方向翻转（以中央铅垂线为中心形成原图案的镜像）。</p>
+</li>
+<li><p>组合：图案在水平方向翻转，然后再按照 $1 \sim 3$ 之间的一种再次转换。</p>
+</li>
+<li><p>不改变：原图案不改变。</p>
+</li>
+<li><p>无效转换：无法用以上方法得到新图案。</p>
+</li>
+</ul>
+<p>如果有多种可用的转换方法，请选择序号最小的那个。</p>
+<p>只使用上述 $7$ 个中的一个步骤来完成这次转换。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行一个正整数 $n$。   </p>
+<p>然后 $n$ 行，每行 $n$ 个字符，全部为 <code>@</code> 或 <code>-</code>，表示初始的正方形。</p>
+<p>接下来 $n$ 行，每行 $n$ 个字符，全部为 <code>@</code> 或 <code>-</code>，表示最终的正方形。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>单独的一行包括 $1 \sim 7$ 之间的一个数字（在上文已描述）表明需要将转换前的正方形变为转换后的正方形的转换方法。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">@-@</span><br><span class="line">---</span><br><span class="line">@@-</span><br><span class="line">@-@</span><br><span class="line">@--</span><br><span class="line">--@</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h2><p>【数据范围】<br>对于 $100%$ 的数据，$1\le n \le 10$。</p>
+<p>题目翻译来自 NOCOW。</p>
+<p>USACO Training Section 1.2</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xuanzhuan90</span>(<span class="params">martix,n</span>):</span><br><span class="line">    new_mar = []</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="built_in">str</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">            <span class="built_in">str</span>+=martix[i][j]</span><br><span class="line">        new_mar.append(<span class="built_in">str</span>)</span><br><span class="line">    <span class="keyword">return</span> new_mar</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">xuanzhuan180</span>(<span class="params">martix,n</span>):</span><br><span class="line">    <span class="keyword">return</span> xuanzhuan90(xuanzhuan90(martix,n),n)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">xuanzhuan270</span>(<span class="params">martix,n</span>):</span><br><span class="line">    <span class="keyword">return</span> xuanzhuan90(xuanzhuan90(xuanzhuan90(martix,n),n),n)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fanshe</span>(<span class="params">martix,n</span>):</span><br><span class="line">    new_mar = []</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> martix:</span><br><span class="line">        new_mar.append(line[::-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> new_mar</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">origin = []</span><br><span class="line">target = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    s = <span class="built_in">input</span>().strip()</span><br><span class="line">    origin.append(s)</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    s = <span class="built_in">input</span>().strip()</span><br><span class="line">    target.append(s)</span><br><span class="line"><span class="keyword">if</span> xuanzhuan90(origin,n) == target:</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">elif</span> xuanzhuan180(origin,n) == target:</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">elif</span> xuanzhuan270(origin,n) == target:</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">elif</span> fanshe(origin,n) == target:</span><br><span class="line">    <span class="built_in">print</span>(<span class="number">4</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    new_mar = fanshe(origin,n)</span><br><span class="line">    ok = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> xuanzhuan90(new_mar,n) == target:</span><br><span class="line">        ok = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> xuanzhuan180(new_mar,n) == target:</span><br><span class="line">        ok = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> xuanzhuan270(new_mar,n) == target:</span><br><span class="line">        ok = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> ok:</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">5</span>)</span><br><span class="line">    <span class="keyword">elif</span> origin == target:</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">6</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">7</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/03/P1205-USACO1-2-%E6%96%B9%E5%9D%97%E8%BD%AC%E6%8D%A2-Transformations/" data-id="cuidJJMEVF-QvkGN5AtbAJI1g" data-title="P1205 [USACO1.2] 方块转换 Transformations" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" rel="tag">二维数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
 
     </footer>
   </div>
@@ -675,7 +739,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -696,7 +760,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/append/" rel="tag">append</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/" rel="tag">sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqrt/" rel="tag">sqrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sys/" rel="tag">sys</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="tag">中位数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%97%E8%A1%A8/" rel="tag">列表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%A0%E4%BD%8D/" rel="tag">占位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E6%96%87/" rel="tag">回文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%90%E6%A0%87/" rel="tag">坐标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%95%B0/" rel="tag">小数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AA%E7%8E%AF/" rel="tag">循环</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E8%A1%A8/" rel="tag">打表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" rel="tag">按层求和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E6%8E%A8%E7%AE%97/" rel="tag">时间推算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96%E8%BE%93%E5%87%BA/" rel="tag">标准化输出</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" rel="tag">树的直径</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A6%E6%95%B0/" rel="tag">约数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E5%BA%93/" rel="tag">调库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A8%E6%95%B0/" rel="tag">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/append/" rel="tag">append</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/" rel="tag">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/" rel="tag">sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqrt/" rel="tag">sqrt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string%E6%96%B9%E6%B3%95/" rel="tag">string方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sys/" rel="tag">sys</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="tag">中位数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" rel="tag">二维数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%97%E8%A1%A8/" rel="tag">列表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E9%97%B4/" rel="tag">区间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%AF%8D%E5%8C%B9%E9%85%8D/" rel="tag">单词匹配</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%A0%E4%BD%8D/" rel="tag">占位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">双指针，滑动窗口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E6%96%87/" rel="tag">回文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%90%E6%A0%87/" rel="tag">坐标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E5%85%B8/" rel="tag">字典</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%95%B0/" rel="tag">小数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AA%E7%8E%AF/" rel="tag">循环</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E8%A1%A8/" rel="tag">打表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%BC%E6%8E%A5/" rel="tag">拼接</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" rel="tag">按层求和</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" rel="tag">推公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E6%8E%A8%E7%AE%97/" rel="tag">时间推算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB/" rel="tag">曼哈顿距离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96%E8%BE%93%E5%87%BA/" rel="tag">标准化输出</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" rel="tag">树状数组，逆序对</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" rel="tag">树的直径</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag">模拟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag">模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" rel="tag">洪水算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">离散化，树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A6%E6%95%B0/" rel="tag">约数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag">线段树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E6%95%B0/" rel="tag">计数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E5%BA%93/" rel="tag">调库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A8%E6%95%B0/" rel="tag">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B6%8A%E7%95%8C/" rel="tag">越界</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">运算表达式</a></li></ul>
     </div>
   </div>
 
@@ -706,7 +770,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BFS/" style="font-size: 16px;">BFS</a> <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/DFS/" style="font-size: 14px;">DFS</a> <a href="/tags/append/" style="font-size: 10px;">append</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/sys/" style="font-size: 10px;">sys</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">公式</a> <a href="/tags/%E5%88%97%E8%A1%A8/" style="font-size: 12px;">列表</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8D%A0%E4%BD%8D/" style="font-size: 10px;">占位</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9B%9E%E6%96%87/" style="font-size: 10px;">回文</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">字符串</a> <a href="/tags/%E5%B0%8F%E6%95%B0/" style="font-size: 12px;">小数</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 10px;">循环</a> <a href="/tags/%E6%89%93%E8%A1%A8/" style="font-size: 10px;">打表</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 10px;">排序</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 18px;">数学</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%97%B6%E9%97%B4%E6%8E%A8%E7%AE%97/" style="font-size: 10px;">时间推算</a> <a href="/tags/%E6%A0%87%E5%87%86%E5%8C%96%E8%BE%93%E5%87%BA/" style="font-size: 10px;">标准化输出</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 10px;">模拟</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 16px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%B0%83%E5%BA%93/" style="font-size: 10px;">调库</a> <a href="/tags/%E8%B4%A8%E6%95%B0/" style="font-size: 12px;">质数</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 18px;">贪心</a>
+      <a href="/tags/BFS/" style="font-size: 14.29px;">BFS</a> <a href="/tags/C/" style="font-size: 12.86px;">C++</a> <a href="/tags/DFS/" style="font-size: 12.86px;">DFS</a> <a href="/tags/append/" style="font-size: 10px;">append</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/sort/" style="font-size: 10px;">sort</a> <a href="/tags/sqrt/" style="font-size: 10px;">sqrt</a> <a href="/tags/string%E6%96%B9%E6%B3%95/" style="font-size: 10px;">string方法</a> <a href="/tags/sys/" style="font-size: 10px;">sys</a> <a href="/tags/%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 10px;">中位数</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/" style="font-size: 12.86px;">二维数组</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 11.43px;">公式</a> <a href="/tags/%E5%88%97%E8%A1%A8/" style="font-size: 11.43px;">列表</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 10px;">前缀和</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%BA%E9%97%B4/" style="font-size: 10px;">区间</a> <a href="/tags/%E5%8D%95%E8%AF%8D%E5%8C%B9%E9%85%8D/" style="font-size: 10px;">单词匹配</a> <a href="/tags/%E5%8D%A0%E4%BD%8D/" style="font-size: 10px;">占位</a> <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%8C%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">双指针，滑动窗口</a> <a href="/tags/%E5%9B%9E%E6%96%87/" style="font-size: 10px;">回文</a> <a href="/tags/%E5%9D%90%E6%A0%87/" style="font-size: 10px;">坐标</a> <a href="/tags/%E5%AD%97%E5%85%B8/" style="font-size: 10px;">字典</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 17.14px;">字符串</a> <a href="/tags/%E5%B0%8F%E6%95%B0/" style="font-size: 11.43px;">小数</a> <a href="/tags/%E5%BE%AA%E7%8E%AF/" style="font-size: 10px;">循环</a> <a href="/tags/%E6%89%93%E8%A1%A8/" style="font-size: 10px;">打表</a> <a href="/tags/%E6%8B%BC%E6%8E%A5/" style="font-size: 10px;">拼接</a> <a href="/tags/%E6%8C%89%E5%B1%82%E6%B1%82%E5%92%8C/" style="font-size: 10px;">按层求和</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 11.43px;">排序</a> <a href="/tags/%E6%8E%A8%E5%85%AC%E5%BC%8F/" style="font-size: 10px;">推公式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 18.57px;">数学</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 11.43px;">数组</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 10px;">数论</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%97%B6%E9%97%B4%E6%8E%A8%E7%AE%97/" style="font-size: 10px;">时间推算</a> <a href="/tags/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB/" style="font-size: 10px;">曼哈顿距离</a> <a href="/tags/%E6%A0%87%E5%87%86%E5%8C%96%E8%BE%93%E5%87%BA/" style="font-size: 10px;">标准化输出</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%EF%BC%8C%E9%80%86%E5%BA%8F%E5%AF%B9/" style="font-size: 10px;">树状数组，逆序对</a> <a href="/tags/%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" style="font-size: 10px;">树的直径</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 12.86px;">模拟</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">模板</a> <a href="/tags/%E6%B4%AA%E6%B0%B4%E7%AE%97%E6%B3%95/" style="font-size: 10px;">洪水算法</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%8C%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 10px;">离散化，树状数组</a> <a href="/tags/%E7%BA%A6%E6%95%B0/" style="font-size: 14.29px;">约数</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 10px;">线段树</a> <a href="/tags/%E8%AE%A1%E6%95%B0/" style="font-size: 10px;">计数</a> <a href="/tags/%E8%B0%83%E5%BA%93/" style="font-size: 10px;">调库</a> <a href="/tags/%E8%B4%A8%E6%95%B0/" style="font-size: 11.43px;">质数</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 15.71px;">贪心</a> <a href="/tags/%E8%B6%8A%E7%95%8C/" style="font-size: 10px;">越界</a> <a href="/tags/%E8%BF%90%E7%AE%97%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">运算表达式</a>
     </div>
   </div>
 
@@ -715,7 +779,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">April 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a></li></ul>
     </div>
   </div>
 
@@ -728,23 +792,23 @@
       <ul>
         
           <li>
-            <a href="/2026/03/15/P1720-%E6%9C%88%E8%90%BD%E4%B9%8C%E5%95%BC%E7%AE%97%E9%92%B1%EF%BC%88%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%89/">P1720 月落乌啼算钱（斐波那契数列）</a>
+            <a href="/2026/04/04/P1518-USACO2-4-%E4%B8%A4%E5%8F%AA%E5%A1%94%E5%A7%86%E6%B2%83%E6%96%AF%E7%89%9B-The-Tamworth-Two/">P1518 [USACO2.4] 两只塔姆沃斯牛 The Tamworth Two</a>
           </li>
         
           <li>
-            <a href="/2026/03/15/P2669-NOIP-2015-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%87%91%E5%B8%81/">P2669 [NOIP 2015 普及组] 金币</a>
+            <a href="/2026/04/04/P1045-NOIP-2003-%E6%99%AE%E5%8F%8A%E7%BB%84-%E9%BA%A6%E6%A3%AE%E6%95%B0/">P1045 [NOIP 2003 普及组] 麦森数</a>
           </li>
         
           <li>
-            <a href="/2026/03/15/P5721-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B6%E3%80%91%E6%95%B0%E5%AD%97%E7%9B%B4%E8%A7%92%E4%B8%89%E8%A7%92%E5%BD%A2/">P5721 【深基4.例6】数字直角三角形</a>
+            <a href="/2026/04/04/P1249-%E6%9C%80%E5%A4%A7%E4%B9%98%E7%A7%AF/">P1249 最大乘积</a>
           </li>
         
           <li>
-            <a href="/2026/03/14/P5719-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%BE%8B3%E3%80%91%E5%88%86%E7%B1%BB%E5%B9%B3%E5%9D%87/">P5719 【深基4.例3】分类平均</a>
+            <a href="/2026/04/04/P1553-%E6%95%B0%E5%AD%97%E5%8F%8D%E8%BD%AC%EF%BC%88%E5%8D%87%E7%BA%A7%E7%89%88%EF%BC%89/">P1553 数字反转（升级版）</a>
           </li>
         
           <li>
-            <a href="/2026/03/14/P5726-%E3%80%90%E6%B7%B1%E5%9F%BA4-%E4%B9%A09%E3%80%91%E6%89%93%E5%88%86/">P5726 【深基4.习9】打分</a>
+            <a href="/2026/04/04/P1598-USACO03FEB-%E5%9E%82%E7%9B%B4%E6%9F%B1%E7%8A%B6%E5%9B%BE-Vertical-Histogram/">P1598 [USACO03FEB] 垂直柱状图 Vertical Histogram</a>
           </li>
         
       </ul>
