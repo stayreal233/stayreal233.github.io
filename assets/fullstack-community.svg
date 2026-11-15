@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" fill="none">
+  <rect width="1400" height="840" fill="#e6e4f4"/>
+  <!-- Subtle Grid -->
+  <g stroke="#cfcde4" stroke-width="1">
+    <line x1="0" y1="140" x2="1400" y2="140"/>
+    <line x1="0" y1="280" x2="1400" y2="280"/>
+    <line x1="0" y1="420" x2="1400" y2="420"/>
+    <line x1="0" y1="560" x2="1400" y2="560"/>
+    <line x1="0" y1="700" x2="1400" y2="700"/>
+    <line x1="280" y1="0" x2="280" y2="840"/>
+    <line x1="560" y1="0" x2="560" y2="840"/>
+    <line x1="840" y1="0" x2="840" y2="840"/>
+    <line x1="1120" y1="0" x2="1120" y2="840"/>
+  </g>
+
+  <!-- Main Card Frame -->
+  <rect x="84" y="96" width="1232" height="648" fill="#f6f8f4" stroke="#17211c" stroke-width="2"/>
+  <line x1="84" y1="168" x2="1316" y2="168" stroke="#17211c" stroke-width="1.5"/>
+
+  <circle cx="122" cy="132" r="7" fill="#df5b3d"/>
+  <circle cx="146" cy="132" r="7" fill="#f0d45a"/>
+  <circle cx="170" cy="132" r="7" fill="#1b6b48"/>
+  <text x="204" y="138" font-family="Space Mono, monospace" font-size="16" font-weight="700" fill="#17211c">SMART COMMUNITY FULL-STACK PLATFORM &amp; MYBATIS-PLUS OSS</text>
+  <text x="1065" y="138" font-family="Space Mono, monospace" font-size="15" fill="#2855d9">PR #422 · @TRANSACTIONAL</text>
+
+  <!-- Left Card: Vue 3 + Spring Boot Full-Stack Architecture -->
+  <rect x="128" y="208" width="556" height="492" fill="#ffffff" stroke="#c9d0ca" stroke-width="1.5"/>
+  <text x="160" y="252" font-family="Space Mono, monospace" font-size="14" fill="#2855d9" font-weight="700">01 // VUE 3 + SPRING BOOT FULL-STACK MODULES</text>
+
+  <rect x="160" y="280" width="492" height="110" fill="#f6f8f4" stroke="#17211c" stroke-width="1.5"/>
+  <text x="184" y="314" font-family="Space Mono, monospace" font-size="14" font-weight="700" fill="#17211c">FRONTEND: VUE 3 + ELEMENT PLUS ADMIN &amp; MOBILE</text>
+  <text x="184" y="342" font-family="Inter, sans-serif" font-size="14" fill="#5c6861">Announcements · Property/Resident Archives · Utility Repair · Voting</text>
+  <text x="184" y="368" font-family="Space Mono, monospace" font-size="12" fill="#1b6b48">✓ DEBOUNCE SUBMIT · RETRY ON FAIL · MULTI-FILTER · EMPTY FALLBACK</text>
+
+  <rect x="160" y="414" width="492" height="122" fill="#f6f8f4" stroke="#17211c" stroke-width="1.5"/>
+  <text x="184" y="448" font-family="Space Mono, monospace" font-size="14" font-weight="700" fill="#df5b3d">BACKEND: CONCURRENCY &amp; TRANSACTION CONSISTENCY</text>
+  <text x="184" y="476" font-family="Inter, sans-serif" font-size="14" fill="#5c6861">Composite Unique Index + Atomic SQL Increment + @Transactional</text>
+  <text x="184" y="502" font-family="Space Mono, monospace" font-size="12" fill="#2855d9">✓ REDIS CAPTCHA TTL · ORDERED MULTI-TABLE CASCADE CLEANUP</text>
+
+  <rect x="160" y="560" width="492" height="108" fill="#17211c"/>
+  <text x="184" y="596" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#f0d45a">ISOFTSTONE EDUCATION · FULL-STACK INTERN (2025.07 - 2025.09)</text>
+  <text x="184" y="624" font-family="Inter, sans-serif" font-size="14" fill="#ffffff">End-to-End API Self-Testing, Multi-Client Integration &amp; Deployment</text>
+  <text x="184" y="648" font-family="Space Mono, monospace" font-size="12" fill="#bce6d2">STATE TRANSITION VALIDATION · PARTIAL FIELD PATCHING</text>
+
+  <!-- Right Card: MyBatis-Plus Official Doc PR #422 -->
+  <rect x="716" y="208" width="556" height="492" fill="#ffffff" stroke="#c9d0ca" stroke-width="1.5"/>
+  <text x="748" y="252" font-family="Space Mono, monospace" font-size="14" fill="#df5b3d" font-weight="700">02 // OPEN SOURCE · MYBATIS-PLUS DOC PR #422</text>
+
+  <text x="748" y="312" font-family="Playfair Display, Georgia, serif" font-size="38" fill="#17211c">Logic Delete × Unique Index</text>
+  <text x="748" y="344" font-family="Space Mono, monospace" font-size="13" fill="#2855d9">github.com/baomidou/mybatis-plus-doc/pull/422</text>
+
+  <rect x="748" y="372" width="492" height="196" fill="#222f29" stroke="#17211c" stroke-width="1.5"/>
+  <text x="772" y="406" font-family="Space Mono, monospace" font-size="13" fill="#f0d45a">-- 6 Verified MySQL Reproduction &amp; Solution Cases</text>
+  <text x="772" y="436" font-family="Space Mono, monospace" font-size="13" fill="#bce6d2">CREATE UNIQUE INDEX uk_biz_del</text>
+  <text x="772" y="462" font-family="Space Mono, monospace" font-size="13" fill="#ffffff">ON t_record (biz_code, delete_token);</text>
+  <text x="772" y="498" font-family="Space Mono, monospace" font-size="12" fill="#aeb7b1">Resolves duplicate key conflict after @TableLogic soft deletion</text>
+  <text x="772" y="524" font-family="Space Mono, monospace" font-size="12" fill="#aeb7b1">under high-concurrency insert/delete cycles.</text>
+
+  <rect x="748" y="592" width="492" height="76" fill="#fdf2ef" stroke="#df5b3d" stroke-width="1.2"/>
+  <text x="772" y="624" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#df5b3d">FROM PRODUCTION PAIN POINT TO COMMUNITY FAQ</text>
+  <text x="772" y="648" font-family="Inter, sans-serif" font-size="14" fill="#17211c">Distilled internship concurrency solution into 6 reproducible SQL cases</text>
+</svg>

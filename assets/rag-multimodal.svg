@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" fill="none">
+  <rect width="1400" height="840" fill="#f2ece1"/>
+  <!-- Subtle Grid -->
+  <g stroke="#dfd6c7" stroke-width="1">
+    <line x1="0" y1="140" x2="1400" y2="140"/>
+    <line x1="0" y1="280" x2="1400" y2="280"/>
+    <line x1="0" y1="420" x2="1400" y2="420"/>
+    <line x1="0" y1="560" x2="1400" y2="560"/>
+    <line x1="0" y1="700" x2="1400" y2="700"/>
+    <line x1="280" y1="0" x2="280" y2="840"/>
+    <line x1="560" y1="0" x2="560" y2="840"/>
+    <line x1="840" y1="0" x2="840" y2="840"/>
+    <line x1="1120" y1="0" x2="1120" y2="840"/>
+  </g>
+
+  <!-- Main Card Frame -->
+  <rect x="84" y="96" width="1232" height="648" fill="#f6f8f4" stroke="#17211c" stroke-width="2"/>
+  <line x1="84" y1="168" x2="1316" y2="168" stroke="#17211c" stroke-width="1.5"/>
+
+  <circle cx="122" cy="132" r="7" fill="#df5b3d"/>
+  <circle cx="146" cy="132" r="7" fill="#f0d45a"/>
+  <circle cx="170" cy="132" r="7" fill="#1b6b48"/>
+  <text x="204" y="138" font-family="Space Mono, monospace" font-size="16" font-weight="700" fill="#17211c">DOMAIN RAG &amp; MULTIMODAL SERVICE · BGE LORA + NEO4J + WAV2LIP</text>
+  <text x="1050" y="138" font-family="Space Mono, monospace" font-size="15" fill="#2855d9">RECALL@5: 87.64%</text>
+
+  <!-- Left Card: BGE-large-zh-v1.5 LoRA Fine-tuning & Hard Negatives -->
+  <rect x="128" y="208" width="556" height="492" fill="#ffffff" stroke="#c9d0ca" stroke-width="1.5"/>
+  <text x="160" y="252" font-family="Space Mono, monospace" font-size="14" fill="#df5b3d" font-weight="700">01 // BGE-LARGE-ZH-V1.5 LORA FINE-TUNING</text>
+  
+  <text x="160" y="314" font-family="Playfair Display, Georgia, serif" font-size="48" fill="#17211c">87.64%</text>
+  <text x="342" y="310" font-family="Space Mono, monospace" font-size="14" font-weight="700" fill="#2855d9">RECALL@5</text>
+
+  <text x="456" y="314" font-family="Playfair Display, Georgia, serif" font-size="48" fill="#17211c">0.7793</text>
+  <text x="456" y="342" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#df5b3d">MRR@10 SCORE</text>
+  <text x="160" y="342" font-family="Space Mono, monospace" font-size="13" fill="#5c6861">4,240 HARD NEGATIVES MINED</text>
+
+  <!-- Epoch Evaluation Curve -->
+  <rect x="160" y="368" width="492" height="190" fill="#f6f8f4" stroke="#c9d0ca" stroke-width="1"/>
+  <line x1="190" y1="528" x2="624" y2="528" stroke="#c9d0ca" stroke-width="1"/>
+  <line x1="190" y1="400" x2="190" y2="528" stroke="#c9d0ca" stroke-width="1"/>
+  <polyline points="200,508 280,468 360,432 440,410 520,396 600,392" fill="none" stroke="#2855d9" stroke-width="3.5"/>
+  <circle cx="200" cy="508" r="5" fill="#2855d9"/>
+  <circle cx="280" cy="468" r="5" fill="#2855d9"/>
+  <circle cx="360" cy="432" r="5" fill="#2855d9"/>
+  <circle cx="440" cy="410" r="5" fill="#2855d9"/>
+  <circle cx="520" cy="396" r="6" fill="#df5b3d"/>
+  <circle cx="600" cy="392" r="5" fill="#2855d9"/>
+  <text x="458" y="386" font-family="Space Mono, monospace" font-size="11" font-weight="700" fill="#df5b3d">BEST CHECKPOINT (87.64%)</text>
+  <text x="200" y="548" font-family="Space Mono, monospace" font-size="11" fill="#5c6861">EPOCH-BY-EPOCH CHECKPOINT SELECTION · SEMANTIC + KEYWORD + TF-IDF</text>
+
+  <text x="160" y="604" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#17211c">Hard Negative Mining Pipeline (4,240 Samples)</text>
+  <text x="160" y="632" font-family="Inter, sans-serif" font-size="14" fill="#5c6861">Resolved false-positive retrieval on high-similarity vertical domain texts</text>
+  <text x="160" y="656" font-family="Space Mono, monospace" font-size="12" fill="#1b6b48">✓ SEMANTIC SIMILARITY + KEYWORD OVERLAP + TF-IDF FILTERING</text>
+
+  <!-- Right Card: 1,066-Node Neo4j Graph & Multimodal Flask Service -->
+  <rect x="716" y="208" width="556" height="492" fill="#ffffff" stroke="#c9d0ca" stroke-width="1.5"/>
+  <text x="748" y="252" font-family="Space Mono, monospace" font-size="14" fill="#2855d9" font-weight="700">02 // 1,066-NODE NEO4J GRAPH &amp; WAV2LIP PIPELINE</text>
+
+  <!-- Knowledge Graph Visual Box -->
+  <rect x="748" y="278" width="492" height="196" fill="#17211c"/>
+  <!-- Graph Edges -->
+  <g stroke="#48514c" stroke-width="1.5">
+    <line x1="850" y1="340" x2="960" y2="320"/>
+    <line x1="960" y1="320" x2="1080" y2="355"/>
+    <line x1="960" y1="320" x2="940" y2="410"/>
+    <line x1="850" y1="340" x2="820" y2="420"/>
+    <line x1="850" y1="340" x2="940" y2="410"/>
+    <line x1="1080" y1="355" x2="1140" y2="415"/>
+    <line x1="940" y1="410" x2="1080" y2="355"/>
+  </g>
+  <!-- Graph Nodes -->
+  <circle cx="960" cy="320" r="18" fill="#2855d9"/>
+  <circle cx="850" cy="340" r="14" fill="#df5b3d"/>
+  <circle cx="1080" cy="355" r="15" fill="#f0d45a"/>
+  <circle cx="940" cy="410" r="13" fill="#bce6d2"/>
+  <circle cx="820" cy="420" r="10" fill="#ffffff"/>
+  <circle cx="1140" cy="415" r="11" fill="#df5b3d"/>
+  <text x="772" y="308" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#f0d45a">NEO4J + ECHARTS GRAPH</text>
+  <text x="772" y="454" font-family="Space Mono, monospace" font-size="13" fill="#bce6d2">1,066 KNOWLEDGE NODES · SOURCE LINKAGE</text>
+
+  <!-- Multimodal Pipeline Steps -->
+  <rect x="748" y="498" width="492" height="76" fill="#f6f8f4" stroke="#17211c" stroke-width="1.2"/>
+  <text x="770" y="528" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#17211c">PPT PARSING → SCRIPT GEN → TTS → WAV2LIP SYNC</text>
+  <text x="770" y="552" font-family="Inter, sans-serif" font-size="14" fill="#5c6861">Flask RESTful Streaming RAG + Markdown &amp; ECharts Web Frontend</text>
+
+  <rect x="748" y="594" width="492" height="72" fill="#eef3ff" stroke="#2855d9" stroke-width="1.2"/>
+  <text x="770" y="624" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#2855d9">PROVINCIAL INNOVATION PROJECT LEAD (2024.12 - 2025.12)</text>
+  <text x="770" y="648" font-family="Space Mono, monospace" font-size="12" fill="#17211c">END-TO-END DELIVERY: DATA CLEANING · LORA · FLASK · WEB UI</text>
+</svg>

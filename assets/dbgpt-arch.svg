@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" fill="none">
+  <rect width="1400" height="840" fill="#dcecf1"/>
+  <!-- Subtle Swiss Grid -->
+  <g stroke="#b8d0d8" stroke-width="1">
+    <line x1="0" y1="140" x2="1400" y2="140"/>
+    <line x1="0" y1="280" x2="1400" y2="280"/>
+    <line x1="0" y1="420" x2="1400" y2="420"/>
+    <line x1="0" y1="560" x2="1400" y2="560"/>
+    <line x1="0" y1="700" x2="1400" y2="700"/>
+    <line x1="280" y1="0" x2="280" y2="840"/>
+    <line x1="560" y1="0" x2="560" y2="840"/>
+    <line x1="840" y1="0" x2="840" y2="840"/>
+    <line x1="1120" y1="0" x2="1120" y2="840"/>
+  </g>
+
+  <!-- Main Card Frame -->
+  <rect x="84" y="96" width="1232" height="648" fill="#f6f8f4" stroke="#17211c" stroke-width="2"/>
+  <line x1="84" y1="168" x2="1316" y2="168" stroke="#17211c" stroke-width="1.5"/>
+  
+  <!-- Header Bar inside Frame -->
+  <circle cx="122" cy="132" r="7" fill="#df5b3d"/>
+  <circle cx="146" cy="132" r="7" fill="#f0d45a"/>
+  <circle cx="170" cy="132" r="7" fill="#1b6b48"/>
+  <text x="204" y="138" font-family="Space Mono, monospace" font-size="16" font-weight="700" fill="#17211c">DB-GPT (v0.8.2) SOURCE REFACTOR &amp; FASTAPI VERIFICATION PIPELINE</text>
+  <text x="1110" y="138" font-family="Space Mono, monospace" font-size="15" fill="#2855d9">HASH: 6/6 MATCH</text>
+
+  <!-- Left Column: Latency & LLM Call Benchmark -->
+  <rect x="128" y="208" width="540" height="492" fill="#ffffff" stroke="#c9d0ca" stroke-width="1.5"/>
+  <text x="160" y="252" font-family="Space Mono, monospace" font-size="14" fill="#df5b3d" font-weight="700">01 // CONFIRMATION STAGE HTTP LATENCY (MEDIAN)</text>
+  <text x="160" y="294" font-family="Playfair Display, Georgia, serif" font-size="40" fill="#17211c">944 ms → 44 ms</text>
+  <text x="160" y="324" font-family="Inter, sans-serif" font-size="16" fill="#5c6861">Dynamic Form Direct Parameterized Query · LLM Calls Reduced by 50% (2 → 1)</text>
+
+  <!-- Bar 1: Before -->
+  <text x="160" y="376" font-family="Space Mono, monospace" font-size="13" fill="#5c6861">BASELINE (FOLLOW-UP LLM CALL × 2)</text>
+  <rect x="160" y="390" width="420" height="38" fill="#e6ebe8" stroke="#17211c" stroke-width="1.2"/>
+  <rect x="160" y="390" width="420" height="38" fill="#df5b3d" fill-opacity="0.82"/>
+  <text x="594" y="415" font-family="Space Mono, monospace" font-size="16" font-weight="700" fill="#17211c">944 ms</text>
+
+  <!-- Bar 2: After -->
+  <text x="160" y="466" font-family="Space Mono, monospace" font-size="13" fill="#2855d9" font-weight="700">REFACTORED (DYNAMIC FORM + PARAM QUERY × 1)</text>
+  <rect x="160" y="480" width="420" height="38" fill="#e6ebe8" stroke="#17211c" stroke-width="1.2"/>
+  <rect x="160" y="480" width="28" height="38" fill="#2855d9"/>
+  <text x="204" y="505" font-family="Space Mono, monospace" font-size="18" font-weight="700" fill="#2855d9">44 ms (-95.3%)</text>
+
+  <!-- Bottom Metrics Grid inside Left Card -->
+  <line x1="160" y1="556" x2="636" y2="556" stroke="#c9d0ca" stroke-width="1"/>
+  <text x="160" y="592" font-family="Space Mono, monospace" font-size="12" fill="#5c6861">LLM INVOCATIONS</text>
+  <text x="160" y="630" font-family="Playfair Display, Georgia, serif" font-size="34" fill="#17211c">-50%</text>
+  <text x="160" y="656" font-family="Space Mono, monospace" font-size="12" fill="#1b6b48">2 CALLS → 1 CALL</text>
+
+  <line x1="330" y1="568" x2="330" y2="672" stroke="#c9d0ca" stroke-width="1"/>
+  <text x="354" y="592" font-family="Space Mono, monospace" font-size="12" fill="#5c6861">PAIRED EVAL</text>
+  <text x="354" y="630" font-family="Playfair Display, Georgia, serif" font-size="34" fill="#17211c">6 / 6</text>
+  <text x="354" y="656" font-family="Space Mono, monospace" font-size="12" fill="#2855d9">SHA256 IDENTICAL</text>
+
+  <line x1="496" y1="568" x2="496" y2="672" stroke="#c9d0ca" stroke-width="1"/>
+  <text x="518" y="592" font-family="Space Mono, monospace" font-size="12" fill="#5c6861">CHARSET FIX</text>
+  <text x="518" y="630" font-family="Playfair Display, Georgia, serif" font-size="34" fill="#17211c">31</text>
+  <text x="518" y="656" font-family="Space Mono, monospace" font-size="12" fill="#df5b3d">CN FIELDS RESTORED</text>
+
+  <!-- Right Column: Architecture & Dual-Path Re-computation -->
+  <rect x="704" y="208" width="568" height="492" fill="#ffffff" stroke="#c9d0ca" stroke-width="1.5"/>
+  <text x="736" y="252" font-family="Space Mono, monospace" font-size="14" fill="#2855d9" font-weight="700">02 // DUAL-PATH SNAPSHOT RECONCILIATION &amp; DOCKER</text>
+
+  <!-- Flow Nodes -->
+  <rect x="736" y="282" width="504" height="72" fill="#f6f8f4" stroke="#17211c" stroke-width="1.5"/>
+  <text x="760" y="314" font-family="Space Mono, monospace" font-size="14" font-weight="700" fill="#17211c">FASTAPI GATEWAY · CONTROLLED SCHEMA</text>
+  <text x="760" y="338" font-family="Inter, sans-serif" font-size="14" fill="#5c6861">3s Timeout Retry (Max 2) · Fine-Grained Error Codes · Read-Only View Isolation</text>
+
+  <!-- Split Arrows -->
+  <line x1="860" y1="354" x2="860" y2="394" stroke="#17211c" stroke-width="1.5"/>
+  <line x1="1116" y1="354" x2="1116" y2="394" stroke="#17211c" stroke-width="1.5"/>
+
+  <rect x="736" y="394" width="240" height="92" fill="#eef3ff" stroke="#2855d9" stroke-width="1.5"/>
+  <text x="756" y="428" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#2855d9">PATH A: SQL AGGREGATION</text>
+  <text x="756" y="452" font-family="Inter, sans-serif" font-size="13" fill="#17211c">Read-Only View Snapshot</text>
+  <text x="756" y="472" font-family="Space Mono, monospace" font-size="12" fill="#5c6861">UTF8MB4 INIT VERIFIED</text>
+
+  <rect x="1000" y="394" width="240" height="92" fill="#fdf2ef" stroke="#df5b3d" stroke-width="1.5"/>
+  <text x="1020" y="428" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#df5b3d">PATH B: PYTHON DETAIL</text>
+  <text x="1020" y="452" font-family="Inter, sans-serif" font-size="13" fill="#17211c">Independent Re-compute</text>
+  <text x="1020" y="472" font-family="Space Mono, monospace" font-size="12" fill="#5c6861">CROSS-CHECK ENGINE</text>
+
+  <!-- Merge Arrows -->
+  <line x1="860" y1="486" x2="860" y2="524" stroke="#17211c" stroke-width="1.5"/>
+  <line x1="1116" y1="486" x2="1116" y2="524" stroke="#17211c" stroke-width="1.5"/>
+
+  <!-- Verification Footer Box -->
+  <rect x="736" y="524" width="504" height="142" fill="#17211c"/>
+  <text x="764" y="562" font-family="Space Mono, monospace" font-size="13" fill="#f0d45a" font-weight="700">QUALITY ASSURANCE &amp; CONTAINER DELIVERY</text>
+  <text x="764" y="596" font-family="Space Mono, monospace" font-size="15" fill="#ffffff">✓ 45 / 45 Pytest Unit Tests Passed</text>
+  <text x="764" y="624" font-family="Space Mono, monospace" font-size="15" fill="#bce6d2">✓ 22 / 22 Host + 22 / 22 Docker E2E Checks Passed</text>
+  <text x="764" y="648" font-family="Space Mono, monospace" font-size="12" fill="#aeb7b1">IMAGE DIGEST PINNED · UV.LOCK · HEALTHCHECK · HTML/JSON EXPORT</text>
+</svg>

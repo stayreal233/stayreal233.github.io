@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" fill="none">
+  <rect width="1400" height="840" fill="#dcefd8"/>
+  <!-- Subtle Grid -->
+  <g stroke="#bddbc0" stroke-width="1">
+    <line x1="0" y1="140" x2="1400" y2="140"/>
+    <line x1="0" y1="280" x2="1400" y2="280"/>
+    <line x1="0" y1="420" x2="1400" y2="420"/>
+    <line x1="0" y1="560" x2="1400" y2="560"/>
+    <line x1="0" y1="700" x2="1400" y2="700"/>
+    <line x1="280" y1="0" x2="280" y2="840"/>
+    <line x1="560" y1="0" x2="560" y2="840"/>
+    <line x1="840" y1="0" x2="840" y2="840"/>
+    <line x1="1120" y1="0" x2="1120" y2="840"/>
+  </g>
+
+  <!-- Main Card Frame -->
+  <rect x="84" y="96" width="1232" height="648" fill="#f6f8f4" stroke="#17211c" stroke-width="2"/>
+  <line x1="84" y1="168" x2="1316" y2="168" stroke="#17211c" stroke-width="1.5"/>
+
+  <circle cx="122" cy="132" r="7" fill="#df5b3d"/>
+  <circle cx="146" cy="132" r="7" fill="#f0d45a"/>
+  <circle cx="170" cy="132" r="7" fill="#1b6b48"/>
+  <text x="204" y="138" font-family="Space Mono, monospace" font-size="16" font-weight="700" fill="#17211c">CUA-AGENT-EVAL-SUITE · SET-OF-MARKS (BBOX) &amp; VLM QA BOARD</text>
+  <text x="1085" y="138" font-family="Space Mono, monospace" font-size="15" fill="#1b6b48">PASS RATE: 100.0% [15/15]</text>
+
+  <!-- Left Visual: Set-of-Marks BBox Viewport Calibration -->
+  <rect x="128" y="208" width="600" height="492" fill="#17211c" stroke="#17211c" stroke-width="1.5"/>
+  <text x="158" y="248" font-family="Space Mono, monospace" font-size="13" fill="#bce6d2">VIEWPORT // HIGH-DPI COORDINATE CALIBRATION &amp; SOM FILTER</text>
+
+  <!-- Simulated UI Canvas inside dark viewport -->
+  <rect x="158" y="270" width="540" height="310" fill="#222f29" stroke="#48514c" stroke-width="1"/>
+  
+  <!-- Detected BBox 01 -->
+  <rect x="186" y="298" width="210" height="64" fill="#2855d9" fill-opacity="0.18" stroke="#6f93ff" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="186" y="278" width="96" height="20" fill="#2855d9"/>
+  <text x="194" y="293" font-family="Space Mono, monospace" font-size="11" font-weight="700" fill="#ffffff">[SoM #01]</text>
+  <circle cx="291" cy="330" r="6" fill="#f0d45a"/>
+  <text x="200" y="348" font-family="Space Mono, monospace" font-size="11" fill="#bce6d2">BBox(186,298,396,362) · DPI×2.0</text>
+
+  <!-- Filtered Ghost Node -->
+  <rect x="436" y="302" width="230" height="58" fill="#df5b3d" fill-opacity="0.12" stroke="#df5b3d" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect x="436" y="282" width="144" height="20" fill="#df5b3d"/>
+  <text x="444" y="297" font-family="Space Mono, monospace" font-size="11" font-weight="700" fill="#ffffff">[GHOST FILTERED]</text>
+  <text x="450" y="338" font-family="Space Mono, monospace" font-size="11" fill="#f4b3a4">Zero-Area / Hidden DOM Pruned</text>
+
+  <!-- Detected BBox 02 (Action Target) -->
+  <rect x="186" y="408" width="480" height="140" fill="#1b6b48" fill-opacity="0.22" stroke="#bce6d2" stroke-width="2"/>
+  <rect x="186" y="388" width="164" height="20" fill="#1b6b48"/>
+  <text x="194" y="403" font-family="Space Mono, monospace" font-size="11" font-weight="700" fill="#ffffff">[SoM #04 · VERIFIED]</text>
+  <!-- Crosshair -->
+  <line x1="426" y1="448" x2="426" y2="508" stroke="#f0d45a" stroke-width="1.5"/>
+  <line x1="396" y1="478" x2="456" y2="478" stroke="#f0d45a" stroke-width="1.5"/>
+  <circle cx="426" cy="478" r="8" fill="none" stroke="#f0d45a" stroke-width="2"/>
+  <text x="210" y="528" font-family="Space Mono, monospace" font-size="12" fill="#ffffff">Target Click: (x=426, y=478) · Anti-Loop Guard Active</text>
+
+  <!-- Viewport Bottom Status -->
+  <text x="158" y="618" font-family="Space Mono, monospace" font-size="13" fill="#f0d45a">✓ FIXED: High-DPI Coordinate Drift · SoM Ghost Nodes · Infinite Click Loop</text>
+  <text x="158" y="652" font-family="Space Mono, monospace" font-size="12" fill="#aeb7b1">ISOLATED ENV: DOCKER + PYTEST · QWEN2.5-VL-72B &amp; UI-TARS-7B</text>
+
+  <!-- Right Column: Evaluation Metrics & Web Replay Board -->
+  <rect x="760" y="208" width="512" height="492" fill="#ffffff" stroke="#c9d0ca" stroke-width="1.5"/>
+  <text x="792" y="252" font-family="Space Mono, monospace" font-size="14" fill="#1b6b48" font-weight="700">02 // MULTIMODAL TRAJECTORY BENCHMARK</text>
+
+  <text x="792" y="318" font-family="Playfair Display, Georgia, serif" font-size="56" fill="#17211c">100.0%</text>
+  <text x="1020" y="314" font-family="Space Mono, monospace" font-size="16" font-weight="700" fill="#1b6b48">[15 / 15 PASSED]</text>
+  <text x="792" y="348" font-family="Inter, sans-serif" font-size="15" fill="#5c6861">Qwen2.5-VL-72B Trajectory Pass Rate (30 Total Multimodal Trajectories)</text>
+
+  <line x1="792" y1="378" x2="1240" y2="378" stroke="#c9d0ca" stroke-width="1"/>
+
+  <!-- Verification Layers -->
+  <rect x="792" y="402" width="448" height="68" fill="#f6f8f4" stroke="#17211c" stroke-width="1.2"/>
+  <text x="814" y="432" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#17211c">JOINT POST-PROCESSING AUDITOR</text>
+  <text x="814" y="454" font-family="Space Mono, monospace" font-size="12" fill="#5c6861">DOM Tree + CSV / JSON / Markdown Exports + SQLite Records</text>
+
+  <rect x="792" y="488" width="448" height="68" fill="#f6f8f4" stroke="#17211c" stroke-width="1.2"/>
+  <text x="814" y="518" font-family="Space Mono, monospace" font-size="13" font-weight="700" fill="#2855d9">INTERACTIVE HTML REPLAY DASHBOARD</text>
+  <text x="814" y="540" font-family="Space Mono, monospace" font-size="12" fill="#5c6861">Step-by-Step Visual Trajectory Playback &amp; Anomaly Triage</text>
+
+  <!-- Bottom Pill Tags -->
+  <rect x="792" y="586" width="136" height="36" rx="18" fill="#eef3ff" stroke="#2855d9" stroke-width="1"/>
+  <text x="816" y="609" font-family="Space Mono, monospace" font-size="12" font-weight="700" fill="#2855d9">QWEN2.5-VL</text>
+
+  <rect x="944" y="586" width="124" height="36" rx="18" fill="#fdf2ef" stroke="#df5b3d" stroke-width="1"/>
+  <text x="968" y="609" font-family="Space Mono, monospace" font-size="12" font-weight="700" fill="#df5b3d">UI-TARS-7B</text>
+
+  <rect x="1084" y="586" width="156" height="36" rx="18" fill="#eaf7ef" stroke="#1b6b48" stroke-width="1"/>
+  <text x="1108" y="609" font-family="Space Mono, monospace" font-size="12" font-weight="700" fill="#1b6b48">30 TRAJECTORIES</text>
+</svg>
